@@ -11,10 +11,13 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        primary: "var(--primary)",
+        secondary: "var(--secondary)",
       },
       fontFamily: {
         "borela": ["var(--borela)"],
         "montserrat": ["var(--montserrat)"],
+        "mombay" : ["var(--mombay)"],
       },
     },
   },
