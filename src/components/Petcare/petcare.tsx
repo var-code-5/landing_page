@@ -50,7 +50,7 @@ function Petcare() {
       <Image
         src={Base}
         alt='bottom left image'
-        className='absolute bottom-16 h-[200] w-3/4 left-12 z-[0]'
+        className='absolute bottom-0 h-[300] w-3/4 left-0 z-[0]'
       />
     </div>
   )
