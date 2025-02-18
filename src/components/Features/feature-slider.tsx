@@ -7,6 +7,14 @@ import { useState } from "react"
 import Image from "next/image"
 import woman from "../../../public/features/woman-using-smartphone.jpeg"
 
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+
 const features = [
   {
     id: "gps",
@@ -43,7 +51,8 @@ const features = [
       heading: "Monitor your pet's vital signs in real-time for peace of mind.",
       image: "/placeholder.svg?height=400&width=600",
     },
-  },{
+  },
+  {
     id: "pulse2",
     title: "PULSE CHECKING",
     icon: ActivityIcon,
@@ -51,7 +60,8 @@ const features = [
       heading: "Monitor your pet's vital signs in real-time for peace of mind.",
       image: "/placeholder.svg?height=400&width=600",
     },
-  },{
+  },
+  {
     id: "pulse3",
     title: "PULSE CHECKING",
     icon: ActivityIcon,
@@ -59,7 +69,8 @@ const features = [
       heading: "Monitor your pet's vital signs in real-time for peace of mind.",
       image: "/placeholder.svg?height=400&width=600",
     },
-  },{
+  },
+  {
     id: "pulse4",
     title: "PULSE CHECKING",
     icon: ActivityIcon,
@@ -67,7 +78,8 @@ const features = [
       heading: "Monitor your pet's vital signs in real-time for peace of mind.",
       image: "/placeholder.svg?height=400&width=600",
     },
-  },{
+  },
+  {
     id: "pulse5",
     title: "PULSE CHECKING",
     icon: ActivityIcon,
@@ -81,64 +93,92 @@ const features = [
 export default function FeatureSlider() {
   const [activeFeature, setActiveFeature] = useState(features[0].id)
 
-  const currentIndex = features.findIndex((f) => f.id === activeFeature)
-
-
   return (
     <div className="flex flex-col md:flex-row w-full max-w-6xl mx-auto gap-8 p-6">
-      {/* Sidebar */}
-      <ScrollArea className="md:w-[26rem] pr-8 h-96 space-y-1 ">
+      {/* Desktop Sidebar */}
+      <ScrollArea className="hidden md:block md:w-[26rem] pr-8 h-96 space-y-1">
         {features.map((feature) => (
           <button
             key={feature.id}
-            onClick={() => {
-              setActiveFeature(feature.id)
-            }}
+            onClick={() => setActiveFeature(feature.id)}
             className={cn(
               "w-full flex items-center gap-3 px-4 py-6 border-b-gray-400 border-b text-gray-400 text-xl font-montserrat font-medium text-left transition-colors",
-              "hover:text-gray-700 ",
-              activeFeature === feature.id && "text-gray-700",
+              "hover:text-gray-700",
+              activeFeature === feature.id && "text-gray-700"
             )}
           >
             <div className="flex flex-row justify-between w-full text-2xl">
-                {feature.title}
-                <feature.icon className="h-7 w-7" />
+              {feature.title}
+              <feature.icon className="h-7 w-7" />
             </div>
           </button>
         ))}
       </ScrollArea>
 
-      {/* Content Area */}
-      <div className="flex-1 relative overflow-hidden rounded-xl bg-muted/30 p-6">
+      {/* Desktop Content */}
+      <div className="hidden md:block flex-1 min-h-96 relative overflow-x-hidden rounded-xl bg-muted/30 p-6">
         {features.map((feature) => (
           <div
             key={feature.id}
             className={cn(
-              "absolute inset-0 p-6 transition-all duration-1000 ease-in-out",
+              "absolute inset-0 p-6 transition-all duration-500 ease-in-out",
               activeFeature === feature.id
                 ? "translate-x-0 opacity-100"
-                : "opacity-0"
+                : "translate-x-full opacity-0"
             )}
           >
             <div className="space-y-6">
-                <div className="flex flex-row justify-between w-full">
-                    <div>   
-                        <div className="text-sm text-gray-400 uppercase tracking-wider">{feature.title}</div>
-                        <h2 className="text-3xl text-secondary font-semibold leading-tight mt-8 w-4/5 max-w-md">"{feature.content.heading}"</h2>
-                    </div>
-                    <div className="h-full rounded-xl overflow-hidden">
-                        <Image
-                        src={woman || "/placeholder.svg"}
-                        alt={feature.title}
-                        className="w-[300px] object-cover"
-                        />
-                    </div>
+              <div className="flex flex-row h-96 justify-between w-full gap-6">
+                <div>   
+                  <div className="text-sm text-gray-400 uppercase tracking-wider">{feature.title}</div>
+                  <h2 className="text-3xl text-secondary font-semibold leading-tight mt-8 w-4/5 max-w-md">
+                    "{feature.content.heading}"
+                  </h2>
                 </div>
+                <div className="h-full rounded-xl overflow-hidden">
+                  <Image
+                    src={woman || "/placeholder.svg"}
+                    alt={feature.title}
+                    className="w-[300px] object-cover"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         ))}
       </div>
+
+      {/* Mobile Carousel */}
+      <div className="md:hidden w-full">
+        <Carousel className="w-full">
+          <CarouselContent className="h-[32rem]">
+            {features.map((feature) => (
+              <CarouselItem key={feature.id} className="h-full">
+                <div className="p-6 bg-muted/30 rounded-xl h-full">
+                  <div className="flex flex-col h-full">
+                    <div className="flex items-center justify-between mb-8">
+                      <div className="text-sm text-gray-400 uppercase tracking-wider">{feature.title}</div>
+                      <feature.icon className="h-6 w-6 text-gray-400" />
+                    </div>
+                    
+                    <h2 className="text-lg text-secondary font-semibold leading-tight mb-8">
+                      "{feature.content.heading}"
+                    </h2>
+                    
+                    <div className="mt-auto rounded-xl overflow-hidden">
+                      <Image
+                        src={woman || "/placeholder.svg"}
+                        alt={feature.title}
+                        className="h-72 w-full object-cover"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
+      </div>
     </div>
   )
 }
-
