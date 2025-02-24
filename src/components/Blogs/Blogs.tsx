@@ -9,6 +9,7 @@ import { Carousel, CarouselItem, CarouselContent } from '../ui/carousel';
 import BlogCard from './BlogCard';
 import MobileBlogCard from './MobileBlogCard';
 import { MoveUpRight } from 'lucide-react';
+import Hero from './Hero'
 const Blogs = () => {
     const blogs = [
         {
@@ -35,7 +36,9 @@ const Blogs = () => {
       
   return (
     <div className="bg-foreground w-full min-h-screen text-center flex flex-col items-center p-4 md:p-6 lg:p-8">
-      <h1 className="font-borela text-4xl sm:text-5xl md:text-7xl text-center md:text-left text-background md:self-start mt-12 md:mt-20">
+      <Hero />
+
+      <h1 className="font-borela text-4xl sm:text-5xl md:text-7xl text-center md:text-left text-background md:self-start mt-12 md:mt-0">
         <p className='md:block hidden'>RECENT ARTICLES<br />TO READ</p>
         <p className='md:hidden block'>RECENTLY ADDED</p>
       </h1>
@@ -71,7 +74,7 @@ const Blogs = () => {
         </div>
       </div>
 
-      <div className="md:grid grid-cols-1 md:grid-cols-2 gap-28 mt-12 hidden">
+      <div className="md:grid grid-cols-1 md:grid-cols-2 gap-32 mt-12 hidden">
         {blogs.map((blog, index) => (
           <BlogCard 
             key={index}

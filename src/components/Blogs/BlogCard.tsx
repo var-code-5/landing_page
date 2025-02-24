@@ -9,7 +9,7 @@ interface BlogCardProps {
 
 const BlogCard: React.FC<BlogCardProps> = ({ image, title, description }) => {
   return (
-    <div className="w-full overflow-hidden">
+    <div className="overflow-hidden">
       <div className="relative h-[16rem]">
         <Image 
           src={image} 
