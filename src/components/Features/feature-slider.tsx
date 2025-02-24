@@ -96,7 +96,7 @@ export default function FeatureSlider() {
   return (
     <div className="flex flex-col md:flex-row w-full max-w-6xl mx-auto gap-8 p-6">
       {/* Desktop Sidebar */}
-      <ScrollArea className="hidden md:block md:w-[26rem] pr-8 h-96 space-y-1">
+      <ScrollArea className="hidden md:block w-[20rem] lg:w-[26rem] pr-8 h-96 space-y-1">
         {features.map((feature) => (
           <button
             key={feature.id}
@@ -107,7 +107,7 @@ export default function FeatureSlider() {
               activeFeature === feature.id && "text-gray-700"
             )}
           >
-            <div className="flex flex-row justify-between w-full text-2xl">
+            <div className="flex flex-row justify-between w-full text-lg lg:text-2xl">
               {feature.title}
               <feature.icon className="h-7 w-7" />
             </div>
@@ -121,17 +121,17 @@ export default function FeatureSlider() {
           <div
             key={feature.id}
             className={cn(
-              "absolute inset-0 p-6 transition-all duration-500 ease-in-out",
+              "absolute inset-0 p-6 transition-all duration-1000 ease-in-out",
               activeFeature === feature.id
-                ? "translate-x-0 opacity-100"
-                : "translate-x-full opacity-0"
+                ? "opacity-100"
+                : "opacity-0"
             )}
           >
             <div className="space-y-6">
-              <div className="flex flex-row h-96 justify-between w-full gap-6">
+              <div className="flex flex-row justify-between w-full lg:gap-6">
                 <div>   
                   <div className="text-sm text-gray-400 uppercase tracking-wider">{feature.title}</div>
-                  <h2 className="text-3xl text-secondary font-semibold leading-tight mt-8 w-4/5 max-w-md">
+                  <h2 className="lg:text-3xl text-2xl text-md text-secondary font-semibold leading-tight mt-8 w-4/5 max-w-md">
                     "{feature.content.heading}"
                   </h2>
                 </div>
