@@ -5,10 +5,11 @@ import Features from "@/components/Features/Features";
 import HeroCollar from "@/components/HeroCollar";
 import Companies from "@/components/Companies/Companies";
 import Newsletter from "@/components/Newsletter/Newsletter";
+import Blogs from "@/components/Blogs/Blogs";
 export default function Home() {
   return (
     <>
-      <Newsletter />
+      <Blogs />
     </>
   );
 }
