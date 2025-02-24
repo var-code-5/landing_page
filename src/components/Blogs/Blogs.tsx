@@ -5,8 +5,9 @@ import accidents from '@/../public/blogs/accidents.png'
 import dogdaycare from '@/../public/blogs/dogdaycare.png'
 import dogmeal from '@/../public/blogs/dogmeal.png'
 import sickdog from '@/../public/blogs/sickdog.png'
-
+import { Carousel, CarouselItem, CarouselContent } from '../ui/carousel';
 import BlogCard from './BlogCard';
+import MobileBlogCard from './MobileBlogCard';
 import { MoveUpRight } from 'lucide-react';
 const Blogs = () => {
     const blogs = [
@@ -34,25 +35,30 @@ const Blogs = () => {
       
   return (
     <div className="bg-foreground w-full min-h-screen text-center flex flex-col items-center p-4 md:p-6 lg:p-8">
-      <h1 className="font-borela text-4xl sm:text-5xl md:text-7xl text-left text-background self-start mt-12 md:mt-20">
-        RECENT ARTICLES<br />TO READ
+      <h1 className="font-borela text-4xl sm:text-5xl md:text-7xl text-center md:text-left text-background md:self-start mt-12 md:mt-20">
+        <p className='md:block hidden'>RECENT ARTICLES<br />TO READ</p>
+        <p className='md:hidden block'>RECENTLY ADDED</p>
       </h1>
       
       <div className="relative w-full mt-12">
         <Image 
           src={vet} 
           alt="vet taking care of a dog" 
-          className="h-[40rem] w-full object-cover rounded-3xl"
+          className="h-[14rem] md:h-[40rem] w-full object-cover rounded-3xl"
         />
         
-        <div className="absolute inset-0 flex flex-col justify-end text-left p-8 py-14 rounded-3xl bg-gradient-to-t from-black/50 to-transparent">
-          <h2 className="text-white text-2xl md:text-6xl font-montserrat font-semibold mb-8">
-            The role of regular<br /> veterinary check ups
-          </h2>
-          <p className="text-white/90 font-montserrat text-sm md:text-xl font-medium mb-4 md:mb-12 w-1/2">
+        <div className="absolute inset-0 flex flex-col justify-end text-left p-4 md:p-8 md:py-14 rounded-3xl bg-gradient-to-t from-black/50 to-transparent">
+          <div className='flex flex-row w-full justify-between items-center mb-3 md:mb-8'>
+            <h2 className="text-white text-xl md:text-6xl font-montserrat font-semibold ">
+                The role of regular<br /> veterinary check ups
+            </h2>
+            <MoveUpRight color='white' className='w-10 md:hidden block text-background h-10 bg-primary rounded-full p-2' />
+          </div>
+          
+          <p className="text-white/90 font-montserrat text-sm md:text-xl hidden md:inline font-medium mb-4 md:mb-12 w-1/2">
             Ensure your pet's health and happiness with routine vet visits. Early detection leads to better care and a longer, healthier life.
           </p>
-          <div className="relative">
+          <div className="hidden md:block relative">
               <button
                 type="submit"
                 className="font-montserrat font-semibold text-md w-fit px-12 py-3 bg-background text-white rounded-full hover:bg-gray-700 transition-colors flex flex-row justify-between pl-4 gap-x-5 pr-2 items-center gap-2"
@@ -65,7 +71,7 @@ const Blogs = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-28 mt-12 ">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-28 mt-12 md:block hidden">
         {blogs.map((blog, index) => (
           <BlogCard 
             key={index}
@@ -74,6 +80,25 @@ const Blogs = () => {
             description={blog.description}
           />
         ))}
+      </div>
+
+      {/* MOBILE CAROUSEL */}
+      <div className="md:hidden w-full mt-12">
+        <Carousel className="w-full">
+          <CarouselContent className="h-[32rem]">
+            {blogs.map((blog, index) => (
+                <CarouselItem>
+                    <MobileBlogCard 
+                key={index}
+                image={blog.image}
+                title={blog.title}
+                description={blog.description}
+            />
+                </CarouselItem>
+            
+            ))}
+          </CarouselContent>
+        </Carousel>
       </div>
     </div>
   );
