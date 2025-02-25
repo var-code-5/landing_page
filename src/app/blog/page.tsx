@@ -1,7 +1,7 @@
 import React from 'react'
-
+import Blogs from '@/components/Blogs/Blogs'
 export default function page() {
   return (
-    <div>page</div>
+    <Blogs />
   )
 }
