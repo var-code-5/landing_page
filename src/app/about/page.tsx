@@ -2,9 +2,9 @@ import React from 'react'
 import Story from './Story'
 import Description from './Description'
 import Hero from './Hero'
-import Mission from '../Mission'
-import Newsletter from '../Newsletter/Newsletter'
-import Companies from '../Companies/Companies'
+import Mission from '../../components/Mission'
+import Newsletter from '../../components/Newsletter/Newsletter'
+import Companies from '../../components/Companies/Companies'
 function About() {
   return (
     <>

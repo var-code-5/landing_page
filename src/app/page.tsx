@@ -7,11 +7,11 @@ import Companies from "@/components/Companies/Companies";
 import Newsletter from "@/components/Newsletter/Newsletter";
 import Blogs from "@/components/Blogs/Blogs";
 import Mission from "@/components/Mission";
-import About from "@/components/About";
+import About from "@/app/about/page";
 export default function Home() {
   return (
     <>
-      <About />
+      <Hero />
     </>
   );
 }
