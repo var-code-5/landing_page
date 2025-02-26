@@ -2,7 +2,7 @@ import Image from "next/image"
 
 const Story = () => {
   return (
-    <div className="bg-white rounded-3xl shadow-md lg:overflow-hidden mt-12 md:mt-24 lg:mt-0 h-full w-full lg:w-3/4  mx-auto">
+    <div className="bg-white rounded-3xl shadow-md lg:overflow-hidden mt-12 md:mt-24  h-full w-full lg:w-3/4  mx-auto">
       <div className="flex flex-col lg:flex-row">
         <div className="w-full lg:w-1/2 relative h-[30vh] lg:h-auto">
           <Image

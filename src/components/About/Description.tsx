@@ -2,7 +2,7 @@ import React from 'react'
 
 function Description() {
   return (
-    <div className='w-full flex flex-col md:flex-row my-4 md:my-8 gap-8'>
+    <div className='w-full flex flex-col md:flex-row gap-8'>
         <h1 className='text-3xl md:text-5xl font-borela text-background md:w-1/2'>
         Smart Care for Pets, Every Step of the Way
         </h1>
