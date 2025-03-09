@@ -10,7 +10,7 @@ import wadhwani from '@/../public/companies/wadhwani.png'
 
 function Companies() {
   return (
-    <div className='bg-foreground w-full min-h-screen text-center flex flex-col items-center p-4 md:p-6 lg:p-8'>
+    <div className='bg-foreground w-full md:min-h-screen text-center flex flex-col items-center p-4 md:p-6 lg:p-8'>
       <h1 className='font-borela text-4xl sm:text-5xl md:text-7xl text-background mt-12 md:mt-20'>BACKED BY</h1>
       <h2 className='font-montserrat text-xl sm:text-2xl text-[#606060] mt-6 md:mt-8 tracking-wide'>Institutions who have put their trust in us</h2>
       
