@@ -13,7 +13,7 @@ const Newsletter = () => {
   };
 
   return (
-    <div className="w-full bg-foreground mt-20 min-h-[400px] flex items-center justify-center p-6 md:p-12">
+    <div className="w-full bg-foreground min-h-[400px] flex items-center justify-center p-6 md:p-12">
       <div className="w-full max-w-6xl flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
 
       <div className="w-full  md:w-2/5 md:hidden">
