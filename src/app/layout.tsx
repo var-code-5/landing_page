@@ -129,7 +129,7 @@ export default function RootLayout({
       lang="en"
       className={`${borela.variable} ${montserrat.variable} ${mombay.variable}`}
     >
-      <body className="bg-foreground antialiased">
+      <body className="bg-foreground antialiased w-full">
         <Navbar />
         <div
           className={`relative flex min-h-screen items-center mx-auto flex-col`}

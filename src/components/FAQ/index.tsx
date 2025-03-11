@@ -36,20 +36,20 @@ export default function FAQ() {
   ];
 
   return (
-    <div className="w-full h-screen">
-      <div className="flex flex-col items-center">
-        <h1 className="uppercase text-8xl font-borela text-secondary">
+    <div className="w-full py-12 md:py-16 lg:py-24">
+      <div className="flex flex-col items-center text-center px-4">
+        <h1 className="uppercase text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-borela text-secondary">
           <span className="text-background">everything</span> you
         </h1>
-        <h1 className="uppercase text-8xl font-borela text-secondary">
+        <h1 className="uppercase text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-borela text-secondary">
           need to know
         </h1>
-        <p className="text-2xl my-5 font-montserrat text-secondary">
+        <p className="text-base sm:text-lg md:text-xl lg:text-2xl my-3 md:my-5 font-montserrat text-secondary max-w-3xl">
           Find answers to the frequently asked questions about our smart collar
           and what makes it the perfect choice.
         </p>
       </div>
-      <div className="space-y-5">
+      <div className="space-y-3 md:space-y-5 mt-8 md:mt-12 px-4 sm:px-6 md:px-8">
         {faqs.map((faq, index) => (
           <AccordionItem
             key={index}

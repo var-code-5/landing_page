@@ -28,7 +28,7 @@ export default function AccordionItem({
           <motion.div
             animate={{ rotate: isOpen ? 45 : 0 }}
             transition={{ duration: 0.2 }}
-            className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-500"
+            className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-500 flex-shrink-0"
           >
             <Plus className="h-5 w-5 text-white" />
           </motion.div>
