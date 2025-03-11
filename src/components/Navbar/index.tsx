@@ -6,14 +6,14 @@ import { Menu } from "lucide-react";
 
 const NavBar = () => {
   const navLinks = [
-    { name: "PRODUCT", href: "/product", primary: true },
+    { name: "PRODUCT", href: "/product"},
     { name: "SERVICES", href: "/services" },
     { name: "ABOUT US", href: "/about" },
     { name: "BLOGS", href: "/blogs" },
   ];
 
   return (
-    <nav className="flex justify-center w-full py-4">
+    <nav className="flex justify-center w-full py-4 h-[10vh]">
       <div className="flex justify-between items-center min-w-[85%] text-background">
         <div className="h-16">
           <Link href="/">
@@ -34,7 +34,7 @@ const NavBar = () => {
               <li key={link.name}>
                 <Link
                   href={link.href}
-                  className={link.primary ? "text-primary" : ""}
+                  className={"hover:text-primary transition-all duration-150"}
                 >
                   {link.name}
                 </Link>
@@ -61,9 +61,7 @@ const NavBar = () => {
                   <Link
                     key={link.name}
                     href={link.href}
-                    className={`text-xl font-montserrat font-medium ${
-                      link.primary ? "text-primary" : ""
-                    }`}
+                    className={`text-xl font-montserrat font-medium`}
                   >
                     {link.name}
                   </Link>
