@@ -24,7 +24,7 @@ export default function HeroCollar() {
 
   return (
     <div
-      className="relative w-full h-screen flex justify-center items-center"
+      className="relative w-full h-auto flex justify-center items-center my-20"
       ref={sectionRef}
     >
       <Image
@@ -32,9 +32,9 @@ export default function HeroCollar() {
         alt="bg"
         width={1000}
         height={1000}
-        className="w-[80%] h-[80%] rounded-[50px]"
+        className="w-[85%] sm:w-[80%] h-[80%] rounded-3xl sm:rounded-[50px]"
       />
-      <div className="absolute flex flex-col justify-around text-secondary opacity-50 w-[80%] h-[80%] text-center text-[8rem] overflow-hidden text-nowrap leading-tight font-borela">
+      <div className="hidden absolute sm:flex flex-col justify-around text-secondary opacity-50 w-[80%] h-[80%] text-center text-[8rem] overflow-hidden text-nowrap leading-tight font-borela">
         <h3>TAILORED</h3>
         <h3>TECHNOLOGY</h3>
         <h3>FOR YOUR PET</h3>
@@ -48,7 +48,7 @@ export default function HeroCollar() {
         disable-zoom
         disable-pan
         shadow-intensity="1"
-        className="absolute w-[80%] h-[80%]"
+        className="absolute w-[100%] h-[100%] sm:w-[80%] sm:h-[80%]"
       ></model-viewer>
     </div>
   );
