@@ -53,7 +53,73 @@ export default function Home() {
         </div>
       </div>
       <HeroCollar />
-      <Petcare />
+      <div className="flex flex-col items-center lg:items-stretch lg:relative bg-foreground w-[85vw] min-h-screen text-center">
+            <h1 className='font-borela text-black p-4 text-3xl lg:text-6xl mt-0 lg:mt-16'>THE FUTURE <span className='text-gray-600'>OF</span> PET CARE</h1>
+            <div className='lg:hidden text-lg p-4 lg:text-xl text-left flex flex-col items-center'>
+                    <Image
+                      src="/petcare/collar-features-icon.png"
+                      height={1500}
+                      width={1500}
+                      alt='dog icon'
+                      className='object-contain mb-4 '
+                    ></Image>
+                    <p className='text-gray-600'>Our smart collars offer you peace of mind with real-time tracking 
+                      and health insights for your pets.</p>
+            </div>
+            <Image
+              src="/petcare/dog-collar.png"
+              height={700}
+              width={700}
+              alt='center image'
+              className='lg:absolute lg:top-[58%]  lg:mt-0 mt-4 lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:-translate-y-1/2 z-[1]'
+            />
+            <div className='relative flex lg:flex-row lg:justify-between flex-col lg:items-stretch items-center min-h-96 text-black lg:mt-24 z-[2]'>
+              <div className='flex justify-start'>
+                <div className='flex flex-row items-end lg:w-[30rem] text-right p-4'>
+                  <div className='text-xl text-left lg:block hidden'>
+                    <Image
+                      src="/petcare/collar-features-icon.png"
+                      height={1500}
+                      width={150}
+                      alt='dog icon'
+                      className='object-contain mb-4'
+                    ></Image>
+                    <p className='text-gray-600'>Our smart collars offer you peace of mind with real-time tracking 
+                      and health insights for your pets.</p>
+                  </div>
+                </div>
+              </div>
+              <div className='flex justify-center w-full p-4 items-center lg:items-stretch lg:justify-end'>
+                <div className='flex flex-col items-center bg-white lg:bg-transparent rounded-xl m-2 lg:flex-row lg:items-start lg:w-[30rem] lg:text-right p-4'>
+                  <Image
+                    src="/petcare/dog-icon.png"
+                    height={1000}
+                    width={1000}
+                    alt='dog icon'
+                    className='object-contain block lg:hidden'
+                  ></Image>
+                  <div className='text-xl'>
+                    <p className='font-bold mb-2'>Stay Linked. Stay Informed.</p>
+                    <p className='text-gray-600 lg:text-xl text-lg'>Elevate confidence in pet care with MyPerro Smart Collars</p>
+                  </div>
+                  <Image
+                    src="/petcare/dog-icon.png"
+                    height={100}
+                    width={100}
+                    alt='dog icon'
+                    className='object-contain hidden lg:block'
+                  ></Image>
+                </div>
+              </div>
+            </div>
+            <Image
+              src="/petcare/base.png"
+              width={1000}
+              height={1000}
+              alt='bottom left image'
+              className=' hidden lg:block lg:absolute bottom-0 h-[300] w-3/4 left-0 z-[0]'
+            />
+          </div>
       <Features />
       <Companies />
     </>
