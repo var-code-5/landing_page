@@ -10,6 +10,7 @@ const ContactForm = () => {
     message: ''
   });
 
+  //@ts-ignore
   const handleChange = (e:any) => {
     const { name, value } = e.target;
     setFormData(prevState => ({
@@ -18,6 +19,7 @@ const ContactForm = () => {
     }));
   };
 
+  //@ts-ignore
   const handleSubmit = (e:any) => {
     e.preventDefault();
     console.log('Form submitted:', formData);

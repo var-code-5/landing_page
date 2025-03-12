@@ -39,6 +39,7 @@ export default function HeroCollar() {
         <h3>TECHNOLOGY</h3>
         <h3>FOR YOUR PET</h3>
       </div>
+      {/* @ts-ignore */}
       <model-viewer
         src="dogCollar.glb"
         alt="A 3D model of a dog collar"
@@ -49,7 +50,7 @@ export default function HeroCollar() {
         disable-pan
         shadow-intensity="1"
         className="absolute w-[100%] h-[100%] sm:w-[80%] sm:h-[80%]"
-      ></model-viewer>
+      />
     </div>
   );
 }

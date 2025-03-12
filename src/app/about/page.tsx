@@ -1,10 +1,10 @@
-import React from "react";
-import Mission from "../../components/Mission";
-import Newsletter from "../../components/Newsletter/Newsletter";
-import Companies from "../../components/Companies/Companies";
-import TeamSection from "@/components/About/TeamSection";
-import { MoveUpRight } from "lucide-react";
-import Image from "next/image";
+import React from 'react';
+import Mission from '../../components/Mission';
+import Newsletter from '../../components/Newsletter/Newsletter';
+import Companies from '../../components/Companies/Companies';
+import TeamSection from '@/components/About/TeamSection';
+import { MoveUpRight } from 'lucide-react';
+import Image from 'next/image';
 
 function About() {
   return (
@@ -31,7 +31,7 @@ function About() {
             <div className="h-full flex mt-5  justify-between">
               <div className="w-full lg:w-1/2">
                 <p className="text-white text-md font-montserrat md:text-lg lg:text-2xl">
-                  Welcome to MyPerro, where your pet's well-being is our
+                  Welcome to MyPerro, where your pet&apos;s well-being is our
                   priority, providing personalized care and peace of mind with
                   technology-driven solutions.
                 </p>
@@ -53,7 +53,7 @@ function About() {
         <div className="md:w-1/2 font-montserrat font-medium text-md md:text-lg text-background">
           <p>
             MyPerro is dedicated to enhancing the bond between pets and their
-            parents through innovation and care."
+            parents through innovation and care.
           </p>
           <br></br>
           <p>
@@ -102,8 +102,8 @@ function About() {
 
             <p className="text-gray-700 font-medium text-md lg:text-xl font-montserrat">
               We aim to give pet parents peace of mind by ensuring their dogs
-              receive personalized attention and care, even when they're away,
-              their "Perro" will be just like it is "MyPerro" in a safe and
+              receive personalized attention and care, even when they&apos;re away,
+              their &quot;Perro&quot; will be just like it is &quot;MyPerro&quot; in a safe and
               home-like environment.
             </p>
           </div>

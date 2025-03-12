@@ -1,7 +1,6 @@
 import React from 'react';
 import { Mail, PhoneCall, MapPin } from 'lucide-react';
 import { Instagram, Linkedin, Twitter, Facebook } from "lucide-react";
-import Link from 'next/link';
 
 const ContactCard = () => {
   return (

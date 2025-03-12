@@ -117,7 +117,7 @@ export default function TeamSection() {
 
         <div className="flex flex-wrap justify-center gap-6 mb-12 font-borela ">
           <AnimatePresence initial={false}>
-            {tags.map((tag, _) => (
+            {tags.map((tag) => (
               <motion.button
                 key={tag.id}
                 layout

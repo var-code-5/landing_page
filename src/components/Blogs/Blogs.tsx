@@ -59,7 +59,7 @@ const Blogs = () => {
           </div>
           
           <p className="text-white/90 font-montserrat text-sm md:text-xl hidden md:inline font-medium mb-4 md:mb-12 w-1/2">
-            Ensure your pet's health and happiness with routine vet visits. Early detection leads to better care and a longer, healthier life.
+            Ensure your pet&apos;s health and happiness with routine vet visits. Early detection leads to better care and a longer, healthier life.
           </p>
           <div className="hidden md:block relative">
               <button

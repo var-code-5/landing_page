@@ -84,7 +84,7 @@ export default function services() {
               DOG <span className="text-background">WALKING</span> <br /> SERVICE
             </h1>
             <p className="text-lg md:text-xl lg:text-2xl my-3 md:my-5 font-montserrat">
-              Soon, we'll offer reliable dog walking tailored to your dog's
+              Soon, we&apos;ll offer reliable dog walking tailored to your dog&apos;s
               needs, ensuring they get the exercise and attention they deserve.
             </p>
             <ul className="space-y-3 md:space-y-4 my-6 md:my-10">
