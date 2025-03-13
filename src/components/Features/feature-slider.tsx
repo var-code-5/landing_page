@@ -148,23 +148,22 @@ export default function FeatureSlider() {
         ))}
       </div>
 
+
       {/* Mobile Carousel */}
       <div className="md:hidden w-full">
         <Carousel className="w-full">
-          <CarouselContent className="h-[32rem]">
+          <CarouselContent className="h-[28rem] w-4/5 -ml-4">
             {features.map((feature) => (
-              <CarouselItem key={feature.id} className="h-full">
-                <div className="p-6 bg-muted/30 rounded-xl h-full">
+              <CarouselItem key={feature.id} className="h-full pl-4 md:basis-3/5">
+                <div className="p-6 bg-white rounded-xl h-full">
                   <div className="flex flex-col h-full">
                     <div className="flex items-center justify-between mb-8">
                       <div className="text-sm text-gray-400 uppercase tracking-wider">{feature.title}</div>
                       <feature.icon className="h-6 w-6 text-gray-400" />
                     </div>
-                    
                     <h2 className="text-lg text-secondary font-semibold leading-tight mb-8">
                       "{feature.content.heading}"
                     </h2>
-                    
                     <div className="mt-auto rounded-xl overflow-hidden">
                       <Image
                         src={woman || "/placeholder.svg"}
