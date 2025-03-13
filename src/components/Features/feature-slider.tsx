@@ -150,8 +150,6 @@ export default function FeatureSlider() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious onClick={handlePrev} />
-          <CarouselNext onClick={handleNext} />
         </Carousel>
       </div>
     </div>
