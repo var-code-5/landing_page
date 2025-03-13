@@ -61,7 +61,7 @@ export default function Home() {
                       height={1500}
                       width={1500}
                       alt='dog icon'
-                      className='object-contain mb-4 '
+                      className='object-contain mb-4 w-40'
                     ></Image>
                     <p className='text-gray-600'>Our smart collars offer you peace of mind with real-time tracking 
                       and health insights for your pets.</p>
@@ -81,8 +81,8 @@ export default function Home() {
                       src="/petcare/collar-features-icon.png"
                       height={1500}
                       width={150}
-                      alt='dog icon'
-                      className='object-contain mb-4'
+                      alt='features'
+                      className='object-contain mb-4 '
                     ></Image>
                     <p className='text-gray-600'>Our smart collars offer you peace of mind with real-time tracking 
                       and health insights for your pets.</p>
@@ -96,7 +96,7 @@ export default function Home() {
                     height={1000}
                     width={1000}
                     alt='dog icon'
-                    className='object-contain block lg:hidden'
+                    className='object-contain block w-28 lg:hidden'
                   ></Image>
                   <div className='text-xl'>
                     <p className='font-bold mb-2'>Stay Linked. Stay Informed.</p>
