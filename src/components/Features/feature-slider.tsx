@@ -62,7 +62,7 @@ export default function FeatureSlider() {
   }
 
   return (
-    <div className="flex flex-col md:flex-row w-full max-w-6xl mx-auto gap-8 p-6">
+    <div className="flex flex-col md:flex-row w-full max-w-6xl mx-auto gap-8 p-6 pr-0">
       {/* Desktop Sidebar */}
       <ScrollArea className="hidden md:block w-[20rem] lg:w-[26rem] pr-8 h-96 space-y-1">
         {features.map((feature, index) => (
