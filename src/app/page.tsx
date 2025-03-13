@@ -1,6 +1,7 @@
 import Features from "@/components/Features/Features";
 import HeroCollar from "@/components/HeroCollar";
 import Companies from "@/components/Companies/Companies";
+import Unleash from "@/components/Unleash";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
 import { Star } from "lucide-react";
@@ -120,6 +121,7 @@ export default function Home() {
             />
           </div>
       <Features />
+      <Unleash />
       <Companies />
     </>
   );
