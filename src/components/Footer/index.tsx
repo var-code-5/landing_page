@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Instagram, Linkedin, Twitter, Facebook } from "lucide-react";
 
 export default function Footer() {
@@ -26,16 +27,19 @@ export default function Footer() {
             <div className="h-full w-auto flex items-center">
               <ul className="flex h-fit gap-4">
                 <li className="rounded-full overflow-hidden">
-                  <Instagram className="h-10 md:h-12 w-10 md:w-12 p-2 bg-primary text-white" />
+                  <a href="https://www.instagram.com/myperro.in/" target="_blank" rel="noopener noreferrer">
+                    <Instagram className="h-10 md:h-12 w-10 md:w-12 p-2 bg-primary text-white" />
+                  </a>
                 </li>
                 <li className="rounded-full overflow-hidden">
-                  <Linkedin className="h-10 md:h-12 w-10 md:w-12 p-2 bg-primary text-white" />
+                  <a href="https://www.linkedin.com/company/myperroindia?trk=profile-position" target="_blank" rel="noopener noreferrer">
+                    <Linkedin className="h-10 md:h-12 w-10 md:w-12 p-2 bg-primary text-white" />
+                  </a>
                 </li>
                 <li className="rounded-full overflow-hidden">
-                  <Twitter className="h-10 md:h-12 w-10 md:w-12 p-2 bg-primary text-white" />
-                </li>
-                <li className="rounded-full overflow-hidden">
-                  <Facebook className="h-10 md:h-12 w-10 md:w-12 p-2 bg-primary text-white" />
+                  <a href="https://x.com/MyPerro_" target="_blank" rel="noopener noreferrer">
+                    <Twitter className="h-10 md:h-12 w-10 md:w-12 p-2 bg-primary text-white" />
+                  </a>
                 </li>
               </ul>
             </div>
@@ -45,17 +49,29 @@ export default function Footer() {
             <div>
               <h3 className="text-xl md:text-2xl uppercase font-bold">Company</h3>
               <ul className="text-lg lg:text-xl space-y-4 mt-4">
-                <li className="cursor-pointer hover:text-primary transition-colors">About Us</li>
-                <li className="cursor-pointer hover:text-primary transition-colors">Our Mission</li>
-                <li className="cursor-pointer hover:text-primary transition-colors">Careers</li>
+                <li className="cursor-pointer hover:text-primary transition-colors">
+                  <Link href="/about">About Us</Link>
+                </li>
+                <li className="cursor-pointer hover:text-primary transition-colors">
+                  <Link href="/about">Our Mission</Link>
+                </li>
+                <li className="cursor-pointer hover:text-primary transition-colors">
+                  <Link href="/about">Careers</Link>
+                </li>
               </ul>
             </div>
             <div>
               <h3 className="text-xl md:text-2xl uppercase font-bold">Support</h3>
               <ul className="text-lg lg:text-xl space-y-4 mt-4">
-                <li className="cursor-pointer hover:text-primary transition-colors">Contact Us</li>
-                <li className="cursor-pointer hover:text-primary transition-colors">FAQs</li>
-                <li className="cursor-pointer hover:text-primary transition-colors">Privacy Policy</li>
+                <li className="cursor-pointer hover:text-primary transition-colors">
+                  <Link href="/contact">Contact Us</Link>
+                </li>
+                <li className="cursor-pointer hover:text-primary transition-colors">
+                  <Link href="/">FAQs</Link>
+                </li>
+                <li className="cursor-pointer hover:text-primary transition-colors">
+                  <Link href="/about">Privacy Policy</Link>
+                </li>
               </ul>
             </div>
             <div>
@@ -63,9 +79,15 @@ export default function Footer() {
                 Quick Links
               </h3>
               <ul className="text-lg lg:text-xl space-y-4 mt-4">
-                <li className="cursor-pointer hover:text-primary transition-colors">Smart Collar</li>
-                <li className="cursor-pointer hover:text-primary transition-colors">Blogs</li>
-                <li className="cursor-pointer hover:text-primary transition-colors">Services</li>
+                <li className="cursor-pointer hover:text-primary transition-colors">
+                  <Link href="/">Smart Collar</Link>
+                </li>
+                <li className="cursor-pointer hover:text-primary transition-colors">
+                  <Link href="/blogs">Blogs</Link>
+                </li>
+                <li className="cursor-pointer hover:text-primary transition-colors">
+                  <Link href="/services">Services</Link>
+                </li>
               </ul>
             </div>
           </div>
@@ -90,45 +112,42 @@ export default function Footer() {
           </div>
           
           <div className="flex gap-1">
-            <div className="rounded-full overflow-hidden bg-primary p-1.5 flex items-center justify-center">
+            <a href="https://www.instagram.com/myperro.in/" target="_blank" rel="noopener noreferrer" className="rounded-full overflow-hidden bg-primary p-1.5 flex items-center justify-center">
               <Instagram className="h-5 w-5 text-white" />
-            </div>
-            <div className="rounded-full overflow-hidden bg-primary p-1.5 flex items-center justify-center">
+            </a>
+            <a href="https://www.linkedin.com/company/myperroindia?trk=profile-position" target="_blank" rel="noopener noreferrer" className="rounded-full overflow-hidden bg-primary p-1.5 flex items-center justify-center">
               <Linkedin className="h-5 w-5 text-white" />
-            </div>
-            <div className="rounded-full overflow-hidden bg-primary p-1.5 flex items-center justify-center">
+            </a>
+            <a href="https://x.com/MyPerro_" target="_blank" rel="noopener noreferrer" className="rounded-full overflow-hidden bg-primary p-1.5 flex items-center justify-center">
               <Twitter className="h-5 w-5 text-white" />
-            </div>
-            <div className="rounded-full overflow-hidden bg-primary p-1.5 flex items-center justify-center">
-              <Facebook className="h-5 w-5 text-white" />
-            </div>
+            </a>
           </div>
         </div>
         
         <div className="grid grid-cols-2 gap-x-10 gap-y-3 text-white">
           <div>
-            <p className="uppercase text-sm font-semibold">About us</p>
+            <Link href="/about" className="uppercase text-sm font-semibold">About us</Link>
           </div>
           <div>
-            <p className="uppercase text-sm font-semibold">Blogs</p>
+            <Link href="/blogs" className="uppercase text-sm font-semibold">Blogs</Link>
           </div>
           <div>
-            <p className="uppercase text-sm font-semibold">Careers</p>
+            <Link href="/about" className="uppercase text-sm font-semibold">Careers</Link>
           </div>
           <div>
-            <p className="uppercase text-sm font-semibold">Contact us</p>
+            <Link href="/contact" className="uppercase text-sm font-semibold">Contact us</Link>
           </div>
           <div>
-            <p className="uppercase text-sm font-semibold">Smart collar</p>
+            <Link href="/" className="uppercase text-sm font-semibold">Smart collar</Link>
           </div>
           <div>
-            <p className="uppercase text-sm font-semibold">FAQs</p>
+            <Link href="/" className="uppercase text-sm font-semibold">FAQs</Link>
           </div>
           <div>
-            <p className="uppercase text-sm font-semibold">Services</p>
+            <Link href="/services" className="uppercase text-sm font-semibold">Services</Link>
           </div>
           <div>
-            <p className="uppercase text-sm font-semibold">Privacy policy</p>
+            <Link href="/about" className="uppercase text-sm font-semibold">Privacy policy</Link>
           </div>
         </div>
       </div>
