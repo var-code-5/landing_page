@@ -1,7 +1,7 @@
 "use client"
 
 import { cn } from "@/lib/utils"
-import { MapIcon, BarChart3Icon, MapPinIcon, ActivityIcon } from "lucide-react"
+import { MapIcon, BarChart3Icon, MapPinIcon, ActivityIcon, ArrowRight, ArrowLeft } from "lucide-react"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { useState } from "react"
 import Image from "next/image"
@@ -22,7 +22,6 @@ const features = [
     icon: MapIcon,
     content: {
       heading: "Never lose sight of your pet's location, no matter where they roam.",
-      image: "/placeholder.svg?height=400&width=600",
     },
   },
   {
@@ -31,7 +30,6 @@ const features = [
     icon: BarChart3Icon,
     content: {
       heading: "Track your pet's daily activities and monitor their health.",
-      image: "/placeholder.svg?height=400&width=600",
     },
   },
   {
@@ -40,7 +38,6 @@ const features = [
     icon: MapPinIcon,
     content: {
       heading: "Set up virtual boundaries and get alerts when your pet crosses them.",
-      image: "/placeholder.svg?height=400&width=600",
     },
   },
   {
@@ -49,62 +46,33 @@ const features = [
     icon: ActivityIcon,
     content: {
       heading: "Monitor your pet's vital signs in real-time for peace of mind.",
-      image: "/placeholder.svg?height=400&width=600",
-    },
-  },
-  {
-    id: "pulse2",
-    title: "PULSE CHECKING",
-    icon: ActivityIcon,
-    content: {
-      heading: "Monitor your pet's vital signs in real-time for peace of mind.",
-      image: "/placeholder.svg?height=400&width=600",
-    },
-  },
-  {
-    id: "pulse3",
-    title: "PULSE CHECKING",
-    icon: ActivityIcon,
-    content: {
-      heading: "Monitor your pet's vital signs in real-time for peace of mind.",
-      image: "/placeholder.svg?height=400&width=600",
-    },
-  },
-  {
-    id: "pulse4",
-    title: "PULSE CHECKING",
-    icon: ActivityIcon,
-    content: {
-      heading: "Monitor your pet's vital signs in real-time for peace of mind.",
-      image: "/placeholder.svg?height=400&width=600",
-    },
-  },
-  {
-    id: "pulse5",
-    title: "PULSE CHECKING",
-    icon: ActivityIcon,
-    content: {
-      heading: "Monitor your pet's vital signs in real-time for peace of mind.",
-      image: "/placeholder.svg?height=400&width=600",
     },
   },
 ]
 
 export default function FeatureSlider() {
-  const [activeFeature, setActiveFeature] = useState(features[0].id)
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev + 1) % features.length)
+  }
+
+  const handlePrev = () => {
+    setActiveIndex((prev) => (prev - 1 + features.length) % features.length)
+  }
 
   return (
     <div className="flex flex-col md:flex-row w-full max-w-6xl mx-auto gap-8 p-6">
       {/* Desktop Sidebar */}
       <ScrollArea className="hidden md:block w-[20rem] lg:w-[26rem] pr-8 h-96 space-y-1">
-        {features.map((feature) => (
+        {features.map((feature, index) => (
           <button
             key={feature.id}
-            onClick={() => setActiveFeature(feature.id)}
+            onClick={() => setActiveIndex(index)}
             className={cn(
               "w-full flex items-center gap-3 px-4 py-6 border-b-gray-400 border-b text-gray-400 text-xl font-montserrat font-medium text-left transition-colors",
               "hover:text-gray-700",
-              activeFeature === feature.id && "text-gray-700"
+              activeIndex === index && "text-gray-700"
             )}
           >
             <div className="flex flex-row justify-between w-full text-lg lg:text-2xl">
@@ -116,15 +84,13 @@ export default function FeatureSlider() {
       </ScrollArea>
 
       {/* Desktop Content */}
-      <div className="hidden md:block flex-1 min-h-96 relative overflow-x-hidden rounded-xl bg-muted/30 p-6">
-        {features.map((feature) => (
+      <div className="hidden md:block flex-1 h-72 relative rounded-[50px] rounded-br-none bg-muted/30 p-6 bg-white">
+        {features.map((feature, index) => (
           <div
             key={feature.id}
             className={cn(
               "absolute inset-0 p-6 transition-all duration-1000 ease-in-out",
-              activeFeature === feature.id
-                ? "opacity-100"
-                : "opacity-0"
+              activeIndex === index ? "opacity-100" : "opacity-0"
             )}
           >
             <div className="space-y-6">
@@ -135,13 +101,21 @@ export default function FeatureSlider() {
                     "{feature.content.heading}"
                   </h2>
                 </div>
-                <div className="h-full rounded-xl overflow-hidden">
+                <div className="h-full rounded-xl overflow-hidden z-10">
                   <Image
                     src={woman || "/placeholder.svg"}
                     alt={feature.title}
                     className="w-[300px] object-cover"
                   />
                 </div>
+              </div>
+              <div className="absolute -bottom-28 w-full left-0 flex">
+                <div className="w-1/4 bg-foreground h-28 rounded-[50px] z-10 flex items-center justify-evenly ">
+                  <ArrowLeft className="text-white h-10 w-10 p-2 cursor-pointer" onClick={handlePrev} />
+                  <ArrowRight className="text-white bg-primary h-10 w-10 rounded-full p-2 cursor-pointer" onClick={handleNext} />
+                </div>
+                <div className="w-3/4 bg-white h-28 rounded-[50px] rounded-tr-none"></div>
+                <div className="absolute w-1/2 h-16 left-10 bg-white"></div>
               </div>
             </div>
           </div>
@@ -176,6 +150,8 @@ export default function FeatureSlider() {
               </CarouselItem>
             ))}
           </CarouselContent>
+          <CarouselPrevious onClick={handlePrev} />
+          <CarouselNext onClick={handleNext} />
         </Carousel>
       </div>
     </div>
