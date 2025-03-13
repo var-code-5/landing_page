@@ -5,6 +5,7 @@ import Unleash from "@/components/Unleash";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
 import { Star } from "lucide-react";
+import FeatureShowcase from "@/components/FeatureShowcase.tsx";
 
 export default function Home() {
   return (
@@ -121,6 +122,7 @@ export default function Home() {
             />
           </div>
       <Features />
+      <FeatureShowcase/>
       <Unleash />
       <Companies />
     </>

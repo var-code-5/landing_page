@@ -9,8 +9,8 @@ import Image from 'next/image';
 function About() {
   return (
     <div className="max-w-[85vw]">
-      <div className="text-black w-full h-screen">
-        <div className="relative w-full h-[70vh] overflow-hidden rounded-3xl px-10 py-16 mt-20">
+      <div className="text-black w-full">
+        <div className="relative w-full md:h-[70vh] overflow-hidden rounded-3xl px-10 py-16 mt-8 mb-16">
           {/* Background image with overlay */}
           <Image
             src="/about/dog.gif"
