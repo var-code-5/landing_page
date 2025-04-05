@@ -53,7 +53,7 @@ export default function Footer() {
                   <Link href="/about">About Us</Link>
                 </li>
                 <li className="cursor-pointer hover:text-primary transition-colors">
-                  <Link href="/about">Our Mission</Link>
+                  <Link href="/about#mission">Our Mission</Link>
                 </li>
                 <li className="cursor-pointer hover:text-primary transition-colors">
                   <Link href="/about">Careers</Link>
