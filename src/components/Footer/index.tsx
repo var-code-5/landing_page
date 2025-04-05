@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="w-full bg-background rounded-t-3xl mt-10">
       {/* Desktop Footer */}
-      <div className="hidden md:flex relative justify-end py-16 lg:mt-[30vh] xl:mt-[45vh]">
+      <div className="hidden md:flex relative justify-end py-16 lg:mt-[20vh] xl:mt-[35vh]">
         <Image
           src="/footer-dog.svg"
           alt="footer"
