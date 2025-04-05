@@ -22,28 +22,28 @@ function Companies() {
             className='w-full h-auto object-contain'
           />
         </div>
-        <div className='flex items-center justify-center w-[45%] sm:w-[30%] md:w-[15%] p-2 md:p-4'>
+        <div className='flex items-center justify-center w-[70%] sm:w-[40%] md:w-[20%] lg:w-[10%] p-2 md:p-4'>
           <Image 
             src={meitystartup} 
             alt='meity startup hub logo' 
             className='w-full h-auto object-contain'
           />
         </div>
-        <div className='flex items-center justify-center w-[55%] sm:w-[35%] md:w-[20%] p-2 md:p-4'>
+        <div className='flex items-center justify-centerw-[80%] sm:w-[50%] md:w-[30%] lg:w-[20%] p-2 md:p-4'>
           <Image 
             src={meity} 
             alt='meity logo' 
             className='w-full h-auto object-contain'
           />
         </div>
-        <div className='flex items-center justify-center w-[45%] sm:w-[30%] md:w-[15%] p-2 md:p-4'>
+        <div className='flex items-center justify-center w-[75%] sm:w-[45%] md:w-[25%] lg:w-[15%] p-2 md:p-4'>
           <Image 
             src={wadhwani} 
             alt='wadhwani logo' 
             className='w-full h-auto object-contain'
           />
         </div>
-        <div className='flex items-center justify-center  w-[55%] sm:w-[35%] md:w-[20%]  p-2 md:p-4'>
+        <div className='flex items-center justify-center w-[80%] sm:w-[50%] md:w-[30%] lg:w-[20%]  p-2 md:p-4'>
           <Image 
             src={vit} 
             alt='VIT logo' 
