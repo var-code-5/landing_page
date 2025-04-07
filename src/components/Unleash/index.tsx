@@ -18,15 +18,15 @@ function Unleash() {
             <div className="absolute inset-0 bg-black bg-opacity-40" />
 
             <div className="relative z-10 p-6 flex items-end ">
-              <button
-                type="submit"
-                className="font-montserrat h-fit font-semibold text-2xl px-10 py-4 bg-[#FF6600] text-white rounded-full hover:bg-primary transition-colors flex flex-row justify-between pl-6 gap-x-5 pr-4 items-center gap-2"
-              >
-                <Link href="/services">
-                  <span className='px-1 md:px-6'>SERVICES</span>
-                </Link>
-                <MoveUpRight className='w-12 text-white h-12 bg-black rounded-full p-1' />
-              </button>
+              <Link href="/services" passHref>
+                <button
+                  type="button"
+                  className="font-montserrat h-fit font-semibold text-2xl px-10 py-4 bg-[#FF6600] text-white rounded-full hover:bg-primary transition-colors flex flex-row justify-between pl-6 gap-x-5 pr-4 items-center gap-2"
+                >
+                  <span className="px-1 md:px-6">SERVICES</span>
+                  <MoveUpRight className="w-12 text-white h-12 bg-black rounded-full p-1" />
+                </button>
+              </Link>
             </div>
           </div>
           <div></div>

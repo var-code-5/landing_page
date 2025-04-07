@@ -67,7 +67,7 @@ export default function Footer() {
                   <Link href="/contact">Contact Us</Link>
                 </li>
                 <li className="cursor-pointer hover:text-primary transition-colors">
-                  <Link href="/">FAQs</Link>
+                  <Link href="/services#FAQs">FAQs</Link>
                 </li>
                 <li className="cursor-pointer hover:text-primary transition-colors">
                   <Link href="/about">Privacy Policy</Link>
