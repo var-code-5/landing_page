@@ -47,14 +47,14 @@ export default function Home() {
               autoFill
               className="text-xl bg-background opacity-80 py-3 text-white"
             >
-              MY PERRO <Star className="mx-5 fill-white" /> SMART COLLARS{" "}
+              <Star className="mx-5 fill-white" /> MYPERRO <Star className="mx-5 fill-white" /> SMART COLLARS{" "}
               <Star className="mx-5 fill-white" /> TRACK.MONITOR.PROTECT
             </Marquee>
           </div>
         </div>
       </div>
       <HeroCollar />
-      <div className="flex flex-col overflow-hidden items-center lg:items-stretch lg:relative bg-foreground w-[85vw] min-h-screen text-center">
+      <div className="flex flex-col  items-center lg:items-stretch lg:relative bg-foreground w-[85vw] min-h-screen text-center">
             <h1 className='font-borela text-black p-4 text-3xl lg:text-6xl mt-0 lg:mt-16'>THE FUTURE <span className='text-gray-600'>OF</span> PET CARE</h1>
             <div className='lg:hidden text-lg p-4 lg:text-xl text-left flex flex-col items-center'>
                     <Image
@@ -118,7 +118,7 @@ export default function Home() {
               width={1000}
               height={1000}
               alt='bottom left image'
-              className=' hidden lg:block lg:absolute -bottom-8 h-[300] w-3/4 left-0 z-[0]'
+              className=' hidden lg:block lg:absolute -bottom-8 h-[300] w-3/4 -left-[15vw] z-[0]'
             />
           </div>
       <Features />

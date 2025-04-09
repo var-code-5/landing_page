@@ -38,17 +38,17 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: "3",
-    name: "JANE DOE",
-    role: "UI Designer",
-    image: "/placeholder.svg?height=150&width=150",
-    tags: ["designers"],
+    name: "Arvind Babu",
+    role: "Frontend Developer",
+    image: "/team/arvind.jpeg",
+    tags: ["developers"],
   },
   {
     id: "4",
-    name: "JOHN SMITH",
-    role: "UX Designer",
-    image: "/placeholder.svg?height=150&width=150",
-    tags: ["designers"],
+    name: "Dhanesh Baheti",
+    role: "IOT Developer",
+    image: "/team/dhaneshbaheti.jpeg",
+    tags: ["developers"],
   },
   {
     id: "5",
@@ -59,17 +59,17 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: "6",
-    name: "SARAH WILLIAMS",
+    name: "Sarvesh",
     role: "Backend Developer",
-    image: "/placeholder.svg?height=150&width=150",
+    image: "/team/diptesh_das.png",
     tags: ["developers"],
   },
   {
     id: "7",
-    name: "MICHAEL BROWN",
-    role: "Marketing Manager",
-    image: "/placeholder.svg?height=150&width=150",
-    tags: ["marketing"],
+    name: "Harsh Dalmia",
+    role: "Backend Developer",
+    image: "/team/harsh.jpg",
+    tags: ["developers"],
   },
 ];
 
@@ -164,7 +164,7 @@ export default function TeamSection() {
                   </button>
                 </div>
                 <div className="text-center mt-4">
-                  <h3 className="font-bold text-lg">{member.name}</h3>
+                  <h3 className="font-bold text-background text-lg">{member.name}</h3>
                   <p className="text-gray-600">{member.role}</p>
                 </div>
               </motion.div>
