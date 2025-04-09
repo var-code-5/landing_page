@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="w-full bg-background rounded-t-3xl mt-10">
       {/* Desktop Footer */}
-      <div className="hidden md:flex relative justify-end py-16 lg:mt-[30vh] xl:mt-[45vh]">
+      <div className="hidden md:flex relative justify-end py-16 lg:mt-[20vh] xl:mt-[35vh]">
         <Image
           src="/footer-dog.svg"
           alt="footer"
@@ -53,7 +53,7 @@ export default function Footer() {
                   <Link href="/about">About Us</Link>
                 </li>
                 <li className="cursor-pointer hover:text-primary transition-colors">
-                  <Link href="/about">Our Mission</Link>
+                  <Link href="/about#mission">Our Mission</Link>
                 </li>
                 <li className="cursor-pointer hover:text-primary transition-colors">
                   <Link href="/about">Careers</Link>
@@ -67,7 +67,7 @@ export default function Footer() {
                   <Link href="/contact">Contact Us</Link>
                 </li>
                 <li className="cursor-pointer hover:text-primary transition-colors">
-                  <Link href="/">FAQs</Link>
+                  <Link href="/services#FAQs">FAQs</Link>
                 </li>
                 <li className="cursor-pointer hover:text-primary transition-colors">
                   <Link href="/about">Privacy Policy</Link>

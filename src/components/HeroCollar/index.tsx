@@ -23,7 +23,7 @@ export default function HeroCollar() {
   const sectionRef = useRef(null);
 
   return (
-    <div
+    <div id="product"
       className="relative w-full h-auto flex justify-center items-center my-20"
       ref={sectionRef}
     >

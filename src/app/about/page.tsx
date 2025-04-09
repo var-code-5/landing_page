@@ -5,6 +5,7 @@ import Companies from '../../components/Companies/Companies';
 import TeamSection from '@/components/About/TeamSection';
 import { MoveUpRight } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 function About() {
   return (
@@ -35,10 +36,12 @@ function About() {
                   priority, providing personalized care and peace of mind with
                   technology-driven solutions.
                 </p>
+                <Link href="/contact" passHref>
                 <button className="mt-5 rounded-full gap-3 flex text-xl items-center  font-borela text-white bg-background pl-5 px-3 py-2">
                   REACH US OUT{" "}
                   <MoveUpRight className="bg-primary w-10 h-10 rounded-full p-2 font-bold" />
                 </button>
+                </Link>
               </div>
             </div>
           </div>

@@ -36,7 +36,7 @@ export default function FAQ() {
   ];
 
   return (
-    <div className="w-full py-12 md:py-16 lg:py-24">
+    <div id="FAQs" className="w-full py-12 md:py-16 lg:py-24">
       <div className="flex flex-col items-center text-center px-4">
         <h1 className="uppercase text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-borela text-secondary">
           <span className="text-background">everything</span> you
