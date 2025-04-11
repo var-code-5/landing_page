@@ -114,11 +114,11 @@ export default function Home() {
               </div>
             </div>
             <Image
-              src="/petcare/base2.png"
+              src="/petcare/base-n.png"
               width={1000}
               height={1000}
               alt='bottom left image'
-              className=' hidden lg:block lg:absolute -bottom-8 h-[300] w-3/4 -left-[15vw] z-[0]'
+              className=' hidden lg:block lg:absolute -bottom-20 h-[500] w-11/12  z-[0]'
             />
           </div>
       <Features />
