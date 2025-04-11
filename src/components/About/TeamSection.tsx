@@ -11,6 +11,7 @@ interface TeamMember {
   name: string;
   role: string;
   image: string;
+  LinkedinURL : string;
   tags: string[];
 }
 
@@ -26,57 +27,120 @@ const teamMembers: TeamMember[] = [
     id: "1",
     name: "SAIPRASAD PANDILWAR",
     role: "Founder",
-    image: "/placeholder.svg?height=150&width=150",
+    image: "/team/profilePhoto.jpg",
+    LinkedinURL: "https://www.linkedin.com/in/saiprasadpandilwar",
     tags: ["founders"],
   },
   {
     id: "2",
     name: "MANAN VYAS",
     role: "Co-Founder",
-    image: "/placeholder.svg?height=150&width=150",
+    image: "/team/profilePhoto.jpg",
+    LinkedinURL: "https://www.linkedin.com/in/manan-vyas-b13667252",
     tags: ["founders"],
   },
   {
     id: "3",
-    name: "Arvind Babu",
-    role: "Frontend Developer",
-    image: "/team/arvind.jpeg",
+    name: "Kunal Sinha",
+    role: "IoT Head",
+    image: "/team/kunal.jpg",
+    LinkedinURL: "https://www.linkedin.com/in/kunal-sinha-244044278/",
     tags: ["developers"],
   },
   {
     id: "4",
-    name: "Dhanesh Baheti",
-    role: "IOT Developer",
-    image: "/team/dhaneshbaheti.jpeg",
+    name: "shruti Jha",
+    role: "IoT Intern",
+    image: "/team/sruti.jpg",
+    LinkedinURL: "https://www.linkedin.com/in/shruti-jha-4b0976228",
     tags: ["developers"],
   },
   {
     id: "5",
-    name: "ALEX JOHNSON",
-    role: "Frontend Developer",
-    image: "/placeholder.svg?height=150&width=150",
+    name: "Varshith Kumar",
+    role: "Fullstack Web Developer",
+    image: "/team/profilePhoto.jpg",
+    LinkedinURL: "https://www.linkedin.com/in/varshith-kumar-reddy-meda/",
     tags: ["developers"],
   },
   {
     id: "6",
-    name: "Sarvesh",
-    role: "Backend Developer",
-    image: "/team/diptesh_das.png",
+    name: "Arvind Babu",
+    role: "Web Intern",
+    image: "/team/arvind.jpeg",
+    LinkedinURL: "https://www.linkedin.com/in/arvind-babu-538186260/",
     tags: ["developers"],
   },
   {
     id: "7",
-    name: "Harsh Dalmia",
-    role: "Backend Developer",
-    image: "/team/harsh.jpg",
+    name: "Dhanesh Baheti",
+    role: "IOT intern",
+    image: "/team/dhaneshbaheti.jpeg",
+    LinkedinURL: "https://www.linkedin.com/in/dhaneshbaheti",
     tags: ["developers"],
   },
+  {
+    id: "8",
+    name: "Diptesh Das",
+    role: "Research Analyst",
+    image: "/team/diptesh_das.png",
+    LinkedinURL: "https://www.linkedin.com/in/diptesh-das-63083930a/",
+    tags: ["analysts"],
+  },
+  {
+    id: "9",
+    name: "Harsh Dalmia",
+    role: "Web Intern",
+    image: "/team/harsh.jpg",
+    LinkedinURL: "https://www.linkedin.com/in/harsh-dalmia-605995221",
+    tags: ["developers"],
+  },
+  {
+    id: "10",
+    name: "Rushikesh Patil",
+    role: "Web Intern",
+    image: "/team/Rushi.jpg",
+    LinkedinURL: "https://www.linkedin.com/in/rushikesh1503/",
+    tags: ["developers"],
+  },
+  {
+    id: "11",
+    name: "Nageshwar Kumar ",
+    role: "IoT Intern",
+    image: "/team/nageshwar.jpeg",
+    LinkedinURL: "https://www.linkedin.com/in/nageshwar-kumar-mehta",
+    tags: ["developers"],
+  },
+  {
+    id: "12",
+    name: "Maanas Nair",
+    role: "IoT Intern",
+    image: "/team/manas.jpg",
+    LinkedinURL: "https://linkedin.com/in/maanasnair",
+    tags: ["developers"],
+  },
+  {
+    id: "13",
+    name: "Priyanshu Verma",
+    role: "IoT Intern",
+    image: "/team/profilePhoto.jpg",
+    LinkedinURL: "https://www.linkedin.com/in/priyanshu-verma01/",
+    tags: ["developers"],
+  },
+  {
+    id: "14",
+    name: "Krishiv Shah",
+    role: "Research Analyst",
+    image: "/team/Krishiv Shah new.jpeg",
+    LinkedinURL: "https://www.linkedin.com/in/krishiv-shah-9237b9246",
+    tags: ["analysts"],
+  }
 ];
 
 // Initial tags
 const initialTags: Tag[] = [
   { id: "founders", label: "FOUNDERS" },
-  { id: "designers", label: "DESIGNERS" },
+  { id: "analysts", label: "ANALYSTS" },
   { id: "developers", label: "DEVELOPERS" },
   { id: "marketing", label: "MARKETING" },
 ];
@@ -150,13 +214,14 @@ export default function TeamSection() {
                 <div className="relative">
                   <div className="rounded-full overflow-hidden w-full aspect-square bg-gray-100 relative">
                     <Image
-                      src={member.image || "/placeholder.svg"}
+                      src={member.image || "/team/profilePhoto.jpg"}
                       alt={member.name}
                       fill
                       className="object-cover"
                     />
                   </div>
                   <button
+                    onClick={() => window.open(member.LinkedinURL, "_blank")}
                     className="absolute top-2 right-2 bg-[#e6a06e] text-white p-2 rounded-full"
                     aria-label="LinkedIn Profile"
                   >
