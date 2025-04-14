@@ -5,6 +5,11 @@ import { MoveUpRight } from 'lucide-react'
 import ContactCard from './ContactCard'
 import ContactForm from './ContactForm'
 import Link from 'next/link'
+export const metadata = {
+  title: 'Contact',
+  description: 'Get in touch with MyPerro for inquiries, collaborations, or support. We’re here to help!',
+};
+
 
 function page() {
   return (

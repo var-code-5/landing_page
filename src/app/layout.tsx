@@ -2,6 +2,62 @@ import "./globals.css";
 import localFont from "next/font/local";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: {
+    default: 'MyPerro - Smart Pet Collar & GPS Tracker',
+    template: '%s | MyPerro',
+  },
+  description:
+    'MyPerro is the smartest way to care for your dog — with GPS tracking, health monitoring, geofencing, and real-time alerts from a smart collar.',
+  metadataBase: new URL('https://myperro.in'),
+  keywords: [
+    'MyPerro',
+    'smart dog collar',
+    'dog GPS tracker',
+    'pet health monitor',
+    'geofencing for dogs',
+    'dog tracking app',
+    'smart pet wearable',
+    'pet safety device',
+    'IoT for pets',
+  ],
+  openGraph: {
+    title: 'MyPerro - Smart Pet Collar & GPS Tracker',
+    description:
+      'Track and care for your pet in real time. MyPerro offers GPS, health metrics, geofencing, and more.',
+    url: 'https://myperro.in',
+    siteName: 'MyPerro',
+    images: [
+      {
+        url: 'https://myperro.in/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'MyPerro GPS Collar Preview',
+      },
+    ],
+    locale: 'en_IN',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'MyPerro - GPS Collar & Health Monitor for Dogs',
+    description: 'Smart collar, safe pets. Track health, location, and more with MyPerro.',
+    images: ['https://myperro.in/og-image.jpg'],
+  },
+  icons: {
+    icon: '/favicon.ico',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+};
 
 export const borela = localFont({
   src: [

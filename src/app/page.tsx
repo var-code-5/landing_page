@@ -7,6 +7,13 @@ import Marquee from "react-fast-marquee";
 import { Star } from "lucide-react";
 import FeatureShowcase from "@/components/FeatureShowcase.tsx";
 
+export const metadata = {
+  title: 'Home',
+  description: 'Welcome to MyPerro — the future of smart pet care, with GPS tracking, health monitoring, and more.',
+};
+
+
+
 export default function Home() {
   return (
     <>

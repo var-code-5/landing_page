@@ -6,6 +6,11 @@ import TeamSection from '@/components/About/TeamSection';
 import { MoveUpRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+export const metadata = {
+  title: 'About Us',
+  description: 'Learn about the mission and story behind MyPerro — where technology meets love for pets.',
+};
+
 
 function About() {
   return (

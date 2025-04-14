@@ -3,6 +3,10 @@ import FAQ from "@/components/FAQ";
 import Image from "next/image";
 import { MoveUpRight} from "lucide-react";
 import DogServices from "@/components/services/dog-walking";
+export const metadata = {
+  title: 'Services',
+  description: "Explore MyPerros services including smart collars, GPS tracking, pet activity history, and more.",
+};
 
 export default function services() {
   return (

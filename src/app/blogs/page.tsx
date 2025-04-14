@@ -15,6 +15,11 @@ import MobileBlogCard from "@/components/Blogs/MobileBlogCard";
 import { MoveUpRight } from "lucide-react";
 import Hero from "@/components/Blogs/Hero";
 import Newsletter from "@/components/Newsletter/Newsletter";
+export const metadata = {
+  title: 'Blogs',
+  description: 'Stay informed with pet care tips, product updates, and innovations in smart pet tech from MyPerro.',
+};
+
 
 const Blogs = () => {
   const blogs = [
