@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     siteName: 'MyPerro',
     images: [
       {
-        url: 'https://myperro.in/og-image.jpg',
+        url: 'https://myperro.in/og-image.png',
         width: 1200,
         height: 630,
         alt: 'MyPerro GPS Collar Preview',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'MyPerro - GPS Collar & Health Monitor for Dogs',
     description: 'Smart collar, safe pets. Track health, location, and more with MyPerro.',
-    images: ['https://myperro.in/og-image.jpg'],
+    images: ['https://myperro.in/og-image.png'],
   },
   icons: {
     icon: '/favicon.ico',
