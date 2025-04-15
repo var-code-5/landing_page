@@ -21,10 +21,10 @@ export default function Home() {
       <div className="relative w-full h-auto flex flex-col items-center overflow-hidden">
         <div className="bg-foreground w-[85vw] h-[90vh] flex flex-col">
           <div className="flex flex-col justify-start items-start">
-            <h1 className="relative font-borela text-7xl lg:text-[9vw] mt-16 text-background leading-none">
+            <h1 className="relative font-borela text-5xl md:text-7xl lg:text-[9vw] mt-8  md:mt-16 text-background leading-none">
               SMART COLLARS<span className="md:absolute font-mombay text-5xl -bottom-3 right-0 md:left-[42%] z-10 text-background">for</span> 
             </h1>
-            <h1 className="font-montserrat text-4xl md:text-5xl lg:text-[5vw] rounded-lg bg-primary leading-none p-5 ">
+            <h1 className="font-montserrat text-2xl md:text-5xl lg:text-[5vw] rounded-lg bg-primary leading-none p-5 ">
               HAPPIER PETS
             </h1>
           </div>
