@@ -11,6 +11,7 @@ const NavBar = () => {
     { name: "SERVICES", href: "/services" },
     { name: "ABOUT US", href: "/about" },
     { name: "BLOGS", href: "/blogs" },
+    { name: "CONTACT US", href:"/contact"}
   ];
   const [isOpen, setIsOpen] = useState(false);
   return (
@@ -69,11 +70,6 @@ const NavBar = () => {
                     {link.name}
                   </Link>
                 ))}
-                <Link href="/contact" className="mt-4" onClick={() => setIsOpen(false)}>
-                  <button className="bg-background text-white px-5 py-3 rounded-lg text-base sm:text-lg font-montserrat font-medium w-full">
-                    CONTACT US
-                  </button>
-                </Link>
               </div>
             </SheetContent>
           </Sheet>
