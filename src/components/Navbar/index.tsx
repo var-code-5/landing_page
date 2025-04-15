@@ -1,8 +1,9 @@
+"use client"
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
+import { useState } from "react";
 
 const NavBar = () => {
   const navLinks = [
@@ -10,8 +11,9 @@ const NavBar = () => {
     { name: "SERVICES", href: "/services" },
     { name: "ABOUT US", href: "/about" },
     { name: "BLOGS", href: "/blogs" },
+    { name: "CONTACT US", href:"/contact"}
   ];
-
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <nav className="flex justify-center w-full py-2 md:py-4 h-[10vh]">
       <div className="flex justify-between items-center w-[95%] md:w-[90%] lg:min-w-[85%] text-background">
@@ -46,7 +48,7 @@ const NavBar = () => {
 
         {/* Mobile Menu */}
         <div className="lg:hidden">
-          <Sheet>
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger className="p-1 md:p-2">
               <Image
                 src="/ham.svg"
@@ -62,16 +64,12 @@ const NavBar = () => {
                   <Link
                     key={link.name}
                     href={link.href}
+                    onClick={() => setIsOpen(false)}
                     className="text-xl font-montserrat font-medium hover:text-primary transition-all duration-150"
                   >
                     {link.name}
                   </Link>
                 ))}
-                <Link href="/contact" className="mt-4">
-                  <button className="bg-background text-white px-5 py-3 rounded-lg text-base sm:text-lg font-montserrat font-medium w-full">
-                    CONTACT US
-                  </button>
-                </Link>
               </div>
             </SheetContent>
           </Sheet>
