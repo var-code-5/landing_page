@@ -51,7 +51,7 @@ const teamMembers: TeamMember[] = [
     role: "IoT Developer",
     image: "/team/kunal.jpg",
     LinkedinURL: "https://www.linkedin.com/in/kunal-sinha-244044278/",
-    tags: ["developers"],
+    tags: ["iot developers"],
   },
   {
     id: "4",
@@ -59,7 +59,7 @@ const teamMembers: TeamMember[] = [
     role: "IoT Developer",
     image: "/team/sruti.jpg",
     LinkedinURL: "https://www.linkedin.com/in/shruti-jha-4b0976228",
-    tags: ["developers"],
+    tags: ["iot developers"],
   },
   {
     id: "5",
@@ -67,7 +67,7 @@ const teamMembers: TeamMember[] = [
     role: "Web Developer",
     image: "/team/var.png",
     LinkedinURL: "https://www.linkedin.com/in/varshith-kumar-reddy-meda/",
-    tags: ["developers"],
+    tags: ["web developers"],
   },
   {
     id: "6",
@@ -75,7 +75,7 @@ const teamMembers: TeamMember[] = [
     role: "Web Developer",
     image: "/team/arvind.jpeg",
     LinkedinURL: "https://www.linkedin.com/in/arvind-babu-538186260/",
-    tags: ["developers"],
+    tags: ["web developers"],
   },
   {
     id: "7",
@@ -83,7 +83,7 @@ const teamMembers: TeamMember[] = [
     role: "IOT Developer",
     image: "/team/dhaneshbaheti.jpeg",
     LinkedinURL: "https://www.linkedin.com/in/dhaneshbaheti",
-    tags: ["developers"],
+    tags: ["iot developers"],
   },
   {
     id: "9",
@@ -91,7 +91,7 @@ const teamMembers: TeamMember[] = [
     role: "Web Developer",
     image: "/team/harsh.jpg",
     LinkedinURL: "https://www.linkedin.com/in/harsh-dalmia-605995221",
-    tags: ["developers"],
+    tags: ["web developers"],
   },
   {
     id: "10",
@@ -99,7 +99,7 @@ const teamMembers: TeamMember[] = [
     role: "Web Developer",
     image: "/team/Rushi.jpg",
     LinkedinURL: "https://www.linkedin.com/in/rushikesh1503/",
-    tags: ["developers"],
+    tags: ["web developers"],
   },
   {
     id: "11",
@@ -107,7 +107,7 @@ const teamMembers: TeamMember[] = [
     role: "IoT Developer",
     image: "/team/nageshwar.jpeg",
     LinkedinURL: "https://www.linkedin.com/in/nageshwar-kumar-mehta",
-    tags: ["developers"],
+    tags: ["iot developers"],
   },
   {
     id: "12",
@@ -115,7 +115,7 @@ const teamMembers: TeamMember[] = [
     role: "IoT Developer",
     image: "/team/manas.jpg",
     LinkedinURL: "https://linkedin.com/in/maanasnair",
-    tags: ["developers"],
+    tags: ["iot developers"],
   },
   // {
   //   id: "13",
@@ -154,7 +154,8 @@ const teamMembers: TeamMember[] = [
 // Initial tags
 const initialTags: Tag[] = [
   { id: "founders", label: "FOUNDERS" },
-  { id: "developers", label: "DEVELOPERS" },
+  { id: "web developers", label: "WEB DEVELOPERS" },
+  { id: "iot developers", label: "IOT DEVELOPERS" },
   { id: "marketing", label: "MARKETING" },
 ];
 

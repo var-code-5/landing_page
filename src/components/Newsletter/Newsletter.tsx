@@ -76,9 +76,9 @@ const Newsletter = () => {
               />
               <button
                 type="submit"
-                className="absolute md:right-3 md:top-3 font-montserrat font-semibold text-sm right-2 top-2 px-6 py-2 bg-background text-white rounded-full hover:bg-gray-700 transition-colors flex gap-x-5 pr-2 items-center gap-2"
+                className="absolute md:right-3 md:top-3 font-montserrat font-semibold text-sm right-2 top-2 px-6 py-2 bg-background text-white rounded-full hover:bg-gray-700 transition-colors flex gap-x-5 items-center gap-2"
               >
-                SUBSCRIBE
+                <p className='hidden md:block'>SUBSCRIBE</p>
                 <MoveUpRight className='w-6 text-background h-6 bg-primary rounded-full p-1' />
               </button>
             </div>

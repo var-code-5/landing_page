@@ -28,10 +28,10 @@ const ContactCard = () => {
           <div>
             <h3 className="font-semibold text-xl text-left">Email us</h3>
             <a
-              href="mailto:myperro.official@gmail.com"
+              href="mailto:contact.us@myperro.in"
               className="text-gray-300 text-sm break-words hover:underline"
             >
-              myperro.official@gmail.com
+              contact.us@myperro.in
             </a>
           </div>
         </div>
@@ -67,11 +67,6 @@ const ContactCard = () => {
               <li className="rounded-full overflow-hidden">
                 <a href="https://x.com/MyPerro_" target="_blank" rel="noopener noreferrer">
                   <Twitter className="h-8 w-8 p-2 bg-primary text-white" />
-                </a>
-              </li>
-              <li className="rounded-full overflow-hidden">
-                <a href="https://www.facebook.com/MyPerro.official" target="_blank" rel="noopener noreferrer">
-                  <Facebook className="h-8 w-8 p-2 bg-primary text-white" />
                 </a>
               </li>
             </ul>
