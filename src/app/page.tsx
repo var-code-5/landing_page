@@ -73,9 +73,9 @@ export default function Home() {
         </div>
       </div>
       <HeroCollar />
-      <div className="flex flex-col  items-center   lg:relative bg-foreground w-full min-h-screen text-center bg-white">
+      <div className="flex flex-col  items-center relative bg-foreground w-full min-h-screen text-center bg-white">
         <div className="max-w-[85vw] w-full items-stretch">
-          <h1 className="font-b</div>orela text-black p-4 text-3xl lg:text-6xl mt-0 lg:mt-16">
+          <h1 className="font-b</div>orela text-black p-4 text-3xl lg:text-6xl mt-0 lg:mt-8">
             THE FUTURE <span className="text-gray-600">OF</span> PET CARE
           </h1>
           <div className="lg:hidden text-lg p-4 lg:text-xl text-left flex flex-col items-center">
@@ -92,13 +92,20 @@ export default function Home() {
             </p>
           </div>
           <Image
-            src="/petcare/dog-collar.png"
-            height={700}
-            width={700}
+            src="/hero/collar.svg"
+            height={1000}
+            width={1000}
             alt="center image"
-            className="lg:absolute lg:top-[58%]  lg:mt-0 mt-4 lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:-translate-y-1/2 z-[1]"
+            className="lg:absolute lg:top-[58%]  lg:mt-0 mt-4 lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:-translate-y-1/2 z-[1] h-[70%] w-auto"
           />
-          <div className="relative flex lg:flex-row lg:justify-between flex-col lg:items-stretch items-center min-h-96 text-black lg:mt-24 z-[2]">
+          <Image
+            src="/hero/base.svg"
+            width={1000}
+            height={1000}
+            alt="bottom left image"
+            className="hidden lg:block lg:absolute left-0 -bottom-0 h-auto w-8/12 z-[0]"
+          />
+          <div className="relative flex lg:flex-row lg:justify-between flex-col lg:items-stretch items-center min-h-[20em] text-black lg:mt-12 z-[2]">
             <div className="flex justify-start">
               <div className="flex flex-row items-end lg:w-[30rem] text-right p-4">
                 <div className="text-xl text-left lg:block hidden">
@@ -150,8 +157,8 @@ export default function Home() {
               className=' hidden lg:block lg:absolute -bottom-20 h-[500] w-11/12  z-[0]'
             /> */}
       </div>
-      <Features />
       <FeatureShowcase />
+      <Features />
       <Unleash />
       <Companies />
     </>

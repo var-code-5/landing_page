@@ -1,19 +1,41 @@
-"use client"
+"use client";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 const NavBar = () => {
   const navLinks = [
-    { name: "PRODUCT", href: "/#product"},
+    { name: "PRODUCT", href: "/#product" },
     { name: "SERVICES", href: "/services" },
     { name: "ABOUT US", href: "/about" },
     { name: "BLOGS", href: "/blogs" },
-    { name: "CONTACT US", href:"/contact"}
+    { name: "CONTACT US", href: "/contact" },
   ];
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+
+  // Function to determine if a nav item is active
+  const isActive = (href: string) => {
+    if (href === "/") {
+      return pathname === "/";
+    }
+
+    // For product link with hash
+    if (href === "/#product") {
+      return pathname === "/";
+    }
+
+    // For other links, check if pathname starts with href
+    if (href !== "/") {
+      return pathname.startsWith(href);
+    }
+
+    return false;
+  };
+
   return (
     <nav className="flex justify-center w-full py-2 md:py-4 h-[10vh]">
       <div className="flex justify-between items-center w-[95%] md:w-[90%] lg:min-w-[85%] text-background">
@@ -37,7 +59,11 @@ const NavBar = () => {
               <li key={link.name}>
                 <Link
                   href={link.href}
-                  className={"hover:text-primary transition-all duration-150"}
+                  className={
+                    isActive(link.href)
+                      ? "text-primary font-semibold transition-all duration-150"
+                      : "hover:text-primary transition-all duration-150"
+                  }
                 >
                   {link.name}
                 </Link>
@@ -65,7 +91,11 @@ const NavBar = () => {
                     key={link.name}
                     href={link.href}
                     onClick={() => setIsOpen(false)}
-                    className="text-xl font-montserrat font-medium hover:text-primary transition-all duration-150"
+                    className={
+                      isActive(link.href)
+                        ? "text-xl font-montserrat font-semibold text-primary"
+                        : "text-xl font-montserrat font-medium hover:text-primary transition-all duration-150"
+                    }
                   >
                     {link.name}
                   </Link>

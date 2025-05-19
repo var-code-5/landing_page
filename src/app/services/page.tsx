@@ -58,7 +58,7 @@ export default function services() {
                     <MoveUpRight className="bg-primary w-8 h-8 md:w-12 md:h-12 rounded-full p-2 font-bold" />
                   </div>
                   <Image
-                    src="/services/dog-walking.png"
+                    src="/services/hero.png"
                     alt="dog walking"
                     width={1000}
                     height={1000}

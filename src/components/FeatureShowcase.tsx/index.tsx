@@ -13,6 +13,7 @@ type Feature = {
   thumbnail: string
 }
 
+// todo: chagne the jerk cause by the switching of the image
 const features: Feature[] = [
   {
     id: 1,
@@ -42,13 +43,27 @@ const features: Feature[] = [
 
 export default function FeatureShowcase() {
   const [activeFeature, setActiveFeature] = useState<number>(0)
+  const [fade, setFade] = useState(true)
 
   const handleNext = () => {
-    setActiveFeature((prev) => (prev + 1) % features.length)
+    setFade(false)
+    setTimeout(() => {
+      setActiveFeature((prev) => (prev + 1) % features.length)
+      setFade(true)
+    }, 200) // duration matches CSS transition
+  }
+
+  const handleThumbnailClick = (index: number) => {
+    if (index === activeFeature) return
+    setFade(false)
+    setTimeout(() => {
+      setActiveFeature(index)
+      setFade(true)
+    }, 200)
   }
 
   return (
-    <section className="relative w-full min-h-screen bg-foreground text-center p-4 md:p-10 flex flex-col justify-center">
+    <section className="relative min-w-[85vw] min-h-screen bg-foreground text-center p-4 md:p-10 flex flex-col justify-center">
       
       <div className="container mx-auto">
         <div className="text-center mb-8 md:mb-12">
@@ -60,7 +75,7 @@ export default function FeatureShowcase() {
           </p>
         </div>
 
-        <div className="w-full md:w-[90%] mx-auto">
+        <div className="w-full md:min-w-[90%] mx-auto">
           <div className="bg-white rounded-2xl md:rounded-3xl shadow-md overflow-hidden transition-all duration-300">
             <div className="relative">
               {/* Feature content */}
@@ -73,7 +88,7 @@ export default function FeatureShowcase() {
                       {features.map((feature, index) => (
                         <button
                           key={feature.id}
-                          onClick={() => setActiveFeature(index)}
+                          onClick={() => handleThumbnailClick(index)}
                           className={cn(
                             "flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-lg sm:rounded-xl shadow-md bg-cover bg-center transition-all",
                             activeFeature === index ? "border border-gray-300" : "border-gray-200 opacity-40",
@@ -104,21 +119,24 @@ export default function FeatureShowcase() {
                     <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-borela text-gray-800 font-normal">
                       {features[activeFeature].title}
                     </h3>
-                    <p className="w-full text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 font-Montserrat mt-4 font-normal">
+                    <p className="w-full  text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 font-Montserrat mt-4 font-normal text-left">
                       {features[activeFeature].description}
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Feature image */}
-              <div className="transition-all duration-500 ease-in-out">
+              {/* Feature image with fade transition */}
+              <div
+                className="transition-opacity duration-200 ease-in-out"
+                style={{ opacity: fade ? 1 : 0 }}
+              >
                 <Image
                   src={features[activeFeature].image || "/petcare/dog-collar.png"}
                   alt={features[activeFeature].title}
                   width={1200}
                   height={800}
-                  className="w-full h-auto rounded-t-xl object-cover max-h-[60vh] sm:max-h-[75vh] lg:max-h-[80vh]"
+                  className="w-full h-auto min-h-40 rounded-t-xl object-cover max-h-[60vh] sm:max-h-[75vh] lg:max-h-[80vh]"
                 />
               </div>
             </div>
