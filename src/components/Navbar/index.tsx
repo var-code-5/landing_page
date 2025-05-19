@@ -1,16 +1,39 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
+import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 const NavBar = () => {
   const navLinks = [
-    { name: "PRODUCT", href: "/#product"},
+    { name: "PRODUCT", href: "/#product" },
     { name: "SERVICES", href: "/services" },
     { name: "ABOUT US", href: "/about" },
-    { name: "BLOGS", href: "/blogs" },
+    { name: "BLOGS", href: "/blogs" }
   ];
+  const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+
+  // Function to determine if a nav item is active
+  const isActive = (href: string) => {
+    if (href === "/") {
+      return pathname === "/";
+    }
+
+    // For product link with hash
+    if (href === "/#product") {
+      return pathname === "/";
+    }
+
+    // For other links, check if pathname starts with href
+    if (href !== "/") {
+      return pathname.startsWith(href);
+    }
+
+    return false;
+  };
 
   return (
     <nav className="flex justify-center w-full py-2 md:py-4 h-[10vh]">
@@ -35,7 +58,11 @@ const NavBar = () => {
               <li key={link.name}>
                 <Link
                   href={link.href}
-                  className={"hover:text-primary transition-all duration-150"}
+                  className={
+                    isActive(link.href)
+                      ? "text-primary font-semibold transition-all duration-150"
+                      : "hover:text-primary transition-all duration-150"
+                  }
                 >
                   {link.name}
                 </Link>
@@ -46,7 +73,7 @@ const NavBar = () => {
 
         {/* Mobile Menu */}
         <div className="lg:hidden">
-          <Sheet>
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger className="p-1 md:p-2">
               <Image
                 src="/ham.svg"
@@ -62,16 +89,16 @@ const NavBar = () => {
                   <Link
                     key={link.name}
                     href={link.href}
-                    className="text-xl font-montserrat font-medium hover:text-primary transition-all duration-150"
+                    onClick={() => setIsOpen(false)}
+                    className={
+                      isActive(link.href)
+                        ? "text-xl font-montserrat font-semibold text-primary"
+                        : "text-xl font-montserrat font-medium hover:text-primary transition-all duration-150"
+                    }
                   >
                     {link.name}
                   </Link>
                 ))}
-                <Link href="/contact" className="mt-4">
-                  <button className="bg-background text-white px-5 py-3 rounded-lg text-base sm:text-lg font-montserrat font-medium w-full">
-                    CONTACT US
-                  </button>
-                </Link>
               </div>
             </SheetContent>
           </Sheet>

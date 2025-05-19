@@ -50,7 +50,7 @@ export default function HeroCollar() {
           height={1000}
           className="w-[85%] sm:w-[80%] h-[80%] rounded-3xl sm:rounded-[50px]"
         />
-        <div className="hidden absolute sm:flex flex-col justify-around text-secondary opacity-50 w-[80%] h-[80%] text-center text-[8rem] overflow-hidden text-nowrap leading-tight font-borela">
+        <div className=" absolute sm:flex flex-col justify-around text-secondary opacity-50 w-[80%] h-[80%] text-center text-[10vw]  overflow-hidden text-nowrap leading-tight font-borela">
           <h3>TAILORED</h3>
           <h3>TECHNOLOGY</h3>
           <h3>FOR YOUR PET</h3>

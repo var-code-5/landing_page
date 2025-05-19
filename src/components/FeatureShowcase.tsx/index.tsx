@@ -13,6 +13,7 @@ type Feature = {
   thumbnail: string
 }
 
+// todo: chagne the jerk cause by the switching of the image
 const features: Feature[] = [
   {
     id: 1,
@@ -42,82 +43,101 @@ const features: Feature[] = [
 
 export default function FeatureShowcase() {
   const [activeFeature, setActiveFeature] = useState<number>(0)
+  const [fade, setFade] = useState(true)
 
   const handleNext = () => {
-    setActiveFeature((prev) => (prev + 1) % features.length)
+    setFade(false)
+    setTimeout(() => {
+      setActiveFeature((prev) => (prev + 1) % features.length)
+      setFade(true)
+    }, 200) // duration matches CSS transition
+  }
+
+  const handleThumbnailClick = (index: number) => {
+    if (index === activeFeature) return
+    setFade(false)
+    setTimeout(() => {
+      setActiveFeature(index)
+      setFade(true)
+    }, 200)
   }
 
   return (
-    <section className="relative w-full py-16 md:py-24 lg:min-h-screen bg-foreground text-center px-4 md:px-8 flex flex-col justify-center">
+    <section className="relative min-w-[85vw] min-h-screen bg-foreground text-center p-4 md:p-10 flex flex-col justify-center">
       
       <div className="container mx-auto">
-        <div className="text-center mb-6 md:mb-10">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-medium text-gray-600 font-borela uppercase tracking-wide">
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-medium text-gray-600 font-borela uppercase tracking-wide">
             Designed to fit your <span className="text-background">pet&apos;s needs</span>
           </h2>
-          <p className="text-gray-600 mt-2 text-base sm:text-lg md:text-xl lg:text-2xl">
+          <p className="text-gray-600 mt-2 text-lg sm:text-xl md:text-2xl lg:text-3xl">
             Let&apos;s take a closer look of the smart collar.
           </p>
         </div>
 
-        <div className="w-full lg:w-[90%] mx-auto">
-          <div className="bg-white rounded-xl md:rounded-2xl lg:rounded-3xl shadow-md overflow-hidden transition-all duration-300">
-            <div className="flex flex-col">
-              {/* Feature image - now above text on mobile */}
-              <div className="transition-all duration-500 ease-in-out h-48 sm:h-64 md:h-80 lg:h-96">
+        <div className="w-full md:min-w-[90%] mx-auto">
+          <div className="bg-white rounded-2xl md:rounded-3xl shadow-md overflow-hidden transition-all duration-300">
+            <div className="relative">
+              {/* Feature content */}
+              <div className="flex flex-col p-4 sm:p-6 md:p-8 lg:p-10">
+                <div className="flex flex-col xl:flex-row justify-between items-start gap-6 mb-4">
+
+                  {/* Thumbnail slider - top on small, right on large */}
+                  <div className="w-full xl:max-w-[40%] order-first xl:order-last md:flex md:justify-center sm:flex sm:justify-center ">
+                    <div className="flex items-center overflow-x-auto gap-3 pb-2">
+                      {features.map((feature, index) => (
+                        <button
+                          key={feature.id}
+                          onClick={() => handleThumbnailClick(index)}
+                          className={cn(
+                            "flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-lg sm:rounded-xl shadow-md bg-cover bg-center transition-all",
+                            activeFeature === index ? "border border-gray-300" : "border-gray-200 opacity-40",
+                          )}
+                          aria-label={`View ${feature.title} feature`}
+                        >
+                          <Image
+                            src={feature.thumbnail || "/placeholder.svg"}
+                            alt={feature.title}
+                            width={96}
+                            height={96}
+                            className="w-full h-full object-cover"
+                          />
+                        </button>
+                      ))}
+                      <button
+                        onClick={handleNext}
+                        className="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center rounded-full border border-gray-400 shadow-md backdrop-blur-md bg-white/30 -ml-10"
+                        aria-label="Next feature"
+                      >
+                        <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8 text-gray-600" />
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Feature text */}
+                  <div className="w-full xl:max-w-[60%]">
+                    <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-borela text-gray-800 font-normal">
+                      {features[activeFeature].title}
+                    </h3>
+                    <p className="w-full  text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 font-Montserrat mt-4 font-normal text-left">
+                      {features[activeFeature].description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Feature image with fade transition */}
+              <div
+                className="transition-opacity duration-200 ease-in-out"
+                style={{ opacity: fade ? 1 : 0 }}
+              >
                 <Image
                   src={features[activeFeature].image || "/petcare/dog-collar.png"}
                   alt={features[activeFeature].title}
                   width={1200}
                   height={800}
-                  className="w-full h-full object-cover object-center"
+                  className="w-full h-auto min-h-40 rounded-t-xl object-cover max-h-[60vh] sm:max-h-[75vh] lg:max-h-[80vh]"
                 />
-              </div>
-
-              {/* Feature content */}
-              <div className="flex flex-col p-4 sm:p-6 md:p-8">
-                {/* Feature text */}
-                <div className="w-full mb-4 md:mb-6">
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-borela text-gray-800 font-normal">
-                    {features[activeFeature].title}
-                  </h3>
-                  <p className="w-full text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 font-Montserrat mt-2 md:mt-4 font-normal">
-                    {features[activeFeature].description}
-                  </p>
-                </div>
-
-                {/* Thumbnail slider - bottom on all screen sizes */}
-                <div className="w-full mt-2 md:mt-4">
-                  <div className="flex items-center justify-start overflow-x-auto gap-2 sm:gap-3 pb-2">
-                    {features.map((feature, index) => (
-                      <button
-                        key={feature.id}
-                        onClick={() => setActiveFeature(index)}
-                        className={cn(
-                          "flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-lg shadow-md bg-cover bg-center transition-all",
-                          activeFeature === index ? "border-2 border-gray-400" : "border-gray-200 opacity-60"
-                        )}
-                        aria-label={`View ${feature.title} feature`}
-                      >
-                        <Image
-                          src={feature.thumbnail || "/placeholder.svg"}
-                          alt={feature.title}
-                          width={96}
-                          height={96}
-                          className="w-full h-full object-cover rounded-lg"
-                        />
-                      </button>
-                    ))}
-
-                    <button
-                      onClick={handleNext}
-                      className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full border border-gray-400 shadow-md bg-white/90 ml-2"
-                      aria-label="Next feature"
-                    >
-                      <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-gray-600" />
-                    </button>
-                  </div>
-                </div>
               </div>
             </div>
           </div>

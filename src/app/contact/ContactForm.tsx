@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client"
 import React, { useState } from 'react';
+import axios from 'axios'; 
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -10,8 +12,7 @@ const ContactForm = () => {
     message: ''
   });
 
-  //@ts-ignore
-  const handleChange = (e:any) => {
+  const handleChange = (e: any) => {
     const { name, value } = e.target;
     setFormData(prevState => ({
       ...prevState,
@@ -19,18 +20,35 @@ const ContactForm = () => {
     }));
   };
 
-  //@ts-ignore
-  const handleSubmit = (e:any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Add your form submission logic here
+
+    try {
+      const response = await axios.post('/api/contact', formData); // ✅ use axios
+
+      if (response.status === 200) {
+        alert('Message sent successfully!');
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          message: ''
+        });
+      } else {
+        alert(response.data?.error || 'Something went wrong. Please try again.');
+      }
+    } catch (error: any) {
+      console.error('Error submitting form:', error);
+      alert(error?.response?.data?.error || 'Something went wrong. Please try again.');
+    }
   };
 
   return (
     <div className="bg-white rounded-3xl md:bg-current mx-auto p-6 w-full font-montserrat text-left">
       <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 mb-2">Send us a message</h2>
       <p className="text-gray-600 mb-6">Do you have a question? Please feel free to contact us.</p>
-      
+
       <form onSubmit={handleSubmit}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
           <div>
@@ -46,7 +64,7 @@ const ContactForm = () => {
               required
             />
           </div>
-          
+
           <div>
             <label htmlFor="lastName" className="block text-gray-700 mb-2">Last name</label>
             <input
@@ -61,7 +79,7 @@ const ContactForm = () => {
             />
           </div>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
           <div>
             <label htmlFor="email" className="block text-gray-700 mb-2">Email</label>
@@ -76,7 +94,7 @@ const ContactForm = () => {
               required
             />
           </div>
-          
+
           <div>
             <label htmlFor="phone" className="block text-gray-700 mb-2">Phone number</label>
             <input
@@ -90,7 +108,7 @@ const ContactForm = () => {
             />
           </div>
         </div>
-        
+
         <div className="mb-6">
           <label htmlFor="message" className="block text-gray-700 mb-2">Message</label>
           <textarea
@@ -104,7 +122,7 @@ const ContactForm = () => {
             required
           ></textarea>
         </div>
-        
+
         <button
           type="submit"
           className="bg-primary hover:bg-secondary text-white font-medium py-2 px-8 rounded-xl transition duration-300"

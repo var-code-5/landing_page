@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 
 import { useState } from "react";
@@ -31,7 +32,7 @@ const teamMembers: TeamMember[] = [
     image: "/team/SaiPrasad.png",
     LinkedinURL: "https://www.linkedin.com/in/saiprasadpandilwar",
     founderMessage:
-      'Muffin, the chief morale officer, and inspiration for MyPerro, isn&apos;t just a dog. He&apos;s like a little kid with fluffy fur, a wet nose, and a wagging tail full of boundless love. But that all changed one day. He returned from a boarding facility covered in ticks and fleas, with fear in his eyes and his tail tucked between his legs, pleading for help. It was clear he had been mistreated, and we almost lost him. From that moment, MyPerro was born. Here, your "perro" is treated just like it is "MyPerro" with love, care, and all the attention it deserves.',
+      'Muffin, the chief morale officer, and inspiration for MyPerro, isn\'t just a dog. He\'s like a little kid with fluffy fur, a wet nose, and a wagging tail full of boundless love. But that all changed one day. He returned from a boarding facility covered in ticks and fleas, with fear in his eyes and his tail tucked between his legs, pleading for help. It was clear he had been mistreated, and we almost lost him. From that moment, MyPerro was born. Here, your "perro" is treated just like it is "MyPerro" with love, care, and all the attention it deserves.',
     tags: ["founders"],
   },
   {
@@ -50,7 +51,7 @@ const teamMembers: TeamMember[] = [
     role: "IoT Developer",
     image: "/team/kunal.jpg",
     LinkedinURL: "https://www.linkedin.com/in/kunal-sinha-244044278/",
-    tags: ["developers"],
+    tags: ["iot developers"],
   },
   {
     id: "4",
@@ -58,7 +59,7 @@ const teamMembers: TeamMember[] = [
     role: "IoT Developer",
     image: "/team/sruti.jpg",
     LinkedinURL: "https://www.linkedin.com/in/shruti-jha-4b0976228",
-    tags: ["developers"],
+    tags: ["iot developers"],
   },
   {
     id: "5",
@@ -66,7 +67,7 @@ const teamMembers: TeamMember[] = [
     role: "Web Developer",
     image: "/team/var.png",
     LinkedinURL: "https://www.linkedin.com/in/varshith-kumar-reddy-meda/",
-    tags: ["developers"],
+    tags: ["web developers"],
   },
   {
     id: "6",
@@ -74,7 +75,7 @@ const teamMembers: TeamMember[] = [
     role: "Web Developer",
     image: "/team/arvind.jpeg",
     LinkedinURL: "https://www.linkedin.com/in/arvind-babu-538186260/",
-    tags: ["developers"],
+    tags: ["web developers"],
   },
   {
     id: "7",
@@ -82,7 +83,7 @@ const teamMembers: TeamMember[] = [
     role: "IOT Developer",
     image: "/team/dhaneshbaheti.jpeg",
     LinkedinURL: "https://www.linkedin.com/in/dhaneshbaheti",
-    tags: ["developers"],
+    tags: ["iot developers"],
   },
   {
     id: "9",
@@ -90,7 +91,7 @@ const teamMembers: TeamMember[] = [
     role: "Web Developer",
     image: "/team/harsh.jpg",
     LinkedinURL: "https://www.linkedin.com/in/harsh-dalmia-605995221",
-    tags: ["developers"],
+    tags: ["web developers"],
   },
   {
     id: "10",
@@ -98,7 +99,7 @@ const teamMembers: TeamMember[] = [
     role: "Web Developer",
     image: "/team/Rushi.jpg",
     LinkedinURL: "https://www.linkedin.com/in/rushikesh1503/",
-    tags: ["developers"],
+    tags: ["web developers"],
   },
   {
     id: "11",
@@ -106,7 +107,7 @@ const teamMembers: TeamMember[] = [
     role: "IoT Developer",
     image: "/team/nageshwar.jpeg",
     LinkedinURL: "https://www.linkedin.com/in/nageshwar-kumar-mehta",
-    tags: ["developers"],
+    tags: ["iot developers"],
   },
   {
     id: "12",
@@ -114,7 +115,7 @@ const teamMembers: TeamMember[] = [
     role: "IoT Developer",
     image: "/team/manas.jpg",
     LinkedinURL: "https://linkedin.com/in/maanasnair",
-    tags: ["developers"],
+    tags: ["iot developers"],
   },
   // {
   //   id: "13",
@@ -153,7 +154,8 @@ const teamMembers: TeamMember[] = [
 // Initial tags
 const initialTags: Tag[] = [
   { id: "founders", label: "FOUNDERS" },
-  { id: "developers", label: "DEVELOPERS" },
+  { id: "web developers", label: "WEB DEVELOPERS" },
+  { id: "iot developers", label: "IOT DEVELOPERS" },
   { id: "marketing", label: "MARKETING" },
 ];
 

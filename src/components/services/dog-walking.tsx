@@ -21,7 +21,7 @@ export default function DogServices() {
         <div className="w-full">
                 {/* Dog Walking Service */}
                 <motion.div 
-                    ref={walkingRef}
+                    
                     initial={{ x: -100, opacity: 0 }}
                     animate={walkingInView ? { x: 0, opacity: 1 } : { x: -100, opacity: 0 }}
                     transition={{ duration: 0.5, ease: "easeOut" }}
@@ -40,7 +40,7 @@ export default function DogServices() {
                         <h1 className="text-4xl sm:text-5xl md:text-6xl font-borela">
                             DOG <span className="text-background">WALKING</span> <br /> SERVICE
                         </h1>
-                        <p className="text-lg md:text-xl lg:text-2xl my-3 md:my-5 font-montserrat">
+                        <p className="text-lg md:text-xl lg:text-2xl my-3 md:my-5 font-montserrat" ref={walkingRef}>
                             Soon, we&apos;ll offer reliable dog walking tailored to your dog&apos;s
                             needs, ensuring they get the exercise and attention they deserve.
                         </p>
@@ -67,7 +67,7 @@ export default function DogServices() {
 
                 {/* Dog Boarding Service */}
                 <motion.div 
-                    ref={boardingRef}
+                    
                     initial={{ x: 100, opacity: 0 }}
                     animate={boardingInView ? { x: 0, opacity: 1 } : { x: 100, opacity: 0 }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
@@ -77,7 +77,7 @@ export default function DogServices() {
                         <h1 className="text-4xl sm:text-5xl md:text-6xl font-borela mt-6 lg:mt-0">
                             DOG <span className="text-background">BOARDING</span> <br /> SERVICE
                         </h1>
-                        <p className="text-lg md:text-xl lg:text-2xl my-3 md:my-5 font-montserrat">
+                        <p className="text-lg md:text-xl lg:text-2xl my-3 md:my-5 font-montserrat" ref={boardingRef}>
                             We&apos;re creating a safe, comfortable space where your dog will
                             receive the care and attention they need while you&apos;re away.
                         </p>

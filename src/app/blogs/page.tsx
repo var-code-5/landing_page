@@ -1,10 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import vet from "@/../public/blogs/vet.jpeg";
-import accidents from "@/../public/blogs/accidents.png";
-import dogdaycare from "@/../public/blogs/dogdaycare.png";
-import dogmeal from "@/../public/blogs/dogmeal.png";
-import sickdog from "@/../public/blogs/sickdog.png";
+import Link from "next/link";
 import {
   Carousel,
   CarouselItem,
@@ -15,39 +11,26 @@ import MobileBlogCard from "@/components/Blogs/MobileBlogCard";
 import { MoveUpRight } from "lucide-react";
 import Hero from "@/components/Blogs/Hero";
 import Newsletter from "@/components/Newsletter/Newsletter";
+import { fetchBlogs } from "@/data/blogList"; // Adjust if needed
+
+
 export const metadata = {
-  title: 'Blogs',
-  description: 'Stay informed with pet care tips, product updates, and innovations in smart pet tech from MyPerro.',
+  title: "Blogs",
+  description:
+    "Stay informed with pet care tips, product updates, and innovations in smart pet tech from MyPerro.",
 };
 
+const Blogs = async () => {
+  await fetchBlogs(); 
+  const { blogs } = await import("@/data/blogList"); 
 
-const Blogs = () => {
-  const blogs = [
-    {
-      image: accidents,
-      title: "Tips for preventing accidents and incidents",
-      description:
-        "Ensure your pets safety with practical advice to avoid common mishaps at home or outdoors. From secure spaces to supervised play, discover how to create a worry-free ...",
-    },
-    {
-      image: dogdaycare,
-      title: "Unlocking the benefits of dog day care",
-      description:
-        "Dog day care offers more than just a place for your pet to stay—its a haven for socialization, exercise, and expert care. Explore how this service can enrich your dogs life and bring ...",
-    },
-    {
-      image: dogmeal,
-      title: "How to make the paw-fact meal for your dog",
-      description:
-        "Crafting the perfect meal for your dog is more than just filling their bowl. Discover tips on balancing nutrition, incorporating variety, and ensuring every bite supports their health...",
-    },
-    {
-      image: sickdog,
-      title: "How to Spot Early Signs of Illness in Your Dog",
-      description:
-        "Your dogs well-being often lies in the small, subtle changes you might miss. Learn how to identify early warning signs of illness and take proactive...",
-    },
-  ];
+  if (blogs.length === 0) {
+    return <div className="text-black p-8">No blogs found.</div>;
+  }
+
+  const [featured, ...otherBlogs] = blogs;
+
+
 
   return (
     <div className="bg-foreground max-w-[85vw] min-h-screen text-center flex flex-col items-center mt-4">
@@ -62,18 +45,22 @@ const Blogs = () => {
         <p className="md:hidden block">RECENTLY ADDED</p>
       </h1>
 
-      <div className="relative w-full mt-12">
+      {/* FEATURED BLOG SECTION */}
+      <div className="relative w-full mt-12 rounded-3xl overflow-hidden">
         <Image
-          src={vet}
-          alt="vet taking care of a dog"
-          className="h-[14rem] md:h-[40rem] w-full object-cover rounded-3xl"
+          src={featured.backgroundImage}
+          height={10000}
+          width={10000}
+          alt="Blog's Background Image"
+          className="h-[14rem] md:h-[40rem] w-full object-cover filter blur-sm brightness-75"
         />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black opacity-40 rounded-3xl"></div>
 
         <div className="absolute inset-0 flex flex-col justify-end text-left p-4 md:p-8 md:py-14 rounded-3xl bg-gradient-to-t from-black/50 to-transparent">
           <div className="flex flex-row w-full justify-between items-center mb-3 md:mb-8">
             <h2 className="text-white text-xl md:text-6xl font-montserrat font-semibold ">
-              The role of regular
-              <br /> veterinary check ups
+              {featured.title}
             </h2>
             <MoveUpRight
               color="white"
@@ -82,43 +69,56 @@ const Blogs = () => {
           </div>
 
           <p className="text-white/90 font-montserrat text-sm md:text-xl hidden md:inline font-medium mb-4 md:mb-12 w-1/2">
-            Ensure your pet's health and happiness with routine vet visits.
-            Early detection leads to better care and a longer, healthier life.
+            {featured.content[0]?.[0]?.type === "paragraph"
+              ? featured.content[0][0].text.slice(0, 180) + "..."
+              : ""}
           </p>
+
           <div className="hidden md:block relative">
-            <button
-              type="submit"
-              className="font-montserrat font-semibold text-md w-fit px-12 py-3 bg-background text-white rounded-full hover:bg-gray-700 transition-colors flex flex-row justify-between pl-4 gap-x-5 pr-2 items-center gap-2"
-            >
-              READ ARTICLE
-              <MoveUpRight className="w-6 text-background h-6 bg-primary rounded-full p-1" />
-            </button>
+            <Link href={`/blogs/${featured.id}`}>
+              <button
+                type="button"
+                className="font-montserrat font-semibold text-md w-fit px-12 py-3 bg-background text-white rounded-full hover:bg-gray-700 transition-colors flex flex-row justify-between pl-4 gap-x-5 pr-2 items-center gap-2"
+              >
+                READ ARTICLE
+                <MoveUpRight className="w-6 text-background h-6 bg-primary rounded-full p-1" />
+              </button>
+            </Link>
           </div>
         </div>
       </div>
 
+      {/* DESKTOP GRID FOR OTHER BLOGS */}
       <div className="md:grid grid-cols-1 md:grid-cols-2 gap-32 mt-12 hidden">
-        {blogs.map((blog, index) => (
+        {otherBlogs.map((blog, index) => (
           <BlogCard
             key={index}
-            image={blog.image}
+            blogId={blog.id}
+            image={blog.backgroundImage}
             title={blog.title}
-            description={blog.description}
+            description={
+              blog.content[0]?.[0]?.type === "paragraph"
+                ? blog.content[0][0].text.slice(0, 160) + "..."
+                : ""
+            }
           />
         ))}
       </div>
 
-      {/* MOBILE CAROUSEL */}
+      {/* MOBILE CAROUSEL FOR OTHER BLOGS */}
       <div className="md:hidden w-full mt-12">
         <Carousel className="w-full">
           <CarouselContent className="h-[32rem]">
-            {blogs.map((blog, index) => (
-              <CarouselItem>
+            {otherBlogs.map((blog, index) => (
+              <CarouselItem key={index}>
                 <MobileBlogCard
-                  key={index}
-                  image={blog.image}
+                  image={blog.backgroundImage}
                   title={blog.title}
-                  description={blog.description}
+                  description={
+                    blog.content[0]?.[0]?.type === "paragraph"
+                      ? blog.content[0][0].text.slice(0, 160) + "..."
+                      : ""
+                  }
                 />
               </CarouselItem>
             ))}
@@ -126,7 +126,7 @@ const Blogs = () => {
         </Carousel>
       </div>
 
-      <Newsletter/>
+      <Newsletter />
     </div>
   );
 };
