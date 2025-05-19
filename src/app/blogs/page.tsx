@@ -11,7 +11,7 @@ import MobileBlogCard from "@/components/Blogs/MobileBlogCard";
 import { MoveUpRight } from "lucide-react";
 import Hero from "@/components/Blogs/Hero";
 import Newsletter from "@/components/Newsletter/Newsletter";
-import { fetchBlogs } from "@/data/blogList"; // Adjust if needed
+import { BlogData } from "@/types/blog";
 
 
 export const metadata = {
@@ -21,16 +21,45 @@ export const metadata = {
 };
 
 const Blogs = async () => {
-  await fetchBlogs(); 
-  const { blogs } = await import("@/data/blogList"); 
+  const blogs: BlogData[] = [];
+  try {
+    const res = await fetch('http://localhost:3000/api/blog');
+    
+    if (!res.ok) {
+      throw new Error(`Failed to fetch blogs: ${res.status}`);
+    }
+
+    const rawBlogs = await res.json();
+    
+    const processedBlogs: BlogData[] = rawBlogs.map((entry: any) => {
+      const data = entry.blogData || entry;
+      
+      return {
+        id: data.id || entry.id ,
+        metadata: data.metadata,
+        title: data.title,
+        author: data.author ,
+        authorPosition: data.authorPosition,
+        backgroundImage: data.backgroundImage,
+        content: data.content,
+      };
+    });
+
+    blogs.push(...processedBlogs);
+  } catch (error) {
+    console.error("Error fetching blogs:", error);
+
+  }
 
   if (blogs.length === 0) {
-    return <div className="text-black p-8">No blogs found.</div>;
+    return (
+      <div className="text-black p-8 min-h-screen flex items-center justify-center">
+        <p className="text-xl">No blogs found. Please check back later.</p>
+      </div>
+    );
   }
 
   const [featured, ...otherBlogs] = blogs;
-
-
 
   return (
     <div className="bg-foreground max-w-[85vw] min-h-screen text-center flex flex-col items-center mt-4">

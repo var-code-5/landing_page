@@ -1,47 +1,98 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client"
-import React, { useState } from 'react';
-import axios from 'axios'; 
+
+import React, { useState, useEffect } from 'react';
+
+
+const FIELDS = [
+  { label: 'First name', name: 'firstName', type: 'text', required: true },
+  { label: 'Last name', name: 'lastName', type: 'text', required: true },
+  { label: 'Email', name: 'email', type: 'email', required: true },
+  { label: 'Phone number', name: 'phone', type: 'tel', required: false },
+  { label: 'Message', name: 'message', type: 'textarea', required: true, rows: 5 },
+];
+
+const SuccessPopup = ({ onClose }) => {
+  useEffect(() => {
+    // Auto close popup after 5 seconds
+    const timer = setTimeout(() => {
+      onClose();
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, [onClose]);
+
+  return (
+    <div className="fixed inset-0 flex items-center justify-center z-50">
+      <div className="absolute inset-0 bg-black bg-opacity-30" onClick={onClose}></div>
+      <div className="bg-white rounded-lg shadow-lg p-6 z-10 max-w-md w-full mx-4">
+        <div className="flex items-center justify-center mb-4">
+          <div className="bg-green-100 rounded-full p-2">
+            <svg className="h-8 w-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+          </div>
+        </div>
+        <h3 className="text-xl font-semibold text-center text-gray-800">Success!</h3>
+        <p className="text-gray-600 text-center mt-2">Your message has been sent successfully.</p>
+        <div className="mt-6 flex justify-center">
+          <button
+            onClick={onClose}
+            className="bg-primary hover:bg-secondary text-white font-medium py-2 px-6 rounded-xl transition duration-300"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const ContactForm = () => {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    message: ''
-  });
+  const initialState = FIELDS.reduce((acc, field) => {
+    acc[field.name] = '';
+    return acc;
+  }, {} as Record<string, string>);
 
-  const handleChange = (e: any) => {
+  const [formData, setFormData] = useState(initialState);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData(prevState => ({
-      ...prevState,
-      [name]: value
-    }));
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
     try {
-      const response = await axios.post('/api/contact', formData); // ✅ use axios
 
-      if (response.status === 200) {
-        alert('Message sent successfully!');
-        setFormData({
-          firstName: '',
-          lastName: '',
-          email: '',
-          phone: '',
-          message: ''
-        });
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      const data = await response.json();
+      if (response.ok) {
+        setFormData(initialState);
+        setShowSuccess(true);
       } else {
-        alert(response.data?.error || 'Something went wrong. Please try again.');
+        alert(data?.error || 'Something went wrong. Please try again.');
       }
-    } catch (error: any) {
+    } catch (error) {
       console.error('Error submitting form:', error);
-      alert(error?.response?.data?.error || 'Something went wrong. Please try again.');
+      alert('Something went wrong. Please try again.');
+    } finally {
+      setIsSubmitting(false);
     }
+  };
+
+  const closePopup = () => {
+    setShowSuccess(false);
   };
 
   return (
@@ -51,62 +102,21 @@ const ContactForm = () => {
 
       <form onSubmit={handleSubmit}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-          <div>
-            <label htmlFor="firstName" className="block text-gray-700 mb-2">First name</label>
-            <input
-              type="text"
-              id="firstName"
-              name="firstName"
-              value={formData.firstName}
-              onChange={handleChange}
-              placeholder="Enter your first name"
-              className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-200"
-              required
-            />
-          </div>
-
-          <div>
-            <label htmlFor="lastName" className="block text-gray-700 mb-2">Last name</label>
-            <input
-              type="text"
-              id="lastName"
-              name="lastName"
-              value={formData.lastName}
-              onChange={handleChange}
-              placeholder="Enter your last name"
-              className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-200"
-              required
-            />
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-          <div>
-            <label htmlFor="email" className="block text-gray-700 mb-2">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="Enter your email"
-              className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-200"
-              required
-            />
-          </div>
-
-          <div>
-            <label htmlFor="phone" className="block text-gray-700 mb-2">Phone number</label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              placeholder="Enter your phone no."
-              className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-200"
-            />
-          </div>
+          {FIELDS.slice(0, 4).map((field) => (
+            <div key={field.name}>
+              <label htmlFor={field.name} className="block text-gray-700 mb-2">{field.label}</label>
+              <input
+                id={field.name}
+                name={field.name}
+                type={field.type}
+                value={formData[field.name]}
+                onChange={handleChange}
+                placeholder={`Enter your ${field.label.toLowerCase()}`}
+                required={field.required}
+                className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-200"
+              />
+            </div>
+          ))}
         </div>
 
         <div className="mb-6">
@@ -117,19 +127,22 @@ const ContactForm = () => {
             value={formData.message}
             onChange={handleChange}
             placeholder="Enter your message"
-            rows={5}
-            className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-200"
+            rows={FIELDS.find(f => f.name === 'message')?.rows || 5}
             required
-          ></textarea>
+            className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-200"
+          />
         </div>
 
         <button
           type="submit"
-          className="bg-primary hover:bg-secondary text-white font-medium py-2 px-8 rounded-xl transition duration-300"
+          disabled={isSubmitting}
+          className={`bg-primary hover:bg-secondary text-white font-medium py-2 px-8 rounded-xl transition duration-300 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
         >
-          SUBMIT
+          {isSubmitting ? 'SUBMITTING...' : 'SUBMIT'}
         </button>
       </form>
+
+      {showSuccess && <SuccessPopup onClose={closePopup} />}
     </div>
   );
 };

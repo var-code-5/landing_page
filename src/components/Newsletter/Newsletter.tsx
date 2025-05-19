@@ -1,13 +1,52 @@
-'use client'
-import React, { useState } from 'react';
+"use client"
+import React, { useState,useEffect } from 'react';
 import Image from 'next/image';
 import newsletterdog from '@/../public/newsletter/newsletterdog.png'
 import { MoveUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import axios from 'axios';
+
+
+const SuccessPopup = ({ onClose }) => {
+  useEffect(() => {
+    // Auto close popup after 5 seconds
+    const timer = setTimeout(() => {
+      onClose();
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, [onClose]);
+
+  return (
+    <div className="fixed inset-0 flex items-center justify-center z-50">
+      <div className="absolute inset-0 bg-black bg-opacity-30" onClick={onClose}></div>
+      <div className="bg-white rounded-lg shadow-lg p-6 z-10 max-w-md w-full mx-4">
+        <div className="flex items-center justify-center mb-4">
+          <div className="bg-green-100 rounded-full p-2">
+            <svg className="h-8 w-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+          </div>
+        </div>
+        <h3 className="text-xl font-semibold text-center text-gray-800">Success!</h3>
+        <p className="text-gray-600 text-center mt-2">Your message has been sent successfully.</p>
+        <div className="mt-6 flex justify-center">
+          <button
+            onClick={onClose}
+            className="bg-primary hover:bg-secondary text-white font-medium py-2 px-6 rounded-xl transition duration-300"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const Newsletter = () => {
   const [email, setEmail] = useState('');
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const ref = React.useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
@@ -15,23 +54,32 @@ const Newsletter = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post('/api/subscribe', { email }, {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
 
-      if (res.status === 200) {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+      const data = await response.json();
+      if (response.status === 200) {
         setEmail('');
-        alert("Subscribed Successfully!")
+        setShowSuccess(true);
       } else {
-        console.log('Unexpected response from server');
+        console.error(data?.error || 'Something went wrong. Please try again.');
+        setEmail('');
       }
-    } catch (err: any) {
-      console.log('Something went wrong');
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setEmail('');
+    } finally {
+      setIsSubmitting(false);
     }
   };
-
+  const closePopup = () => {
+    setShowSuccess(false);
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -92,13 +140,17 @@ const Newsletter = () => {
               />
               <button
                 type="submit"
+                disabled = {isSubmitting}
                 className="absolute md:right-3 md:top-3 font-montserrat font-semibold text-sm right-2 top-2 px-2 py-2 md:px-6 md:py-2 bg-background text-white rounded-full hover:bg-gray-700 transition-colors flex md:gap-x-5 items-center gap-2"
               >
-                <p className='hidden md:block'>SUBSCRIBE</p>
+                <p className='hidden md:block'>
+                {isSubmitting ? 'Subscribing...' : 'SUBSCRIBE'}
+                </p>
                 <MoveUpRight className='w-6 text-background h-6 bg-primary rounded-full p-1' />
               </button>
             </div>
           </motion.form>
+          {showSuccess && <SuccessPopup onClose={closePopup} />}
         </div>
 
         <motion.div variants={itemVariants} className="w-full md:w-2/5 md:block hidden">
