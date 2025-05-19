@@ -1,27 +1,17 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import { blogs } from "@/data/blogList";
-import { fetchBlogs } from "@/data/blogList";
 
-// Props for dynamic routes
-export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
-    const awaitedParams = await params;
-    const blog = blogs.find((b) => b.id === awaitedParams.id);
-
-    return {
-        title: blog?.metadata ?? "Blog Not Found",
-    };
-}
 
 export default async function BlogPage({ params }: { params: Promise<{ id: string }> }) {
     const awaitedParams = await params;
-    await fetchBlogs();
-    const { blogs } = await import("@/data/blogList"); // import the updated blogs
-    const blog = blogs.find((b) => b.id === awaitedParams.id);
-    if (!blog) return notFound();
 
+    const res = await fetch(`http:localhost:3000/api/blog/${awaitedParams.id}`);
+    if (!res.ok) return notFound();
+    
+    const data = await res.json();
+    const blog = data.blogData;
     return (
-        <div className="relative min-h-screen font-sans text-black">
+        <div className="relative min-h-screen font-sans text-black mt-5">
             <div className="absolute w-screen z-[-99]">
                 <Image
                     src={blog.backgroundImage}
@@ -34,7 +24,7 @@ export default async function BlogPage({ params }: { params: Promise<{ id: strin
             </div>
             
             {/* Content container */}
-            <div className="relative flex flex-col transform translate-y-[30vw] bg-[#feeddd] px-[60px] py-[10px] mx-[12vw] mt-[50px] mb-[35vw] rounded-[2rem] md:px-[60px] md:mx-[12vw] sm:px-[20px] sm:mx-[8vw]">
+            <div className="relative flex flex-col transform translate-y-[20vw] bg-[#feeddd] px-[60px] py-[10px] mx-[12vw]  mb-[15vw] rounded-[2rem] md:px-[60px] md:mx-[12vw] sm:px-[20px] sm:mx-[8vw]">
                 {/* Blog header */}
                 <div>
                     <h1 className="font-bold text-[36px] my-[20px] mb-[40px] md:text-[36px] text-black">{blog.title}</h1>

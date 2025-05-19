@@ -16,7 +16,6 @@ async function connectToDatabase() {
   if (cachedClient) {
     return cachedClient;
   }
-
   const client = new MongoClient(uri);
   await client.connect();
   cachedClient = client;
@@ -40,7 +39,7 @@ export async function POST(request: Request) {
     const client = await connectToDatabase();
     const db = client.db(dbName);
     const contactCollection = db.collection('contactMessages');
-
+    console.log("in post request");
     // Insert the contact message
     const result = await contactCollection.insertOne({
       firstName,
@@ -50,7 +49,7 @@ export async function POST(request: Request) {
       message,
       createdAt: new Date()
     });
-
+    
     return new Response(JSON.stringify({ 
       message: 'Message stored successfully!',
       id: result.insertedId 
