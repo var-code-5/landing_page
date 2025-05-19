@@ -12,7 +12,7 @@ const FIELDS = [
   { label: 'Message', name: 'message', type: 'textarea', required: true, rows: 5 },
 ];
 
-const SuccessPopup = ({ onClose }) => {
+const SuccessPopup = ({ onClose }: { onClose: () => void }) => {
   useEffect(() => {
     // Auto close popup after 5 seconds
     const timer = setTimeout(() => {

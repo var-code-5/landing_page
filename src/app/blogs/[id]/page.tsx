@@ -1,15 +1,18 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
-
+import { BlogData } from "@/types/blog";
 
 export default async function BlogPage({ params }: { params: Promise<{ id: string }> }) {
     const awaitedParams = await params;
 
-    const res = await fetch(`http:localhost:3000/api/blog/${awaitedParams.id}`);
+    const baseUrl = process.env.NEXT_PUBLIC_API_URL || 
+                   (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
+
+    const res = await fetch(`${baseUrl}/api/blog/${awaitedParams.id}`);
     if (!res.ok) return notFound();
     
     const data = await res.json();
-    const blog = data.blogData;
+    const blog:BlogData  = data.blogData;
     return (
         <div className="relative min-h-screen font-sans text-black mt-5">
             <div className="absolute w-screen z-[-99]">

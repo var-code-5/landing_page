@@ -17,8 +17,10 @@ async function connectToDatabase() {
   cachedClient = client;
   return client;
 }
-export async function GET(req: Request, context: { params: { id: string } }) {
-  const { id } = await context.params;
+
+
+export async function GET(req: Request, { params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
   console.log("Requested blog ID:", id);
 
   try {

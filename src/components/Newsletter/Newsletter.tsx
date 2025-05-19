@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 
 
-const SuccessPopup = ({ onClose }) => {
+const SuccessPopup = ({ onClose }:{ onClose: () => void }) => {
   useEffect(() => {
     // Auto close popup after 5 seconds
     const timer = setTimeout(() => {

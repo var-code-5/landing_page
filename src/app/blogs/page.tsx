@@ -23,7 +23,11 @@ export const metadata = {
 const Blogs = async () => {
   const blogs: BlogData[] = [];
   try {
-    const res = await fetch('http://localhost:3000/api/blog');
+    // Get the base URL from environment variable or use a default for local development
+    const baseUrl = process.env.NEXT_PUBLIC_API_URL || 
+                   (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
+    
+    const res = await fetch(`${baseUrl}/api/blog`);
     
     if (!res.ok) {
       throw new Error(`Failed to fetch blogs: ${res.status}`);
