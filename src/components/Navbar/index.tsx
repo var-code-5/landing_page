@@ -11,7 +11,7 @@ const NavBar = () => {
     { name: "PRODUCT", href: "/#product" },
     { name: "SERVICES", href: "/services" },
     { name: "ABOUT US", href: "/about" },
-    { name: "BLOGS", href: "/blogs" }
+    { name: "BLOGS", href: "/blogs" },
   ];
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
