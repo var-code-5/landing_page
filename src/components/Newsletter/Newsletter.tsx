@@ -5,23 +5,39 @@ import newsletterdog from '@/../public/newsletter/newsletterdog.png'
 import { MoveUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
-
+import axios from 'axios';
 const Newsletter = () => {
   const [email, setEmail] = useState('');
   const ref = React.useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
-  const handleSubmit = (e:any) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Email submitted:', email);
-    setEmail('');
+
+    try {
+      const res = await axios.post('/api/subscribe', { email }, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+
+      if (res.status === 200) {
+        setEmail('');
+        alert("Subscribed Successfully!")
+      } else {
+        console.log('Unexpected response from server');
+      }
+    } catch (err: any) {
+      console.log('Something went wrong');
+    }
   };
+
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: { 
+    visible: {
       opacity: 1,
-      transition: { 
+      transition: {
         staggerChildren: 0.2,
         duration: 0.5
       }
@@ -30,15 +46,15 @@ const Newsletter = () => {
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
-    visible: { 
-      y: 0, 
+    visible: {
+      y: 0,
       opacity: 1,
       transition: { duration: 0.5 }
     }
   };
 
   return (
-    <motion.div 
+    <motion.div
       ref={ref}
       className="w-full bg-foreground min-h-[400px] flex items-center justify-center p-6 md:p-12"
       initial="hidden"
