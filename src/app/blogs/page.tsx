@@ -13,7 +13,6 @@ import Hero from "@/components/Blogs/Hero";
 import Newsletter from "@/components/Newsletter/Newsletter";
 import { BlogData } from "@/types/blog";
 
-
 export const metadata = {
   title: "Blogs",
   description:
@@ -24,25 +23,31 @@ const Blogs = async () => {
   const blogs: BlogData[] = [];
   try {
     // Get the base URL from environment variable or use a default for local development
-    const baseUrl = process.env.NEXT_PUBLIC_API_URL || 
-                   (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
-    
+    // const baseUrl = process.env.NEXT_PUBLIC_API_URL ||
+    //                (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
+
+    const baseUrl =
+      process.env.API_URL ||
+      (process.env.VERCEL_URL
+        ? `https://${process.env.VERCEL_URL}`
+        : "http://localhost:3000");
+
     const res = await fetch(`${baseUrl}/api/blog`);
-    
+
     if (!res.ok) {
       throw new Error(`Failed to fetch blogs: ${res.status}`);
     }
 
     const rawBlogs = await res.json();
-    
+
     const processedBlogs: BlogData[] = rawBlogs.map((entry: any) => {
       const data = entry.blogData || entry;
-      
+
       return {
-        id: data.id || entry.id ,
+        id: data.id || entry.id,
         metadata: data.metadata,
         title: data.title,
-        author: data.author ,
+        author: data.author,
         authorPosition: data.authorPosition,
         backgroundImage: data.backgroundImage,
         content: data.content,
@@ -52,7 +57,6 @@ const Blogs = async () => {
     blogs.push(...processedBlogs);
   } catch (error) {
     console.error("Error fetching blogs:", error);
-
   }
 
   if (blogs.length === 0) {
