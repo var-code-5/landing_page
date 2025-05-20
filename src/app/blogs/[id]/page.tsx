@@ -5,7 +5,7 @@ import { BlogData } from "@/types/blog";
 export default async function BlogPage({ params }: { params: Promise<{ id: string }> }) {
     const awaitedParams = await params;
 
-    const baseUrl = process.env.NEXT_PUBLIC_API_URL || 
+    const baseUrl = process.env.API_URL || 
                    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
 
     const res = await fetch(`${baseUrl}/api/blog/${awaitedParams.id}`);
