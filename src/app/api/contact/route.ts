@@ -1,9 +1,14 @@
 
 import { MongoClient } from 'mongodb';
+import nodemailer from 'nodemailer';
 
 // MongoDB connection
 const uri = process.env.MONGODB_URI;
 const dbName = process.env.MONGODB_DB_NAME;
+
+const smtpUser = process.env.SMTP_USER;
+const smtpPass = process.env.SMTP_PASS;
+const receiverEmail = process.env.RECEIVER_EMAIL;
 
 // Connection cache to reuse connections
 let cachedClient: MongoClient | null = null;
@@ -50,6 +55,28 @@ export async function POST(request: Request) {
       createdAt: new Date()
     });
     
+    const transporter = nodemailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 587,
+      secure: false,
+      auth: {
+        user: smtpUser,
+        pass: smtpPass,
+      },
+    });
+    await transporter.sendMail({
+      from: `MyPerro Enquiry Form <${email}>`,
+      to: receiverEmail,
+      subject: 'Contact Message from Website',
+      html: `
+        <p><strong>Name:</strong> ${firstName} ${lastName}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone:</strong> ${phone || 'N/A'}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message}</p>
+      `,
+    });
+
     return new Response(JSON.stringify({ 
       message: 'Message stored successfully!',
       id: result.insertedId 
