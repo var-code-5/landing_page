@@ -71,18 +71,20 @@ export default function FeatureSlider() {
       <ScrollArea className="hidden md:block w-[20rem] lg:w-[26rem] pr-8 h-96 space-y-1">
         {features.map((feature, index) => (
           <button
-            key={feature.id}
-            onClick={() => setActiveIndex(index)}
-            className={cn(
-              "w-full flex items-center gap-3 px-4 py-6 border-b-gray-400 border-b text-gray-400 text-xl font-montserrat font-medium text-left transition-colors",
-              "hover:text-gray-700",
-              activeIndex === index && "text-gray-700"
-            )}
+        key={feature.id}
+        onClick={() => setActiveIndex(index)}
+        onMouseEnter={() => setActiveIndex(index)}
+        onMouseLeave={() => setActiveIndex(activeIndex)}
+        className={cn(
+          "w-full flex items-center gap-3 px-4 py-6 border-b-gray-400 border-b text-gray-400 text-xl font-montserrat font-medium text-left transition-colors",
+          "hover:text-gray-700",
+          activeIndex === index && "text-gray-700"
+        )}
           >
-            <div className="flex flex-row justify-between w-full text-lg lg:text-2xl">
-              {feature.title}
-              <feature.icon className="h-7 w-7" />
-            </div>
+        <div className="flex flex-row justify-between w-full text-lg lg:text-2xl">
+          {feature.title}
+          <feature.icon className="h-7 w-7" />
+        </div>
           </button>
         ))}
       </ScrollArea>
@@ -134,7 +136,7 @@ export default function FeatureSlider() {
       {/* Mobile Carousel */}
       <div className="md:hidden w-full">
         <Carousel className="w-full">
-          <CarouselContent className="h-[28rem] w-4/5 -ml-4">
+          <CarouselContent className="h-[28rem] w-11/12 -ml-4">
             {features.map((feature) => (
               <CarouselItem key={feature.id} className="h-full pl-4 md:basis-3/5">
                 <div className="p-6 bg-white rounded-xl h-full">

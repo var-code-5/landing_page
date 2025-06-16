@@ -20,7 +20,7 @@ const features: Feature[] = [
     title: "Advanced Sensor Technology",
     description:
       "Equipped with advanced sensors for real-time tracking of activity, health, and location with accuracy and reliability.",
-    image: "/features/featureShowCase/main1.png?height=400&width=600",
+    image: "/features/featureShowCase/1.png?height=400&width=600",
     thumbnail: "/features/featureShowCase/thumbnail1.png?height=40&width=40",
   },
   {
@@ -28,7 +28,7 @@ const features: Feature[] = [
     title: "Water-Resistant Design",
     description:
       "Durable and water-resistant construction that withstands your pet's adventures in any weather condition.",
-    image: "/features/featureShowCase/main2.png?height=400&width=600",
+    image: "/features/featureShowCase/4.png?height=400&width=600",
     thumbnail: "/features/featureShowCase/thumbnail2.png?height=40&width=40",
   },
   {
@@ -36,7 +36,7 @@ const features: Feature[] = [
     title: "Long Battery Life",
     description:
       "Extended battery life of up to 14 days on a single charge, ensuring continuous monitoring of your pet.",
-    image: "/features/featureShowCase/main3.png?height=400&width=600",
+    image: "/features/featureShowCase/3.png?height=400&width=600",
     thumbnail: "/features/featureShowCase/thumbnail3.png?height=40&width=40",
   },
 ]

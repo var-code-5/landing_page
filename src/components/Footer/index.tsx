@@ -76,6 +76,22 @@ export default function Footer() {
             </div>
             <div>
               <h3 className="text-xl md:text-2xl uppercase font-bold">
+                Quick Links
+              </h3>
+              <ul className="text-lg lg:text-xl space-y-4 mt-4">
+                <li className="cursor-pointer hover:text-primary transition-colors">
+                  <Link href="/">Smart Collar</Link>
+                </li>
+                <li className="cursor-pointer hover:text-primary transition-colors">
+                  <Link href="/blogs">Blogs</Link>
+                </li>
+                <li className="cursor-pointer hover:text-primary transition-colors">
+                  <Link href="/">Home</Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xl md:text-2xl uppercase font-bold">
                 Support
               </h3>
               <ul className="text-lg lg:text-xl space-y-4 mt-4">
@@ -87,22 +103,6 @@ export default function Footer() {
                 </li>
                 <li className="cursor-pointer hover:text-primary transition-colors">
                   <Link href="/about">Privacy Policy</Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-xl md:text-2xl uppercase font-bold">
-                Quick Links
-              </h3>
-              <ul className="text-lg lg:text-xl space-y-4 mt-4">
-                <li className="cursor-pointer hover:text-primary transition-colors">
-                  <Link href="/">Smart Collar</Link>
-                </li>
-                <li className="cursor-pointer hover:text-primary transition-colors">
-                  <Link href="/blogs">Blogs</Link>
-                </li>
-                <li className="cursor-pointer hover:text-primary transition-colors">
-                  <Link href="/services">Services</Link>
                 </li>
               </ul>
             </div>

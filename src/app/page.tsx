@@ -76,7 +76,7 @@ export default function Home() {
       <div className="flex flex-col  items-center relative bg-foreground w-full min-h-screen text-center bg-white">
         <div className="max-w-[85vw] w-full items-stretch">
           <h1 className="font-b</div>orela text-black p-4 text-3xl lg:text-6xl mt-0 lg:mt-8">
-            THE FUTURE <span className="text-gray-600">OF</span> PET CARE
+            THE <span className="text-gray-600">FUTURE</span> OF PET CARE
           </h1>
           <div className="lg:hidden text-lg p-4 lg:text-xl text-left flex flex-col items-center">
             <Image

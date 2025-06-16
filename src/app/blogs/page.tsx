@@ -5,6 +5,8 @@ import {
   Carousel,
   CarouselItem,
   CarouselContent,
+  CarouselNext,
+  CarouselPrevious,
 } from "@/components/ui/carousel";
 import BlogCard from "@/components/Blogs/BlogCard";
 import MobileBlogCard from "@/components/Blogs/MobileBlogCard";
@@ -145,7 +147,9 @@ const Blogs = async () => {
       {/* MOBILE CAROUSEL FOR OTHER BLOGS */}
       <div className="md:hidden w-full mt-12">
         <Carousel className="w-full">
-          <CarouselContent className="h-[32rem]">
+          <CarouselNext />
+          <CarouselPrevious/>
+          <CarouselContent>
             {otherBlogs.map((blog, index) => (
               <CarouselItem key={index}>
                 <MobileBlogCard
