@@ -129,7 +129,7 @@ const ContactForm = () => {
             placeholder="Enter your message"
             rows={FIELDS.find(f => f.name === 'message')?.rows || 5}
             required
-            className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-200"
+            className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-200 text-black"
           />
         </div>
 
