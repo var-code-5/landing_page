@@ -188,7 +188,7 @@ export default function RootLayout({
       <body className="bg-foreground antialiased w-full">
         <Navbar />
         <div
-          className={`relative flex min-h-screen items-center mx-auto flex-col`}
+          className={`relative flex min-h-screen items-center mx-auto flex-col pt-[10vh]`}
         >
           {children}
         </div>

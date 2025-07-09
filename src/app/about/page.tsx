@@ -16,7 +16,7 @@ function About() {
   return (
     <div className="max-w-[85vw]">
       <div className="text-black w-full">
-        <div className="relative w-full md:h-[70vh] overflow-hidden rounded-3xl px-10 py-16 mt-8 mb-16">
+        <div className="relative w-full md:h-[80vh] overflow-hidden rounded-3xl px-10 py-16 mt-8 mb-16">
           {/* Background image with overlay */}
           <Image
             src="/about/dog.gif"

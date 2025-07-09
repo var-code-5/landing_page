@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
 const NavBar = () => {
@@ -13,30 +13,61 @@ const NavBar = () => {
     { name: "ABOUT US", href: "/about" },
     { name: "BLOGS", href: "/blogs" },
   ];
+
   const [isOpen, setIsOpen] = useState(false);
+  const [prevScrollpos, setPrevScrollpos] = useState(0);
   const pathname = usePathname();
 
-  // Function to determine if a nav item is active
   const isActive = (href: string) => {
     if (href === "/") {
       return pathname === "/";
     }
-
-    // For product link with hash
     if (href === "/#product") {
       return pathname === "/";
     }
-
-    // For other links, check if pathname starts with href
     if (href !== "/") {
       return pathname.startsWith(href);
     }
-
     return false;
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+      const navbar = document.getElementById('navbar');
+      
+      if (navbar) {
+        // Show navbar when scrolling up, hide when scrolling down
+        // Only apply this behavior after scrolling past a certain threshold (e.g., 100px)
+        if (currentScrollPos > 100) {
+          if (prevScrollpos > currentScrollPos) {
+            // Scrolling up - show navbar
+            navbar.style.top = '0';
+            setIsOpen(false); // Close mobile menu when scrolling
+          } else {
+            // Scrolling down - hide navbar
+            navbar.style.top = '-100px';
+            setIsOpen(false); // Close mobile menu when scrolling
+          }
+        } else {
+          // Always show navbar when near the top
+          navbar.style.top = '0';
+        }
+      }
+      
+      setPrevScrollpos(currentScrollPos);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [prevScrollpos]);
+
   return (
-    <nav className="flex justify-center w-full py-2 md:py-4 h-[10vh]">
+    <nav 
+      className="fixed top-0 left-0 right-0 z-50 flex justify-center w-full py-2 md:py-4 h-[10vh] bg-foreground shadow-lg" 
+      id="navbar"
+      style={{ transition: 'top 0.5s ease-in-out' }}
+    >
       <div className="flex justify-between items-center w-[95%] md:w-[90%] lg:min-w-[85%] text-background">
         <div className="h-10 sm:h-12 md:h-16">
           <Link href="/">

@@ -153,6 +153,7 @@ const Blogs = async () => {
             {otherBlogs.map((blog, index) => (
               <CarouselItem key={index}>
                 <MobileBlogCard
+                  blogId={blog.id}
                   image={blog.backgroundImage}
                   title={blog.title}
                   description={

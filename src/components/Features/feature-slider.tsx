@@ -150,8 +150,10 @@ export default function FeatureSlider() {
                     </h2>
                     <div className="mt-auto rounded-xl overflow-hidden">
                       <Image
-                        src={woman || "/placeholder.svg"}
+                        src={feature.image || "/placeholder.svg"}
                         alt={feature.title}
+                        height={1000}
+                        width={1000}
                         className="h-72 w-full object-cover"
                       />
                     </div>

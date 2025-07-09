@@ -14,7 +14,7 @@ export default async function BlogPage({ params }: { params: Promise<{ id: strin
     const data = await res.json();
     const blog:BlogData  = data.blogData;
     return (
-        <div className="relative min-h-screen font-sans text-black mt-5">
+        <div className="relative min-h-screen font-sans text-black ">
             <div className="absolute w-screen z-[-99]">
                 <Image
                     src={blog.backgroundImage}

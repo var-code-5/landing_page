@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <>
       {/* hero section */}
-      <div className="relative w-full h-auto flex flex-col items-center overflow-hidden">
+      <div className="relative w-full h-auto flex-col items-center overflow-hidden hidden lg:flex">
         <div className="bg-foreground w-[85vw] h-[90vh] flex flex-col">
           <div className="flex flex-col justify-start items-start">
             <h1 className="relative font-borela text-5xl md:text-8xl lg:text-[9vw] mt-8  md:mt-16 text-background leading-none">
@@ -72,10 +72,45 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      {/* hero section */}
+      <div className="relative w-full h-auto flex flex-col items-center overflow-hidden lg:hidden">
+        <div className="bg-foreground w-[85vw] h-[90vh] flex flex-col">
+          <div className="flex flex-col justify-start items-start">
+            <h1 className="relative font-borela text-5xl md:text-6xl lg:text-[9vw] mt-8  md:mt-16 text-background leading-none">
+              SMART COLLARS
+              <span className="font-mombay text-6xl sm:text-7xl text-background ml-4">
+                for
+              </span>
+            </h1>
+            <h1 className="font-montserrat text-2xl md:text-4xl lg:text-[5vw] rounded-lg bg-primary leading-none p-5 ">
+              HAPPIER PETS
+            </h1>
+          </div>
+          <Image
+            alt="hero dog image"
+            src="/hero/dog.png"
+            width={1000}
+            height={1000}
+            className="h-full w-auto self-center "
+          />
+          <div className="absolute bottom-0 left-0 overflow-hidden w-full ">
+            <Marquee
+              autoFill
+              className="text-xl bg-background opacity-80 py-3 text-white"
+            >
+              <Star className="mx-5 fill-white" /> MYPERRO{" "}
+              <Star className="mx-5 fill-white" /> SMART COLLARS{" "}
+              <Star className="mx-5 fill-white" /> TRACK.MONITOR.PROTECT
+            </Marquee>
+          </div>
+        </div>
+      </div>
+
       <HeroCollar />
       <div className="flex flex-col  items-center relative bg-foreground w-full min-h-screen text-center bg-white">
-        <div className="max-w-[85vw] w-full items-stretch">
-          <h1 className="font-b</div>orela text-black p-4 text-3xl lg:text-6xl mt-0 lg:mt-8">
+        <div className="max-w-[85vw] w-full h-auto items-stretch">
+          <h1 className="font-borela text-black p-4 text-3xl lg:text-6xl mt-0 lg:mt-8 flex-shrink-0">
             THE <span className="text-gray-600">FUTURE</span> OF PET CARE
           </h1>
           <div className="lg:hidden text-lg p-4 lg:text-xl text-left flex flex-col items-center">
@@ -105,26 +140,26 @@ export default function Home() {
             alt="bottom left image"
             className="hidden lg:block lg:absolute left-0 -bottom-0 h-auto w-8/12 z-[0]"
           />
-          <div className="relative flex lg:flex-row lg:justify-between flex-col lg:items-stretch items-center min-h-[20em] text-black lg:mt-12 z-[2]">
-            <div className="flex justify-start">
-              <div className="flex flex-row items-end lg:w-[30rem] text-right p-4">
-                <div className="text-xl text-left lg:block hidden">
+          <div className="relative flex flex-col lg:flex-row lg:justify-between items-center min-h-[30em] text-black -translate-y-5 z-[2] w-full">
+            <div className="flex justify-start w-full lg:w-1/2 self-end">
+              <div className="flex flex-row items-end w-full lg:w-[30rem] text-right p-4">
+                <div className="text-xl text-left lg:block hidden w-full">
                   <Image
                     src="/petcare/collar-features-icon.png"
                     height={1500}
                     width={150}
                     alt="features"
-                    className="object-contain mb-4 "
+                    className="object-contain mb-4 max-w-full"
                   ></Image>
-                  <p className="text-gray-600">
+                  <p className="text-gray-600 max-w-[90%]">
                     Our smart collars offer you peace of mind with real-time
                     tracking and health insights for your pets.
                   </p>
                 </div>
               </div>
             </div>
-            <div className="flex justify-center w-full p-4 items-center lg:items-stretch lg:justify-end">
-              <div className="flex flex-col items-center bg-white lg:bg-transparent rounded-xl m-2 lg:flex-row lg:items-start lg:w-[30rem] lg:text-right p-4">
+            <div className="flex justify-center w-full lg:w-1/2 p-4 items-center lg:justify-end self-start">
+              <div className="flex flex-col items-center bg-white lg:bg-transparent rounded-xl m-2 lg:flex-row lg:items-start w-full lg:w-[30rem] lg:text-right p-4">
                 <Image
                   src="/petcare/dog-icon.png"
                   height={1000}
@@ -132,7 +167,7 @@ export default function Home() {
                   alt="dog icon"
                   className="object-contain block w-28 lg:hidden"
                 ></Image>
-                <div className="text-xl">
+                <div className="text-xl w-full">
                   <p className="font-bold mb-2">Stay Linked. Stay Informed.</p>
                   <p className="text-gray-600 lg:text-xl text-lg">
                     Elevate confidence in pet care with MyPerro Smart Collars
@@ -143,7 +178,7 @@ export default function Home() {
                   height={100}
                   width={100}
                   alt="dog icon"
-                  className="object-contain hidden lg:block"
+                  className="object-contain hidden lg:block ml-4 flex-shrink-0"
                 ></Image>
               </div>
             </div>
