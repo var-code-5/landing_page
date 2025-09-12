@@ -71,6 +71,7 @@ export default function WaitlistForm({ isOpen, onClose }: WaitlistFormProps) {
     });
 
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [showPetFest, setShowPetFest] = useState(false);
 
     const updateFormData = (field: keyof FormData, value: string | boolean) => {
         setFormData(prev => ({ ...prev, [field]: value }));
@@ -158,17 +159,12 @@ export default function WaitlistForm({ isOpen, onClose }: WaitlistFormProps) {
                     break;
             }
 
-            await submitStepData(stepData); if (currentStep < 4) {
+            await submitStepData(stepData); 
+            if (currentStep < 4) {
                 setCurrentStep(currentStep + 1);
             } else {
-                // Final submission - show thank you popup
-                setShowThankYou(true);
-
-                // Auto-close after 5 seconds
-                setTimeout(() => {
-                    setShowThankYou(false);
-                    onClose();
-                }, 5000);
+                // Show PetFest popup instead of thank you
+                setShowPetFest(true);
             }
         } catch (error) {
             console.error(`Failed to submit step ${currentStep}:`, error);
@@ -205,6 +201,16 @@ export default function WaitlistForm({ isOpen, onClose }: WaitlistFormProps) {
             default:
                 return false;
         }
+    };
+
+    // Handler for after PetFest
+    const handlePetFestContinue = () => {
+        setShowPetFest(false);
+        setShowThankYou(true);
+        setTimeout(() => {
+            setShowThankYou(false);
+            onClose();
+        }, 5000);
     };
 
     if (!isOpen) return null;
@@ -538,25 +544,7 @@ export default function WaitlistForm({ isOpen, onClose }: WaitlistFormProps) {
                                     <option value="Vet">Vet</option>
                                     <option value="Other">Other</option>
                                 </select>
-                            </div>              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-                                <label className="flex items-start space-x-3">
-                                    <input
-                                        type="checkbox"
-                                        className="mt-1 w-4 h-4 text-primary bg-white border-gray-300 rounded focus:ring-primary focus:ring-2"
-                                        checked={formData.petFestMeeting}
-                                        onChange={(e) => {
-                                            updateFormData('petFestMeeting', e.target.checked);
-                                            if (e.target.checked) {
-                                                // Trigger call to 9595514400
-                                                window.location.href = 'tel:9595514400';
-                                            }
-                                        }}
-                                    />
-                                    <span className="text-sm font-medium text-yellow-800">
-                                        I&apos;m at PetFest — meet me now (will call 9595514400)
-                                    </span>
-                                </label>
-                            </div>
+                            </div>              
                         </div>
                     )}
                 </div>
@@ -573,6 +561,40 @@ export default function WaitlistForm({ isOpen, onClose }: WaitlistFormProps) {
                         {!isSubmitting && currentStep < 4 && <ChevronRight className="w-4 h-4 ml-1" />}          </button>
                 </div>
             </div>
+
+            {/* PetFest Popup */}
+            {showPetFest && (
+                <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-[120] p-4">
+                    <div className="bg-white rounded-xl max-w-md w-full p-8">
+                        <div className="text-center">
+                            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
+                                <label className="flex items-start space-x-3">
+                                    <input
+                                        type="checkbox"
+                                        className="mt-1 w-4 h-4 text-primary bg-white border-gray-300 rounded focus:ring-primary focus:ring-2"
+                                        checked={formData.petFestMeeting}
+                                        onChange={(e) => {
+                                            updateFormData('petFestMeeting', e.target.checked);
+                                            if (e.target.checked) {
+                                                window.location.href = 'tel:9595514400';
+                                            }
+                                        }}
+                                    />
+                                    <span className="text-sm font-medium text-yellow-800">
+                                        I&apos;m at PetFest — meet me now (will call +91 9595514400)
+                                    </span>
+                                </label>
+                            </div>
+                            <button
+                                onClick={handlePetFestContinue}
+                                className="w-full px-4 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-colors mt-2"
+                            >
+                                Continue
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
 
             {/* Close Confirmation Dialog */}
             {showCloseConfirmation && (
@@ -610,7 +632,7 @@ export default function WaitlistForm({ isOpen, onClose }: WaitlistFormProps) {
 
             {/* Thank You Popup */}
             {showThankYou && (
-                <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-[120] p-4">
+                <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-[130] p-4">
                     <div className="bg-white rounded-xl max-w-md w-full p-8">
                         <div className="text-center">
                             <div className="mx-auto w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
