@@ -37,9 +37,9 @@ export default function Home() {
           <Image
             alt="hero dog image"
             src="/hero/dog.png"
-            width={1000}
-            height={1000}
-            className="absolute bottom-0  lg:right-10 h-[60vh] lg:h-[80vh] w-auto"
+            width={800}
+            height={800}
+            className="absolute bottom-0 lg:right-10 md:h-[40vh] lg:h-[80vh] h-[40vh] w-auto"
           />
 
           <div className="lg:flex items-center w-[500px] h-[200px] bg-background p-7 rounded-3xl mt-5 hidden">
