@@ -47,14 +47,6 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: "3",
-    name: "Kunal Sinha",
-    role: "IoT Developer",
-    image: "/team/kunal.jpg",
-    LinkedinURL: "https://www.linkedin.com/in/kunal-sinha-244044278/",
-    tags: ["iot developers"],
-  },
-  {
-    id: "4",
     name: "Shruti Jha",
     role: "IoT Developer",
     image: "/team/sruti.jpg",
@@ -62,39 +54,15 @@ const teamMembers: TeamMember[] = [
     tags: ["iot developers"],
   },
   {
-    id: "5",
-    name: "Varshith Kumar",
-    role: "Web Developer",
-    image: "/team/var.png",
-    LinkedinURL: "https://www.linkedin.com/in/varshith-kumar-reddy-meda/",
-    tags: ["web developers"],
-  },
-  {
-    id: "6",
-    name: "Arvind Babu",
-    role: "Web Developer",
-    image: "/team/arvind.jpeg",
-    LinkedinURL: "https://www.linkedin.com/in/arvind-babu-538186260/",
-    tags: ["web developers"],
-  },
-  {
-    id: "7",
+    id: "4",
     name: "Dhanesh Baheti",
     role: "IOT Developer",
     image: "/team/dhaneshbaheti.jpeg",
     LinkedinURL: "https://www.linkedin.com/in/dhaneshbaheti",
     tags: ["iot developers"],
   },
-  {
-    id: "9",
-    name: "Harsh Dalmia",
-    role: "Web Developer",
-    image: "/team/harsh.jpg",
-    LinkedinURL: "https://www.linkedin.com/in/harsh-dalmia-605995221",
-    tags: ["web developers"],
-  },
-  {
-    id: "10",
+    {
+    id: "5",
     name: "Rushikesh Patil",
     role: "Web Developer",
     image: "/team/Rushi.jpg",
@@ -102,7 +70,16 @@ const teamMembers: TeamMember[] = [
     tags: ["web developers"],
   },
   {
-    id: "11",
+    id: "6",
+    name: "Harsh Dalmia",
+    role: "Web Developer",
+    image: "/team/harsh.jpg",
+    LinkedinURL: "https://www.linkedin.com/in/harsh-dalmia-605995221",
+    tags: ["web developers"],
+  },
+
+  {
+    id: "7",
     name: "Nageshwar Kumar ",
     role: "IoT Developer",
     image: "/team/nageshwar.jpeg",
@@ -110,52 +87,110 @@ const teamMembers: TeamMember[] = [
     tags: ["iot developers"],
   },
   {
-    id: "12",
-    name: "Maanas Nair",
-    role: "IoT Developer",
-    image: "/team/manas.jpg",
-    LinkedinURL: "https://linkedin.com/in/maanasnair",
-    tags: ["iot developers"],
+    id: "8",
+    name: "Dhriti Garg",
+    role: "Marketing Head",
+    image: "/team/Dhriti.jpg",
+    LinkedinURL: "https://www.linkedin.com/in/dhriti-garg-a092a2353",
+    tags: ["marketing"]
   },
-  // {
-  //   id: "13",
-  //   name: "Priyanshu Verma",
-  //   role: "IoT Developer",
-  //   image: "/team/profilePhoto.jpg",
-  //   LinkedinURL: "https://www.linkedin.com/in/priyanshu-verma01/",
-  //   tags: ["developers"],
-  // },
+  {
+    id: "9",
+    name: "Devi Abhirami S",
+    role: "UI UX & Graphic Designer",
+    image: "/team/DeviAbhirami.jpg",
+    LinkedinURL: "https://www.linkedin.com/in/devi-abhirami-088605303",
+    tags: ["uiux designers"]
+  },
+  {
+    id: "10",
+    name: "Bhargav Mahanta",
+    role: "Social Media Intern",
+    image: "/team/bhargav.jpg",
+    LinkedinURL: "https://www.linkedin.com/in/bhargav-mahanta-44583a243",
+    tags: ["marketing"]
+  },
+  {
+    id: "11",
+    name: "Kunwar Shaurya Pratap Singh",
+    role: "UI UX & Graphic Designer",
+    image: "/team/Kunvar.jpg",
+    LinkedinURL: "https://www.linkedin.com/in/kunwar-shaurya-24581529b",
+    tags: ["uiux designers"]
+  },
+  {
+    id: "12",
+    name: "Dhileebha B",
+    role: "UI UX & Graphic Designer",
+    image: "/team/dhileebha.jpg",
+    LinkedinURL: "https://www.linkedin.com/in/dhileebha",
+    tags: ["uiux designers"]
+  },
+  {
+    id: "13",
+    name: "Padmasravya Konchada",
+    role: "IoT Intern",
+    image: "/team/padmasravya.jpg",
+    LinkedinURL: "https://www.linkedin.com/in/padmasravya-konchada-11103828b",
+    tags: ["iot developers"]
+  },
   {
     id: "14",
-    name: "Puniti Jodhwani",
-    role: "",
-    image: "/team/puniti.png",
-    LinkedinURL: "https://www.linkedin.com/in/puniti-jodhwani-73155a28b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-    tags: ["marketing"],
+    name: "Manasvi Tyagi",
+    role: "IoT Intern",
+    image: "/team/manasvi.jpg",
+    LinkedinURL: "https://www.linkedin.com/in/manasvi-tyagi-412634294",
+    tags: ["iot developers"]
   },
   {
     id: "15",
-    name: "Parv Rastogi",
-    role: "",
-    image: "/team/parv.png",
-    LinkedinURL: "https://www.linkedin.com/in/parv-rastogi-076a712a7?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-    tags: ["marketing"],
+    name: "Anoushka P.A",
+    role: "Social Media Intern",
+    image: "/team/anoushka.jpg",
+    LinkedinURL: "https://www.linkedin.com/in/anoushka-p-a-b00a4730a",
+    tags: ["marketing"]
   },
   {
     id: "16",
-    name: "Aarya Agarwal",
-    role: "",
-    image: "/team/aarya.png",
-    LinkedinURL: "https://www.linkedin.com/in/aarya-agarwal-774563326?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-    tags: ["marketing"],
+    name: "Riddhi L",
+    role: "Social Media Intern",
+    image: "/team/Riddhi.jpg",
+    LinkedinURL: "https://www.linkedin.com/in/riddhi-l-374826319",
+    tags: ["marketing"]
   },
+  {
+    id: "17",
+    name: "Jeevitesh Singh",
+    role: "Social Media Intern",
+    image: "/team/jeevitesh.jpg",
+    LinkedinURL: "https://www.linkedin.com/in/jeevitesh-singh-9685982b7",
+    tags: ["marketing"]
+  },
+  {
+    id: "18",
+    name: "KAARMUKILAN A G",
+    role: "IoT Intern",
+    image: "/team/kaarmukilan.jpg",
+    LinkedinURL: "https://www.linkedin.com/in/kaarmukilan-a-g-809a71304",
+    tags: ["iot developers"]
+  },
+  {
+    id: "19",
+    name: "Aman Singh",
+    role: "Backend Intern",
+    image: "/team/aman.jpg",
+    LinkedinURL: "https://www.linkedin.com/in/amansingh2112",
+    tags: ["web developers"]
+  }
 ];
+
 
 // Initial tags
 const initialTags: Tag[] = [
   { id: "founders", label: "FOUNDERS" },
   { id: "web developers", label: "WEB DEVELOPERS" },
   { id: "iot developers", label: "IOT DEVELOPERS" },
+  { id: "uiux designers", label: "UI/UX DESIGNERS" },
   { id: "marketing", label: "MARKETING" },
 ];
 
@@ -203,9 +238,8 @@ export default function TeamSection() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.3, type: "spring" }}
-                className={`font-medium text-3xl ${
-                  activeTag === tag.id ? "text-[#333333]" : "text-gray-400"
-                } hover:text-[#333333] transition-colors`}
+                className={`font-medium text-3xl ${activeTag === tag.id ? "text-[#333333]" : "text-gray-400"
+                  } hover:text-[#333333] transition-colors`}
                 onClick={() => handleTagClick(tag.id)}
               >
                 #{tag.label}
@@ -254,60 +288,60 @@ export default function TeamSection() {
 
             {activeTag === "founders" &&
               filteredMembers.map((member) => (
-              <motion.div
-                key={member.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.3 }}
-                className="col-span-1 sm:col-span-2 md:col-span-full bg-white rounded-3xl p-4 sm:p-6 shadow-sm"
-              >
-                <div className="flex flex-col lg:flex-row gap-4 sm:gap-6">
-                <div className="w-full lg:w-1/4 flex flex-col items-center">
-                  <div className="relative w-full max-w-[250px] mx-auto">
-                  <div className="rounded-lg overflow-hidden w-full aspect-[3/4] bg-gray-100 relative">
-                    <Image
-                    src={member.image || "/team/profilePhoto.jpg"}
-                    alt={member.name}
-                    fill
-                    className="object-cover"
-                    />
-                  </div>
-                  <button
-                    onClick={() =>
-                    window.open(member.LinkedinURL, "_blank")
-                    }
-                    className="absolute top-2 right-2 bg-[#e6a06e] text-white p-2 rounded-full"
-                    aria-label="LinkedIn Profile"
-                  >
-                    <Linkedin size={20} />
-                  </button>
-                  </div>
-                  <div className="text-center mt-3 lg:mt-4 w-full">
-                  <h3 className="font-bold text-background text-xl">
-                    {member.name}
-                  </h3>
-                  <p className="text-gray-600">{member.role}</p>
-                  </div>
-                </div>
+                <motion.div
+                  key={member.id}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.3 }}
+                  className="col-span-1 sm:col-span-2 md:col-span-full bg-white rounded-3xl p-4 sm:p-6 shadow-sm"
+                >
+                  <div className="flex flex-col lg:flex-row gap-4 sm:gap-6">
+                    <div className="w-full lg:w-1/4 flex flex-col items-center">
+                      <div className="relative w-full max-w-[250px] mx-auto">
+                        <div className="rounded-lg overflow-hidden w-full aspect-[3/4] bg-gray-100 relative">
+                          <Image
+                            src={member.image || "/team/profilePhoto.jpg"}
+                            alt={member.name}
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
+                        <button
+                          onClick={() =>
+                            window.open(member.LinkedinURL, "_blank")
+                          }
+                          className="absolute top-2 right-2 bg-[#e6a06e] text-white p-2 rounded-full"
+                          aria-label="LinkedIn Profile"
+                        >
+                          <Linkedin size={20} />
+                        </button>
+                      </div>
+                      <div className="text-center mt-3 lg:mt-4 w-full">
+                        <h3 className="font-bold text-background text-xl">
+                          {member.name}
+                        </h3>
+                        <p className="text-gray-600">{member.role}</p>
+                      </div>
+                    </div>
 
-                {member.founderMessage && (
-                  <div className="w-full lg:w-3/4 mt-4 lg:mt-0">
-                  {/* <div className="text-center mt-2 block lg:hidden">
+                    {member.founderMessage && (
+                      <div className="w-full lg:w-3/4 mt-4 lg:mt-0">
+                        {/* <div className="text-center mt-2 block lg:hidden">
                     <h3 className="font-bold text-background text-xl">
                     {member.name}
                     </h3>
                     <p className="text-gray-600">{member.role}</p>
                   </div> */}
-                  <div className="bg-gray-50 p-3 sm:p-4 rounded-lg border-l-4 border-[#e6a06e] flex items-center h-full mt-2 md:mt-4">
-                    <p className="text-gray-700 italic font-montserrat text-left text-sm sm:text-base">
-                    "{member.founderMessage}"
-                    </p>
+                        <div className="bg-gray-50 p-3 sm:p-4 rounded-lg border-l-4 border-[#e6a06e] flex items-center h-full mt-2 md:mt-4">
+                          <p className="text-gray-700 italic font-montserrat text-left text-sm sm:text-base">
+                            "{member.founderMessage}"
+                          </p>
+                        </div>
+                      </div>
+                    )}
                   </div>
-                  </div>
-                )}
-                </div>
-              </motion.div>
+                </motion.div>
               ))}
           </AnimatePresence>
         </div>
