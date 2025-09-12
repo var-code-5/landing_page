@@ -15,7 +15,8 @@ export const metadata = {
     "Welcome to MyPerro — the future of smart pet care, with GPS tracking, health monitoring, and more.",
 };
 
-export default function Home() {  return (
+export default function Home() {
+  return (
     <>
       <StickyButtons />
 
@@ -28,20 +29,21 @@ export default function Home() {  return (
               <span className="md:absolute font-mombay text-6xl sm:text-7xl -bottom-5 right-0 md:left-[42%] z-10 text-background">
                 for
               </span>
-            </h1>            <h1 className="font-montserrat text-2xl md:text-5xl lg:text-[5vw] rounded-lg bg-primary leading-none p-5 ">
+            </h1>
+            <h1 className="font-montserrat text-2xl md:text-4xl lg:text-[5vw] rounded-lg bg-primary leading-none p-5 ">
               HAPPIER PETS
             </h1>
           </div>
           <Image
             alt="hero dog image"
             src="/hero/dog.png"
-            width={1000}
-            height={1000}
-            className="absolute bottom-0  lg:right-10 h-[60vh] lg:h-[80vh] w-auto"
+            width={800}
+            height={800}
+            className="absolute bottom-0 lg:right-10 md:h-[40vh] lg:h-[80vh] h-[40vh] w-auto"
           />
 
-          <div className="lg:flex items-center w-[500px] h-[150px] bg-background p-4 mt-3 rounded-3xl hidden">
-            <h3 className="text-xl text-white text-opacity-70 font-montserrat">
+          <div className="lg:flex items-center w-[500px] h-[200px] bg-background p-7 rounded-3xl mt-5 hidden">
+            <h3 className="text-2xl text-white text-opacity-70 font-montserrat">
               REDEFINING THE FUTURE OF PET CARE WITH OUR{" "}
               <span className="text-opacity-100 text-white flex items-center gap-2">
                 NEXT-GEN{" "}
@@ -60,8 +62,10 @@ export default function Home() {  return (
               src="/hero/video.png"
               width={1000}
               height={1000}
-              className="h-[20vh] w-[50vh] object-cover"            />          </div>  
-              <HeroButtons />        
+              className="h-full w-full object-cover"
+            />
+          </div>
+          <HeroButtons />
           <div className="absolute bottom-0 left-0 overflow-hidden w-full ">
             <Marquee
               autoFill
@@ -82,11 +86,11 @@ export default function Home() {  return (
               <span className="font-mombay text-6xl sm:text-7xl text-background ml-4">
                 for
               </span>
-            </h1>            
+            </h1>
             <h1 className="font-montserrat text-2xl md:text-4xl lg:text-[5vw] rounded-lg bg-primary leading-none p-5 ">
               HAPPIER PETS
             </h1>
-            <div style={{marginLeft: '0px'}}>
+            <div style={{ marginLeft: '0px' }}>
               <HeroButtons />
             </div>
           </div>

@@ -291,20 +291,54 @@ export default function WaitlistForm({ isOpen, onClose }: WaitlistFormProps) {
 
                     {currentStep === 2 && (
                         <div className="space-y-4">
-                            <h3 className="text-lg font-semibold mb-4 text-gray-900">Product & Dogs</h3>
-
-                            <div>                <label className="block text-sm font-medium mb-2 text-gray-800">Which product are you joining the waiting list for?</label>
-                                <select
-                                    className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-primary outline-none text-gray-900"
-                                    value={formData.product}
-                                    onChange={(e) => updateFormData('product', e.target.value)}
-                                >
-                                    <option value="">Select Product</option>
-                                    <option value="Collar A">Collar A</option>
-                                    <option value="Collar B">Collar B</option>
-                                    <option value="Both">Both</option>
-                                    <option value="Not sure">Not sure</option>
-                                </select>
+                            <h3 className="text-lg font-semibold mb-4 text-gray-900">Product & Dogs</h3>                            <div>
+                                <label className="block text-sm font-medium mb-3 text-gray-800">Which product are you joining the waiting list for?</label>
+                                <div className="space-y-3">
+                                    <label className="flex items-start p-4 border-2 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
+                                        <input
+                                            type="radio"
+                                            name="product"
+                                            value="Collar A — GPS + Activity + Health"
+                                            checked={formData.product === "Collar A — GPS + Activity + Health"}
+                                            onChange={(e) => updateFormData('product', e.target.value)}
+                                            className="mt-1 w-4 h-4 text-primary bg-white border-gray-300 focus:ring-primary focus:ring-2"
+                                        />
+                                        <div className="ml-3">
+                                            <div className="font-medium text-gray-900">Collar A — GPS + Activity + Health</div>
+                                            <div className="text-sm text-gray-600 mt-1">Complete health monitoring with GPS tracking, activity metrics, and vital health indicators for comprehensive pet care.</div>
+                                        </div>
+                                    </label>
+                                    
+                                    <label className="flex items-start p-4 border-2 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
+                                        <input
+                                            type="radio"
+                                            name="product"
+                                            value="Collar B — GPS + Geofencing"
+                                            checked={formData.product === "Collar B — GPS + Geofencing"}
+                                            onChange={(e) => updateFormData('product', e.target.value)}
+                                            className="mt-1 w-4 h-4 text-primary bg-white border-gray-300 focus:ring-primary focus:ring-2"
+                                        />
+                                        <div className="ml-3">
+                                            <div className="font-medium text-gray-900">Collar B — GPS + Geofencing</div>
+                                            <div className="text-sm text-gray-600 mt-1">Essential tracking solution with real-time GPS location and customizable safe zone alerts to keep your pet secure.</div>
+                                        </div>
+                                    </label>
+                                    
+                                    <label className="flex items-start p-4 border-2 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
+                                        <input
+                                            type="radio"
+                                            name="product"
+                                            value="Both"
+                                            checked={formData.product === "Both"}
+                                            onChange={(e) => updateFormData('product', e.target.value)}
+                                            className="mt-1 w-4 h-4 text-primary bg-white border-gray-300 focus:ring-primary focus:ring-2"
+                                        />
+                                        <div className="ml-3">
+                                            <div className="font-medium text-gray-900">Both Collars</div>
+                                            <div className="text-sm text-gray-600 mt-1">Get the complete MyPerro experience with both collar options for maximum flexibility and features.</div>
+                                        </div>
+                                    </label>
+                                </div>
                             </div>
 
                             <div>                <label className="block text-sm font-medium mb-2 text-gray-800">How many dogs do you have?</label>
@@ -547,7 +581,7 @@ export default function WaitlistForm({ isOpen, onClose }: WaitlistFormProps) {
                         <div className="text-center">
                             <div className="mb-4">
                                 <div className="mx-auto w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mb-4">
-                                    <span className="text-2xl">🎁</span>
+                                    <span className="text-2xl">⚠️</span>
                                 </div>                <h3 className="text-xl font-semibold text-gray-900 mb-2">Wait! You&apos;re Almost There!</h3>
                                 <p className="text-gray-600 text-sm leading-relaxed">
                                     You&apos;re just one step away from securing your spot for our revolutionary smart collar!

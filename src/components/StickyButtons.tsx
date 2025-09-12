@@ -11,7 +11,7 @@ export default function StickyButtons() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      const heroHeight = window.innerHeight * 0.9; // 90vh
+      const heroHeight = window.innerHeight * 0.5; // 50vh
       setShowStickyButton(scrollPosition > heroHeight);
     };
 
