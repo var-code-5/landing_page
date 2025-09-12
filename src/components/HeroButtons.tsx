@@ -15,7 +15,7 @@ export default function HeroButtons() {
   return (
     <>
       {/* Desktop Button - hidden on mobile */}
-      <div className="relative z-10 py-3 flex items-end hidden lg:flex">
+      <div className="relative z-10 py-3 flex items-end lg:flex">
         <button
           onClick={handleButtonClick}
           type="button"
@@ -41,9 +41,9 @@ export default function HeroButtons() {
       </div>
 
       {/* Waitlist Form Modal */}
-      <WaitlistForm 
-        isOpen={showForm} 
-        onClose={() => setShowForm(false)} 
+      <WaitlistForm
+        isOpen={showForm}
+        onClose={() => setShowForm(false)}
       />
     </>
   );
