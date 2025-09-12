@@ -37,8 +37,8 @@ export default function Home() {
           <Image
             alt="hero dog image"
             src="/hero/dog.png"
-            width={800}
-            height={800}
+            width={1000}
+            height={1000}
             className="absolute bottom-0 lg:right-10 md:h-[40vh] lg:h-[80vh] h-[40vh] w-auto"
           />
 
@@ -65,7 +65,9 @@ export default function Home() {
               className="h-full w-full object-cover"
             />
           </div>
+          <div className="mt-2">
           <HeroButtons />
+          </div>
           <div className="absolute bottom-0 left-0 overflow-hidden w-full ">
             <Marquee
               autoFill
