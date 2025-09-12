@@ -62,14 +62,13 @@ const NavBar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [prevScrollpos]);
 
-  return (
-    <nav 
-      className="fixed top-0 left-0 right-0 z-50 flex justify-center w-full py-2 md:py-4 h-[10vh] bg-foreground shadow-lg" 
+  return (    <nav 
+      className="fixed top-0 left-0 right-0 z-50 flex justify-center w-full py-1.5 md:py-3 h-[9vh] bg-foreground shadow-lg" 
       id="navbar"
       style={{ transition: 'top 0.5s ease-in-out' }}
     >
       <div className="flex justify-between items-center w-[95%] md:w-[90%] lg:min-w-[85%] text-background">
-        <div className="h-10 sm:h-12 md:h-16">
+        <div className="h-9 sm:h-10 md:h-14">
           <Link href="/">
             <Image
               src="/logo-black.svg"
@@ -83,8 +82,8 @@ const NavBar = () => {
         </div>
 
         {/* Desktop Menu */}
-        <div className="hidden lg:flex items-center text-lg xl:text-2xl font-montserrat font-medium">
-          <ul className="flex gap-6 xl:gap-10">
+        <div className="hidden lg:flex items-center text-base xl:text-xl font-montserrat font-medium">
+          <ul className="flex gap-5 xl:gap-8">
             {navLinks.map((link) => (
               <li key={link.name}>
                 <Link
@@ -104,14 +103,13 @@ const NavBar = () => {
 
         {/* Mobile Menu */}
         <div className="lg:hidden">
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger className="p-1 md:p-2">
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>            <SheetTrigger className="p-1 md:p-2">
               <Image
                 src="/ham.svg"
                 alt="menu"
                 width={1000}
                 height={1000}
-                className="h-6 w-6 sm:h-8 sm:w-8"
+                className="h-6 w-6 sm:h-7 sm:w-7"
               />
             </SheetTrigger>
             <SheetContent side="right" className="w-[80vw] max-w-[300px]">
@@ -123,8 +121,8 @@ const NavBar = () => {
                     onClick={() => setIsOpen(false)}
                     className={
                       isActive(link.href)
-                        ? "text-xl font-montserrat font-semibold text-primary"
-                        : "text-xl font-montserrat font-medium hover:text-primary transition-all duration-150"
+                        ? "text-lg font-montserrat font-semibold text-primary"
+                        : "text-lg font-montserrat font-medium hover:text-primary transition-all duration-150"
                     }
                   >
                     {link.name}
@@ -133,11 +131,9 @@ const NavBar = () => {
               </div>
             </SheetContent>
           </Sheet>
-        </div>
-
-        {/* Contact Button (Desktop) */}
+        </div>        {/* Contact Button (Desktop) */}
         <Link href="/contact" className="hidden lg:block">
-          <button className="bg-background text-white px-3 py-2 lg:px-5 lg:py-3 rounded-lg text-base lg:text-lg font-montserrat font-medium whitespace-nowrap">
+          <button className="bg-background text-white px-2 py-1.5 lg:px-4 lg:py-2 rounded-lg text-sm lg:text-base font-montserrat font-medium whitespace-nowrap">
             CONTACT US
           </button>
         </Link>

@@ -60,9 +60,8 @@ export default function Home() {  return (
               src="/hero/video.png"
               width={1000}
               height={1000}
-              className="h-[20vh] w-[50vh] object-cover"
-            />          </div>          
-          <HeroButtons />
+              className="h-[20vh] w-[50vh] object-cover"            />          </div>  
+              <HeroButtons />        
           <div className="absolute bottom-0 left-0 overflow-hidden w-full ">
             <Marquee
               autoFill
@@ -74,9 +73,7 @@ export default function Home() {  return (
             </Marquee>
           </div>
         </div>
-      </div>
-
-      {/* hero section */}
+      </div>{/* hero section */}
       <div className="relative w-full h-auto flex flex-col items-center overflow-hidden lg:hidden">
         <div className="bg-foreground w-[85vw] h-[90vh] flex flex-col">
           <div className="flex flex-col justify-start items-start">
@@ -85,7 +82,8 @@ export default function Home() {  return (
               <span className="font-mombay text-6xl sm:text-7xl text-background ml-4">
                 for
               </span>
-            </h1>            <h1 className="font-montserrat text-2xl md:text-4xl lg:text-[5vw] rounded-lg bg-primary leading-none p-5 ">
+            </h1>            
+            <h1 className="font-montserrat text-2xl md:text-4xl lg:text-[5vw] rounded-lg bg-primary leading-none p-5 ">
               HAPPIER PETS
             </h1>
             <div style={{marginLeft: '0px'}}>

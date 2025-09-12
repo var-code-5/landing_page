@@ -11,11 +11,10 @@ export default function HeroButtons() {
     e.preventDefault();
     setShowForm(true);
   };
-
   return (
     <>
       {/* Desktop Button - hidden on mobile */}
-      <div className="relative z-10 py-3 flex items-end lg:flex">
+      <div className="relative z-10 py-3 flex items-end hidden lg:flex">
         <button
           onClick={handleButtonClick}
           type="button"

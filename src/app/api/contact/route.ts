@@ -60,31 +60,36 @@ export async function POST(request: Request) {
       message,
       createdAt: new Date()
     });
-    
-    // Only attempt to send email if configuration is available
+      // Only attempt to send email if configuration is available
     if (smtpUser && smtpPass && receiverEmail) {
-      const transporter = nodemailer.createTransport({
-        host: 'smtp.gmail.com',
-        port: 587,
-        secure: false,
-        auth: {
-          user: smtpUser,
-          pass: smtpPass,
-        },
-      });
-      
-      await transporter.sendMail({
-        from: `MyPerro Enquiry Form <${email}>`,
-        to: receiverEmail,
-        subject: 'Contact Message from Website',
-        html: `
-          <p><strong>Name:</strong> ${firstName} ${lastName}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Phone:</strong> ${phone || 'N/A'}</p>
-          <p><strong>Message:</strong></p>
-          <p>${message}</p>
-        `,
-      });
+      try {
+        const transporter = nodemailer.createTransport({
+          host: 'smtp.gmail.com',
+          port: 587,
+          secure: false,
+          auth: {
+            user: smtpUser,
+            pass: smtpPass,
+          },
+        });
+        
+        await transporter.sendMail({
+          from: `MyPerro Enquiry Form <${email}>`,
+          to: receiverEmail,
+          subject: 'Contact Message from Website',
+          html: `
+            <p><strong>Name:</strong> ${firstName} ${lastName}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Phone:</strong> ${phone || 'N/A'}</p>
+            <p><strong>Message:</strong></p>
+            <p>${message}</p>
+          `,
+        });
+        console.log('Email sent successfully');
+      } catch (emailError) {
+        // Log the email error but don't fail the request
+        console.error('Failed to send email, but message was stored:', emailError);
+      }
     }
 
     return new Response(JSON.stringify({ 
