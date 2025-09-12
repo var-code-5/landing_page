@@ -6,6 +6,8 @@ import Image from "next/image";
 import Marquee from "react-fast-marquee";
 import { Star } from "lucide-react";
 import FeatureShowcase from "@/components/FeatureShowcase.tsx";
+import StickyButtons from "@/components/StickyButtons";
+import HeroButtons from "@/components/HeroButtons";
 
 export const metadata = {
   title: "Home",
@@ -13,20 +15,20 @@ export const metadata = {
     "Welcome to MyPerro — the future of smart pet care, with GPS tracking, health monitoring, and more.",
 };
 
-export default function Home() {
-  return (
+export default function Home() {  return (
     <>
+      <StickyButtons />
+
       {/* hero section */}
       <div className="relative w-full h-auto flex-col items-center overflow-hidden hidden lg:flex">
         <div className="bg-foreground w-[85vw] h-[90vh] flex flex-col">
           <div className="flex flex-col justify-start items-start">
-            <h1 className="relative font-borela text-5xl md:text-8xl lg:text-[9vw] mt-8  md:mt-16 text-background leading-none">
+            <h1 className="relative font-borela text-4xl md:text-8xl lg:text-[9vw] mt-4  md:mt-8 text-background leading-none">
               SMART COLLARS
               <span className="md:absolute font-mombay text-6xl sm:text-7xl -bottom-5 right-0 md:left-[42%] z-10 text-background">
                 for
               </span>
-            </h1>
-            <h1 className="font-montserrat text-2xl md:text-5xl lg:text-[5vw] rounded-lg bg-primary leading-none p-5 ">
+            </h1>            <h1 className="font-montserrat text-2xl md:text-5xl lg:text-[5vw] rounded-lg bg-primary leading-none p-5 ">
               HAPPIER PETS
             </h1>
           </div>
@@ -37,8 +39,9 @@ export default function Home() {
             height={1000}
             className="absolute bottom-0  lg:right-10 h-[60vh] lg:h-[80vh] w-auto"
           />
-          <div className="lg:flex items-center w-[560px] h-[218px] bg-background p-7 rounded-3xl mt-20 hidden">
-            <h3 className="text-2xl text-white text-opacity-70 font-montserrat">
+
+          <div className="lg:flex items-center w-[500px] h-[150px] bg-background p-4 mt-3 rounded-3xl hidden">
+            <h3 className="text-xl text-white text-opacity-70 font-montserrat">
               REDEFINING THE FUTURE OF PET CARE WITH OUR{" "}
               <span className="text-opacity-100 text-white flex items-center gap-2">
                 NEXT-GEN{" "}
@@ -57,13 +60,12 @@ export default function Home() {
               src="/hero/video.png"
               width={1000}
               height={1000}
-              className="h-full w-full object-cover"
-            />
-          </div>
+              className="h-[20vh] w-[50vh] object-cover"            />          </div>  
+              <HeroButtons />        
           <div className="absolute bottom-0 left-0 overflow-hidden w-full ">
             <Marquee
               autoFill
-              className="text-xl bg-background opacity-80 py-3 text-white"
+              className="text-xl bg-background opacity-80 py-1 text-white"
             >
               <Star className="mx-5 fill-white" /> MYPERRO{" "}
               <Star className="mx-5 fill-white" /> SMART COLLARS{" "}
@@ -71,9 +73,7 @@ export default function Home() {
             </Marquee>
           </div>
         </div>
-      </div>
-
-      {/* hero section */}
+      </div>{/* hero section */}
       <div className="relative w-full h-auto flex flex-col items-center overflow-hidden lg:hidden">
         <div className="bg-foreground w-[85vw] h-[90vh] flex flex-col">
           <div className="flex flex-col justify-start items-start">
@@ -82,10 +82,13 @@ export default function Home() {
               <span className="font-mombay text-6xl sm:text-7xl text-background ml-4">
                 for
               </span>
-            </h1>
+            </h1>            
             <h1 className="font-montserrat text-2xl md:text-4xl lg:text-[5vw] rounded-lg bg-primary leading-none p-5 ">
               HAPPIER PETS
             </h1>
+            <div style={{marginLeft: '0px'}}>
+              <HeroButtons />
+            </div>
           </div>
           <Image
             alt="hero dog image"
@@ -184,13 +187,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-        {/* <Image
-              src="/petcare/base-n.png"
-              width={1000}
-              height={1000}
-              alt='bottom left image'
-              className=' hidden lg:block lg:absolute -bottom-20 h-[500] w-11/12  z-[0]'
-            /> */}
       </div>
       <FeatureShowcase />
       <Features />
