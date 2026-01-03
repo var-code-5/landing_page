@@ -5,6 +5,8 @@ import Link from "next/link";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import WaitlistForm from "../WaitlistForm";
+import { MoveUpRight } from "lucide-react";
 
 const NavBar = () => {
   const navLinks = [
@@ -16,6 +18,7 @@ const NavBar = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const [prevScrollpos, setPrevScrollpos] = useState(0);
+  const [showForm, setShowForm] = useState(false);
   const pathname = usePathname();
 
   const isActive = (href: string) => {
@@ -83,7 +86,7 @@ const NavBar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center text-base xl:text-xl font-montserrat font-medium">
-          <ul className="flex gap-5 xl:gap-8">
+          <ul className="flex gap-5 xl:gap-8 items-center">
             {navLinks.map((link) => (
               <li key={link.name}>
                 <Link
@@ -98,6 +101,18 @@ const NavBar = () => {
                 </Link>
               </li>
             ))}
+            <li className="flex gap-5 xl:gap-8 items-center">
+              <button
+                onClick={() => {
+                  setShowForm(true);
+                  setIsOpen(false);
+                }}
+                className="px-4 py-2 bg-[#FF6600] text-white rounded-full font-montserrat font-semibold text-sm hover:bg-primary transition-all flex items-center gap-2"
+              >
+                <span>JOIN OUR WAITLIST</span>
+                <MoveUpRight className="w-4 h-4 text-white bg-black rounded-full p-0.5" />
+              </button>
+            </li>
           </ul>
         </div>
 
@@ -128,16 +143,34 @@ const NavBar = () => {
                     {link.name}
                   </Link>
                 ))}
+                <div className="mt-4 pt-4 border-t">
+                  <button
+                    onClick={() => {
+                      setShowForm(true);
+                      setIsOpen(false);
+                    }}
+                    className="w-full px-4 py-2 bg-[#FF6600] text-white rounded-full font-montserrat font-semibold text-sm hover:bg-primary transition-all"
+                  >
+                    JOIN OUR WAITLIST
+                  </button>
+                </div>
               </div>
             </SheetContent>
           </Sheet>
-        </div>        {/* Contact Button (Desktop) */}
+        </div>
+
+        {/* Contact Button (Desktop) */}
         <Link href="/contact" className="hidden lg:block">
           <button className="bg-background text-white px-2 py-1.5 lg:px-4 lg:py-2 rounded-lg text-sm lg:text-base font-montserrat font-medium whitespace-nowrap">
             CONTACT US
           </button>
         </Link>
       </div>
+
+      <WaitlistForm
+        isOpen={showForm}
+        onClose={() => setShowForm(false)}
+      />
     </nav>
   );
 };

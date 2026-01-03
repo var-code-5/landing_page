@@ -11,7 +11,6 @@ import {
 import BlogCard from "@/components/Blogs/BlogCard";
 import MobileBlogCard from "@/components/Blogs/MobileBlogCard";
 import { MoveUpRight } from "lucide-react";
-import Hero from "@/components/Blogs/Hero";
 import Newsletter from "@/components/Newsletter/Newsletter";
 import { BlogData } from "@/types/blog";
 
@@ -24,9 +23,7 @@ export const metadata = {
 const Blogs = async () => {
   const blogs: BlogData[] = [];
   try {
-    // Get the base URL from environment variable or use a default for local development
-    // const baseUrl = process.env.NEXT_PUBLIC_API_URL ||
-    //                (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
+  
 
     const baseUrl =
       process.env.API_URL ||
@@ -72,16 +69,33 @@ const Blogs = async () => {
   const [featured, ...otherBlogs] = blogs;
 
   return (
-    <div className="bg-foreground max-w-[85vw] min-h-screen text-center flex flex-col items-center mt-4">
-      <Hero />
+    <div className="w-full max-w-[85vw] mx-auto min-h-screen text-center flex flex-col items-center">
+      {/* hero section */}
+      <div className="text-black w-full">
+        <div className="relative w-full h-auto overflow-hidden rounded-3xl px-4 sm:px-6 md:px-10 py-8 md:py-16 mt-10 md:mt-15">
+          {/* Background image with overlay */}
+          <div className="absolute inset-0 bg-[url('/blogs/blogs-hero.jpeg')] bg-cover bg-center" />
+          <div className="absolute inset-0 bg-black bg-opacity-50" />
 
-      <h1 className="font-borela text-4xl sm:text-5xl md:text-7xl text-center md:text-left text-background md:self-start mt-12 md:mt-0">
-        <p className="md:block hidden">
-          RECENT ARTICLES
-          <br />
-          TO READ
-        </p>
-        <p className="md:hidden block">RECENTLY ADDED</p>
+          {/* Content */}
+          <div className="relative z-10">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl text-white font-borela">
+              OUR BLOGS
+            </h1>
+            <div className="flex flex-col md:flex-row mt-5 gap-6 justify-between">
+              <div className="w-full md:w-1/2 lg:w-1/4">
+                <p className="text-white text-lg md:text-xl lg:text-2xl">
+                  Stay informed with pet care tips, product updates, and innovations in smart pet tech from MyPerro.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h1 className="font-borela text-4xl sm:text-5xl md:text-7xl text-center text-background mt-12">
+        <p>RECENT ARTICLES</p>
+        <p className="mt-4 text-2xl font-montserrat text-gray-600">To READ</p>
       </h1>
 
       {/* FEATURED BLOG SECTION */}
