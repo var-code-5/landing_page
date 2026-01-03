@@ -1,7 +1,5 @@
 import React from "react";
 import FAQ from "@/components/FAQ";
-import Image from "next/image";
-import { MoveUpRight} from "lucide-react";
 import DogServices from "@/components/services/dog-walking";
 export const metadata = {
   title: 'Services',
@@ -16,7 +14,7 @@ export default function services() {
         <div className="relative w-full h-auto  overflow-hidden rounded-3xl px-4 sm:px-6 md:px-10 py-8 md:py-16 mt-10 md:mt-15">
           {/* Background image with overlay */}
           <div className="absolute inset-0 bg-[url('/services/dog-field-full.jpeg')] bg-cover bg-bottom" />
-          <div className="absolute inset-0 bg-black bg-opacity-40" />
+          <div className="absolute inset-0 bg-black bg-opacity-50" />
 
           {/* Content */}
           <div className="relative z-10">
@@ -29,12 +27,12 @@ export default function services() {
                   Take a look at the exciting services that we are launching
                   soon, created for your dog&apos;s happiness and safety.
                 </p>
-                <button className="mt-5 rounded-full gap-2 flex text-lg md:text-xl items-center font-borela text-white bg-secondary px-3 py-2">
+                {/* <button className="mt-5 rounded-full gap-2 flex text-lg md:text-xl items-center font-borela text-white bg-secondary px-3 py-2">
                   STAY UPDATED{" "}
                   <MoveUpRight className="bg-primary w-8 h-8 md:w-12 md:h-12 rounded-full p-2 font-bold" />
-                </button>
+                </button> */}
               </div>
-              <div className="hidden sm:flex flex-col sm:flex-row gap-4 md:gap-6 lg:gap-8 mt-6 md:mt-0">
+              {/* <div className="hidden sm:flex flex-col sm:flex-row gap-4 md:gap-6 lg:gap-8 mt-6 md:mt-0">
                 <div className="w-full sm:w-1/2 max-w-[350px] h-auto bg-white bg-opacity-10 rounded-3xl px-3 py-2">
                   <div className="py-3 md:py-5 flex text-white text-xl md:text-2xl justify-between items-center">
                     <h1>
@@ -65,7 +63,7 @@ export default function services() {
                     className="w-full h-auto object-contain"
                   />
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

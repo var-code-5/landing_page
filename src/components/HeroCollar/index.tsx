@@ -57,7 +57,7 @@ export default function HeroCollar() {
         </div>
         {/* @ts-ignore */}
         <model-viewer
-          src="dogCollar.glb"
+          src="/dogCollar.glb"
           alt="A 3D model of a dog collar"
           loading="eager"
           camera-controls

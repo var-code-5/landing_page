@@ -104,12 +104,12 @@ const Newsletter = () => {
   return (
     <motion.div
       ref={ref}
-      className="w-full bg-foreground min-h-[400px] flex items-center justify-center p-6 md:p-12"
+      className="w-full bg-foreground min-h-[400px] flex items-center justify-center "
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={containerVariants}
     >
-      <div className="w-full max-w-6xl flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
+      <div className="w-full max-w-6xl flex flex-col md:flex-row items-center justify-between gap-4 md:gap-12">
 
         <motion.div variants={itemVariants} className="w-full md:w-2/5 md:hidden">
           <div className="overflow-hidden">

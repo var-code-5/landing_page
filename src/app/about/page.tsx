@@ -3,50 +3,33 @@ import Mission from '../../components/Mission';
 import Newsletter from '../../components/Newsletter/Newsletter';
 import Companies from '../../components/Companies/Companies';
 import TeamSection from '@/components/About/TeamSection';
-import { MoveUpRight } from 'lucide-react';
 import Image from 'next/image';
-import Link from 'next/link';
+
 export const metadata = {
   title: 'About Us',
   description: 'Learn about the mission and story behind MyPerro — where technology meets love for pets.',
 };
 
-
 function About() {
   return (
-    <div className="max-w-[85vw]">
+    <div className="w-full max-w-[85vw] mx-auto">
+      {/* hero section */}
       <div className="text-black w-full">
-        <div className="relative w-full md:h-[80vh] overflow-hidden rounded-3xl px-10 py-16 mt-8 mb-16">
+        <div className="relative w-full h-auto overflow-hidden rounded-3xl px-4 sm:px-6 md:px-10 py-8 md:py-16 mt-10 md:mt-15">
           {/* Background image with overlay */}
-          <Image
-            src="/about/dog.gif"
-            width={1000}
-            height={1000}
-            alt="dog running"
-            className="absolute inset-0 bg-cover w-full h-full bg-bottom"
-          ></Image>
-
-          <div className="absolute inset-0 bg-[url('/about/overlay.jpeg')] opacity-30" />
-          <div className="absolute inset-0 bg-black bg-opacity-40" />
+          <div className="absolute inset-0 bg-[url('/about/dog.gif')] bg-cover bg-bottom" />
+          <div className="absolute inset-0 bg-black bg-opacity-50" />
 
           {/* Content */}
           <div className="relative z-10">
-            <h1 className="text-2xl md:text-6xl lg:text-8xl text-white font-borela">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl text-white font-borela">
               ABOUT US
             </h1>
-            <div className="h-full flex mt-5  justify-between">
-              <div className="w-full lg:w-1/2">
-                <p className="text-white text-md font-montserrat md:text-lg lg:text-2xl">
-                  Welcome to MyPerro, where your pet&apos;s well-being is our
-                  priority, providing personalized care and peace of mind with
-                  technology-driven solutions.
+            <div className="flex flex-col md:flex-row mt-5 gap-6 justify-between">
+              <div className="w-full md:w-1/2 lg:w-1/4">
+                <p className="text-white text-lg md:text-xl lg:text-2xl">
+                  Welcome to MyPerro, where your pet&apos;s well-being is our priority, providing personalized care and peace of mind with technology-driven solutions.
                 </p>
-                <Link href="/contact" passHref>
-                <button className="mt-5 rounded-full gap-3 flex text-xl items-center  font-borela text-white bg-background pl-5 px-3 py-2">
-                  REACH US OUT{" "}
-                  <MoveUpRight className="bg-primary w-10 h-10 rounded-full p-2 font-bold" />
-                </button>
-                </Link>
               </div>
             </div>
           </div>
@@ -54,7 +37,7 @@ function About() {
       </div>
 
       {/* description */}
-      <div className="w-full flex flex-col md:flex-row gap-8">
+      <div className="w-full flex flex-col md:flex-row gap-8 my-6 md:my-12 justify-between">
         <h1 className="text-3xl md:text-5xl font-borela text-background md:w-1/2">
           Smart Care for Pets, Every Step of the Way
         </h1>

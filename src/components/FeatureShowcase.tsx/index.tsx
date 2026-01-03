@@ -63,9 +63,8 @@ export default function FeatureShowcase() {
   }
 
   return (
-    <section className="relative min-w-[85vw] min-h-screen bg-foreground text-center p-4 md:p-10 flex flex-col justify-center">
-      
-      <div className="container mx-auto">
+    <section className="relative min-w-[100vw] max-w-[100vw] min-h-screen bg-foreground text-center p-4 md:p-10 flex flex-col justify-center">
+      <div className="container mx-auto max-w-5xl lg:max-h-3xl flex flex-col">
         <div className="text-center mb-8 md:mb-12">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-medium text-gray-600 font-borela uppercase tracking-wide">
             Designed to fit your <span className="text-background">pet&apos;s needs</span>
@@ -77,7 +76,7 @@ export default function FeatureShowcase() {
 
         <div className="w-full md:min-w-[90%] mx-auto">
           <div className="bg-white rounded-2xl md:rounded-3xl shadow-md overflow-hidden transition-all duration-300">
-            <div className="relative">
+            <div className="relative overflow-hidden">
               {/* Feature content */}
               <div className="flex flex-col p-4 sm:p-6 md:p-8 lg:p-10">
                 <div className="flex flex-col xl:flex-row justify-between items-start gap-6 mb-4">
@@ -136,7 +135,7 @@ export default function FeatureShowcase() {
                   alt={features[activeFeature].title}
                   width={1200}
                   height={800}
-                  className="w-full h-auto min-h-40 rounded-t-xl object-cover max-h-[60vh] sm:max-h-[75vh] lg:max-h-[80vh]"
+                  className="w-full h-auto rounded-t-xl max-h-[40vh] object-scale-down overflow-auto"
                 />
               </div>
             </div>

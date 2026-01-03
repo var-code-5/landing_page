@@ -14,7 +14,7 @@ export default function HeroButtons() {
   return (
     <>
       {/* Desktop Button - hidden on mobile */}
-      <div className="relative z-10 py-4 flex items-end hidden lg:flex">
+      <div className="relative z-10 flex items-end hidden lg:flex">
         <button
           onClick={handleButtonClick}
           type="button"
