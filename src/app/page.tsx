@@ -1,3 +1,4 @@
+"use client";
 import Features from "@/components/Features/Features";
 import HeroCollar from "@/components/HeroCollar";
 import Companies from "@/components/Companies/Companies";
@@ -8,14 +9,19 @@ import { Star } from "lucide-react";
 import FeatureShowcase from "@/components/FeatureShowcase.tsx";
 import StickyButtons from "@/components/StickyButtons";
 import HeroButtons from "@/components/HeroButtons";
+import { useSearchParams } from "next/navigation";
+import { useEffect,useState } from "react";
+import  WaitlistForm  from "@/components/WaitlistForm";
 
-export const metadata = {
-  title: "Home",
-  description:
-    "Welcome to MyPerro — the future of smart pet care, with GPS tracking, health monitoring, and more.",
-};
 
 export default function Home() {
+    const searchParams = useSearchParams();
+  const [showForm, setShowForm] = useState(false);
+    useEffect(() => {
+    if (searchParams.get("waitlist") === "true") {
+      setShowForm(true);
+    }
+  }, [searchParams]);
   return (
     <>
       <StickyButtons />
@@ -194,6 +200,10 @@ export default function Home() {
           </div>
         </div>
       </div>
+          <WaitlistForm
+              isOpen={showForm}
+              onClose={() => setShowForm(false)}
+            />
       <FeatureShowcase />
       <Features />
       <Unleash />
