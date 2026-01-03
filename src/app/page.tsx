@@ -36,13 +36,13 @@ export default function Home() {
           </div>
           <Image
             alt="hero dog image"
-            src="/hero/dog-hero.png"
+            src="/hero/dog-hero2.png"
             width={1000}
             height={1000}
-            className="absolute bottom-0 lg:right-10 md:h-[40vh] lg:h-[80vh] h-[40vh] w-auto "
+            className="absolute bottom-0 lg:right-10 md:h-[40vh] lg:h-[85vh] h-[40vh] w-auto"
           />
 
-          <div className="lg:flex items-center w-[500px] h-[200px] bg-background p-7 rounded-3xl md:mt-[6rem] hidden">
+          <div className="lg:flex items-center w-[500px] h-[200px] bg-background p-7 rounded-3xl mt-5 hidden">
             <h3 className="text-2xl text-white text-opacity-70 font-montserrat">
               REDEFINING THE FUTURE OF PET CARE WITH OUR{" "}
               <span className="text-opacity-100 text-white flex items-center gap-2">
