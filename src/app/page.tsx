@@ -18,7 +18,7 @@ export default function Home() {
     const searchParams = useSearchParams();
   const [showForm, setShowForm] = useState(false);
     useEffect(() => {
-    if (searchParams.get("waitlist") === "true") {
+    if (searchParams.get("waitlist") == "true") {
       setShowForm(true);
     }
   }, [searchParams]);
@@ -48,7 +48,7 @@ export default function Home() {
             className="absolute bottom-0 lg:right-10 md:h-[40vh] lg:h-[85vh] h-[40vh] w-auto"
           />
 
-          <div className="lg:flex items-center w-[500px] h-[200px] bg-background p-7 rounded-3xl mt-5 hidden">
+          <div className="lg:flex items-center w-[500px] h-[200px] bg-background p-7 rounded-3xl mt-[6rem] hidden">
             <h3 className="text-2xl text-white text-opacity-70 font-montserrat">
               REDEFINING THE FUTURE OF PET CARE WITH OUR{" "}
               <span className="text-opacity-100 text-white flex items-center gap-2">
@@ -71,7 +71,7 @@ export default function Home() {
               className="h-full w-full object-cover"
             />
           </div>
-          <div className="mt-2">
+          <div className="mt-[2rem]">
           <HeroButtons />
           </div>
           <div className="absolute bottom-0 left-0 overflow-hidden w-full ">
