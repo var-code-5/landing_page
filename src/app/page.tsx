@@ -1,3 +1,4 @@
+"use client";
 import Features from "@/components/Features/Features";
 import HeroCollar from "@/components/HeroCollar";
 import Companies from "@/components/Companies/Companies";
@@ -8,14 +9,19 @@ import { Star } from "lucide-react";
 import FeatureShowcase from "@/components/FeatureShowcase.tsx";
 import StickyButtons from "@/components/StickyButtons";
 import HeroButtons from "@/components/HeroButtons";
+import { useSearchParams } from "next/navigation";
+import { useEffect,useState } from "react";
+import  WaitlistForm  from "@/components/WaitlistForm";
 
-export const metadata = {
-  title: "Home",
-  description:
-    "Welcome to MyPerro — the future of smart pet care, with GPS tracking, health monitoring, and more.",
-};
 
 export default function Home() {
+    const searchParams = useSearchParams();
+  const [showForm, setShowForm] = useState(false);
+    useEffect(() => {
+    if (searchParams.get("waitlist") == "true") {
+      setShowForm(true);
+    }
+  }, [searchParams]);
   return (
     <>
       <StickyButtons />
@@ -36,13 +42,13 @@ export default function Home() {
           </div>
           <Image
             alt="hero dog image"
-            src="/hero/dog-hero.png"
+            src="/hero/dog-hero2.png"
             width={1000}
             height={1000}
-            className="absolute bottom-0 lg:right-10 md:h-[40vh] lg:h-[80vh] h-[40vh] w-auto "
+            className="absolute bottom-0 lg:right-10 md:h-[40vh] lg:h-[85vh] h-[40vh] w-auto"
           />
 
-          <div className="lg:flex items-center w-[500px] h-[200px] bg-background p-7 rounded-3xl md:mt-[6rem] hidden">
+          <div className="lg:flex items-center w-[500px] h-[200px] bg-background p-7 rounded-3xl mt-[6rem] hidden">
             <h3 className="text-2xl text-white text-opacity-70 font-montserrat">
               REDEFINING THE FUTURE OF PET CARE WITH OUR{" "}
               <span className="text-opacity-100 text-white flex items-center gap-2">
@@ -65,7 +71,7 @@ export default function Home() {
               className="h-full w-full object-cover"
             />
           </div>
-          <div className="mt-2">
+          <div className="mt-[2rem]">
           <HeroButtons />
           </div>
           <div className="absolute bottom-0 left-0 overflow-hidden w-full ">
@@ -194,6 +200,10 @@ export default function Home() {
           </div>
         </div>
       </div>
+          <WaitlistForm
+              isOpen={showForm}
+              onClose={() => setShowForm(false)}
+            />
       <FeatureShowcase />
       <Features />
       <Unleash />

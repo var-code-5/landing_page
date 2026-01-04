@@ -11,7 +11,7 @@ import { MoveUpRight } from "lucide-react";
 const NavBar = () => {
   const navLinks = [
     { name: "PRODUCT", href: "/#product" },
-    { name: "SERVICES", href: "/services" },
+    // { name: "SERVICES", href: "/services" },
     { name: "ABOUT US", href: "/about" },
     { name: "BLOGS", href: "/blogs" },
   ];

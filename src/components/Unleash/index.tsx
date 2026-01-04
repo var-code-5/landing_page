@@ -19,13 +19,13 @@ function Unleash() {
 
             <div className="relative z-10 p-6 flex items-end">
               <Link href="/services" passHref>
-          <button
+          {/* <button
             type="button"
             className="font-montserrat h-fit font-semibold text-lg md:text-2xl px-6 md:px-10 py-3 md:py-4 bg-[#FF6600] text-white rounded-full hover:bg-primary transition-colors flex flex-row justify-between pl-4 md:pl-6 gap-x-3 md:gap-x-5 pr-3 md:pr-4 items-center"
           >
             <span className="px-1 md:px-6">SERVICES</span>
             <MoveUpRight className="w-8 md:w-12 text-white h-8 md:h-12 bg-black rounded-full p-1" />
-          </button>
+          </button> */}
               </Link>
             </div>
           </div>

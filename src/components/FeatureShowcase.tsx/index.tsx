@@ -135,7 +135,7 @@ export default function FeatureShowcase() {
                   alt={features[activeFeature].title}
                   width={1200}
                   height={800}
-                  className="w-full h-auto rounded-t-xl max-h-[40vh] object-scale-down overflow-auto"
+                  className="w-full h-auto min-h-40 rounded-t-xl object-cover max-h-[60vh] sm:max-h-[75vh] lg:max-h-[80vh]"
                 />
               </div>
             </div>
