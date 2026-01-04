@@ -12,13 +12,13 @@ function Mission() {
             iconSrc="/mission/mission.png"
             imageSrc="/mission/dog-playing-1.jpeg"
             title="OUR MISSION"
-            description="To revolutionize pet care through technology by delivering personalized services, ensuring transparency and security. We aim to give pet parents peace of mind while supporting pet sitters with fair compensation, fostering trust and care for everyone involved."
+            description="To revolutionise pet care through technology, delivering personalised protection and health insights, because dogs give us unconditional love, and they deserve safety, care, and a longer, happier life."
         />
         <MissionCard 
             iconSrc="/mission/vision.png"
             imageSrc="/mission/dog-playing-2.jpeg"
             title="OUR VISION"
-            description="We aim to broaden our services with “MyPerro Space,” a dedicated boarding area, and expand into pet grooming, pet-friendly commute, and pet food. Our goal is to deliver personalized care by understanding each dog’s unique needs."
+            description="To redefine pet care by making every dog continuously visible, protected, and cared for setting a new standard where uncertainty is replaced with awareness."
         />
       </div>
     </div>

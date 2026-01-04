@@ -20,10 +20,10 @@ function MissionCard({
         <p className="font-borela text-3xl sm:text-4xl lg:text-5xl text-white md:text-background md:group-hover:text-white transition-colors duration-1000">{title}</p>
       </div>
       <div className="flex flex-col h-full">
-        <p className="text-left font-montserrat text-base sm:text-xl md:text-2xl mb-6 sm:mb-8 md:mb-12 opacity-100 max-h-screen md:opacity-0 md:max-h-0 md:group-hover:opacity-100 md:group-hover:max-h-screen transition-all duration-1000 ease-in-out">
+        <p className="text-left font-montserrat text-base sm:text-xl md:text-2xl mb-6 sm:mb-8 md:mb-12 opacity-100 max-h-screen md:opacity-0 md:max-h-0 md:group-hover:opacity-100 md:group-hover:max-h-screen transition-all duration-100 ease-in-out">
           {description}
         </p>
-        <div className="relative flex-grow sm:mt-8 md:mt-12">
+        <div className="relative flex-grow sm:mt-6 md:mt-10">
           <Image
             src={imageSrc}
             alt={`${title.toLowerCase()} image`}
